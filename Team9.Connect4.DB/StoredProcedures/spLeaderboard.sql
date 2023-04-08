@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spLeaderboard]
 AS
-	SELECT p.Username, 
-	gr.Turns Turns
-	FROM tblPlayer p
-	INNER JOIN tblGameResult gr on p.Id = gr.Id
+	SELECT r.Turns, 
+	p.Username Username
+	FROM tblResult r
+	INNER JOIN tblPlayer p on r.Id = p.Id
 RETURN 0
