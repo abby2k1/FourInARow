@@ -82,4 +82,7 @@
     <None Include="PostDeploy\DefaultData\Players.sql" />
     <None Include="PostDeploy\DefaultData\Results.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\spLeaderboard.sql" />
+  </ItemGroup>
 </Project>
