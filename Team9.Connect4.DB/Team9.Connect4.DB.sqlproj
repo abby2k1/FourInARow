@@ -81,6 +81,7 @@
     <None Include="PostDeploy\DefaultData\Settings.sql" />
     <None Include="PostDeploy\DefaultData\Players.sql" />
     <None Include="PostDeploy\DefaultData\Results.sql" />
+    <None Include="Remote.Publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StoredProcedures\spLeaderboard.sql" />
