@@ -61,10 +61,22 @@
     <Folder Include="PostDeploy" />
     <Folder Include="StoredProcedures" />
     <Folder Include="ForeignKeys" />
+    <Folder Include="PostDeploy\DefaultData" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\tblOption.sql" />
+    <Build Include="Tables\tblSetting.sql" />
     <Build Include="Tables\tblResult.sql" />
     <Build Include="Tables\tblPlayer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeploy\Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostDeploy\DefaultData\Settings.sql" />
+    <None Include="PostDeploy\DefaultData\Players.sql" />
+    <None Include="PostDeploy\DefaultData\Results.sql" />
   </ItemGroup>
 </Project>
