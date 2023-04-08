@@ -67,4 +67,7 @@
     <Build Include="Tables\tblResult.sql" />
     <Build Include="Tables\tblPlayer.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\spLeaderboard.sql" />
+  </ItemGroup>
 </Project>
