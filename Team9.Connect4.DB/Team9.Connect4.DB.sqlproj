@@ -67,6 +67,9 @@
     <Build Include="Tables\tblSetting.sql" />
     <Build Include="Tables\tblResult.sql" />
     <Build Include="Tables\tblPlayer.sql" />
+    <Build Include="ForeignKeys\fk_tblPlayer_SettingId.sql" />
+    <Build Include="ForeignKeys\fk_tblResult_WinnerId.sql" />
+    <Build Include="ForeignKeys\fk_tblResult_LoserId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />
