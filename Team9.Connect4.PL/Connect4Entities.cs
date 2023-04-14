@@ -23,7 +23,8 @@ public partial class Connect4Entities : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source=wilkedb.database.windows.net;Initial Catalog=wilkedb;User Id=wilkedb;Password=Test123!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=True");
+        //optionsBuilder.UseSqlServer("Data Source=wilkedb.database.windows.net;Initial Catalog=wilkedb;User Id=wilkedb;Password=Test123!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         optionsBuilder.UseLazyLoadingProxies(true);
     }
 
