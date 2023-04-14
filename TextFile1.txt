@@ -1,0 +1,7 @@
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+Microsoft.EntityFrameWorkCore.Proxies
+
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=Team9.Connect4;Integrated Security=true" Microsoft.EntityFrameworkCore.SqlServer -Context Connect4Entities -UseDatabaseNames -force

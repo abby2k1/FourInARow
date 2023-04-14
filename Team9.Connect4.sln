@@ -15,13 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.API", "Team9
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Team9.Connect4.DB", "Team9.Connect4.DB\Team9.Connect4.DB.sqlproj", "{F1DF35BD-F95F-47CA-BE8B-57AAE0BD35FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Connect4.WebUI", "Team9.Connect4.WebUI\Team9.Connect4.WebUI.csproj", "{98A73CE7-4C8B-4781-B05B-54FACE824B59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.WebUI", "Team9.Connect4.WebUI\Team9.Connect4.WebUI.csproj", "{98A73CE7-4C8B-4781-B05B-54FACE824B59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Connect4.BL.Test", "Team9.Connect4.BL.Test\Team9.Connect4.BL.Test.csproj", "{B0C2C03F-E379-470F-8EE7-446270298D84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.BL.Test", "Team9.Connect4.BL.Test\Team9.Connect4.BL.Test.csproj", "{B0C2C03F-E379-470F-8EE7-446270298D84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Connect4.PL.Test", "Team9.Connect4.PL.Test\Team9.Connect4.PL.Test.csproj", "{BD52E494-71F5-4949-82D8-5827E7ABB3FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.PL.Test", "Team9.Connect4.PL.Test\Team9.Connect4.PL.Test.csproj", "{BD52E494-71F5-4949-82D8-5827E7ABB3FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Connect4.API.Test", "Team9.Connect4.API.Test\Team9.Connect4.API.Test.csproj", "{9F986D8C-00F0-468E-92E3-BDFF1D7C0A92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.API.Test", "Team9.Connect4.API.Test\Team9.Connect4.API.Test.csproj", "{9F986D8C-00F0-468E-92E3-BDFF1D7C0A92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
