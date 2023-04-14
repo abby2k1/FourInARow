@@ -22,8 +22,10 @@ public partial class Connect4Entities : DbContext
     public virtual DbSet<tblSetting> tblSettings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true");
+    {
+        optionsBuilder.UseSqlServer(("Data Source=wilkedb.database.windows.net;Initial Catalog=wilkedb;User Id=wilkedb;Password=Test123!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        optionsBuilder.UseLazyLoadingProxies(true);
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
