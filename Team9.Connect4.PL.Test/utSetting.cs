@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,17 +61,15 @@ namespace Team9.Connect4.PL.Test
         {
             InsertTest();
 
-            tblSetting existingrow = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "Rebecca Purple");
+            tblSetting existingrow = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "Cornflower Blue");
 
-            if (existingrow != null)
-            {
+            
                 existingrow.PlayerColor = "Updated Color";
-                dc.SaveChanges();
-            }
+                dc.Update(existingrow);
+                int results = dc.SaveChanges();
+            
 
-            tblSetting row = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "Updated Color");
-
-            Assert.AreEqual(existingrow.PlayerColor, row.PlayerColor);
+            Assert.AreEqual(results, 1);
         }
 
         [TestMethod]
@@ -78,7 +77,9 @@ namespace Team9.Connect4.PL.Test
         {
             InsertTest();
 
-            tblSetting row = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "Blanched Almond");
+            tblSetting row = dc.tblSettings.FirstOrDefault(c => c.OpponentColor == "Blanched Almond");
+
+            Guid deleted = row.Id;
 
             if (row != null)
             {
@@ -86,7 +87,7 @@ namespace Team9.Connect4.PL.Test
                 dc.SaveChanges();
             }
 
-            tblSetting deletedrow = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "Blanched Almond");
+            tblSetting deletedrow = dc.tblSettings.FirstOrDefault(c => c.Id == deleted);
 
             Assert.IsNull(deletedrow);
         }

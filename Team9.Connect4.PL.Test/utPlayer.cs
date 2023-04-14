@@ -57,7 +57,8 @@ namespace Team9.Connect4.PL.Test
             // Set the properties
             newrow.Id = new Guid();
             newrow.Username = "My new UserName";
-
+            newrow.Password = "Password123";
+            newrow.SettingId = dc.tblSettings.FirstOrDefault().Id;
 
             // Insert the row into the table
             dc.tblPlayers.Add(newrow);

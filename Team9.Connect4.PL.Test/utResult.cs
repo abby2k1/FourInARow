@@ -86,16 +86,14 @@ namespace Team9.Connect4.PL.Test
 
             // Get a row to update
             // SELECT * FROM tblProgram dt where Id = 2
-            tblResult row = (from dt in dc.tblResults
-                             where dt.Id == testId
-                             select dt).FirstOrDefault();
 
+            dc.SaveChanges();
            
             // Set the properties
-            row.Turns = 2;
+            newrow.Turns = 2;
 
             // Update the row into the table
-            dc.tblResults.Update(row);
+            dc.tblResults.Update(newrow);
 
             int result = dc.SaveChanges();
 
@@ -116,7 +114,7 @@ namespace Team9.Connect4.PL.Test
 
             // Insert the row into the table
             dc.tblResults.Add(newrow);
-
+            dc.SaveChanges();
             // Get a row to update
             // SELECT * FROM tblProgram dt where Id = 2
             tblResult row = (from dt in dc.tblResults
