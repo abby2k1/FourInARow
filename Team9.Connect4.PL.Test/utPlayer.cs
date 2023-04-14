@@ -55,7 +55,7 @@ namespace Team9.Connect4.PL.Test
             tblPlayer newrow = new tblPlayer();
 
             // Set the properties
-            newrow.Id = new Guid();
+            newrow.Id = Guid.NewGuid();
             newrow.Username = "My new UserName";
             newrow.Password = "Password123";
             newrow.SettingId = dc.tblSettings.FirstOrDefault().Id;
