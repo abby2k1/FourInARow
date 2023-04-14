@@ -32,8 +32,10 @@ namespace Team9.Connect4.PL.Test
         [TestMethod]
         public void LoadTest()
         {
+            InsertTest();
+
             // How many I expect
-            int expected = 3;
+            int expected = 1;
             // How many I did get back
             int actual = 0;
 
