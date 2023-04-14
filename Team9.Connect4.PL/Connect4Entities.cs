@@ -22,17 +22,14 @@ public partial class Connect4Entities : DbContext
     public virtual DbSet<tblSetting> tblSettings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=True");
-        //optionsBuilder.UseSqlServer("Data Source=wilkedb.database.windows.net;Initial Catalog=wilkedb;User Id=wilkedb;Password=Test123!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        optionsBuilder.UseLazyLoadingProxies(true);
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<tblPlayer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC07045D7E90");
+            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC073012DE6C");
 
             entity.ToTable("tblPlayer");
 
@@ -46,7 +43,7 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblResult>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC0757224420");
+            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC079E699DAF");
 
             entity.ToTable("tblResult");
 
@@ -63,7 +60,7 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblSetting>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC072D78F21E");
+            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC07051DAEEE");
 
             entity.ToTable("tblSetting");
 
