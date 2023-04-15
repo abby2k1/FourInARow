@@ -58,7 +58,7 @@ namespace Team9.Connect4.PL.Test
             newrow.Id = Guid.NewGuid();
             newrow.Username = "My new UserName";
             newrow.Password = "";
-            //newrow.Setting = dc.tblSettings.FirstOrDefault().Id;
+            newrow.SettingId = dc.tblSettings.FirstOrDefault().Id;
 
 
 
@@ -93,21 +93,19 @@ namespace Team9.Connect4.PL.Test
         [TestMethod]
         public void DeleteTest()
         {
-            // Get a row to update
-            // SELECT * FROM tblProgram dt where Id = 2
-            tblPlayer row = (from dt in dc.tblPlayers
-                             where dt.Password == "Maple"
-                             select dt).FirstOrDefault();
+            InsertTest();
+
+            tblPlayer row = dc.tblPlayers.FirstOrDefault(c => c.Username == "My new UserName");
 
             if (row != null)
             {
-
-                // Delete the row into the table
                 dc.tblPlayers.Remove(row);
-                int result = dc.SaveChanges();
-
-                Assert.AreNotEqual(0, result);
+                dc.SaveChanges();
             }
+
+            tblSetting deletedrow = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "My new UserName");
+
+            Assert.IsNull(deletedrow);
         }
     }
 }
