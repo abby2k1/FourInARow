@@ -1,0 +1,82 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+- task: DotNetCoreCLI@2
+  displayName: Build User Interface
+  inputs:
+    command: build
+    projects: 'Team9.Connect4.WPFUI/Team9.Connect4.WPFUI.csproj'
+    arguments: '--configuration Debug' 
+
+- task: DotNetCoreCLI@2
+  displayName: Build API Project
+  inputs:
+    command: build
+    projects: 'Team9.Connect4.API/Team9.Connect4.API.csproj'
+    arguments: '--configuration Debug' 
+
+- task: DotNetCoreCLI@2
+  displayName: Test PL
+  inputs:
+    command: test
+    projects: 'Team9.Connect4.PL.Test/Team9.Connect4.PL.Test.csproj'
+    arguments: '--configuration Debug' 
+
+- task: DotNetCoreCLI@2
+  displayName: Test BL
+  inputs:
+    command: test
+    projects: 'Team9.Connect4.BL.Test/Team9.Connect4.BL.Test.csproj'
+    arguments: '--configuration $(BuildConfiguration) --collect "XPlat Code coverage" -- RunConfiguration.DisableAppDomain=true' 
+
+- script: 'dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.1.19'  
+  displayName: 'Install ReportGenerator tool'  
+  
+- script: 'reportgenerator -reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/coverlet/reports -reporttypes:"Cobertura"'  
+  displayName: 'Create reports'  
+
+- task: PublishCodeCoverageResults@1  
+  displayName: 'Publish code coverage'  
+  inputs:  
+    codeCoverageTool: Cobertura  
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml'      
+
