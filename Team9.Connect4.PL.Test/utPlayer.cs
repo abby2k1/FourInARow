@@ -32,8 +32,10 @@ namespace Team9.Connect4.PL.Test
         [TestMethod]
         public void LoadTest()
         {
+            InsertTest();
+
             // How many I expect
-            int expected = 3;
+            int expected = 1;
             // How many I did get back
             int actual = 0;
 
@@ -57,10 +59,8 @@ namespace Team9.Connect4.PL.Test
             // Set the properties
             newrow.Id = Guid.NewGuid();
             newrow.Username = "My new UserName";
-            newrow.Password = "";
+            newrow.Password = "Password123";
             newrow.SettingId = dc.tblSettings.FirstOrDefault().Id;
-
-
 
             // Insert the row into the table
             dc.tblPlayers.Add(newrow);
