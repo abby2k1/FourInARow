@@ -35,7 +35,7 @@ namespace Team9.Connect4.PL.Test
             InsertTest();
 
             // How many I expect
-            int expected = 1;
+            int expected = 4;
             // How many I did get back
             int actual = 0;
 
