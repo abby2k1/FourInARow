@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Connect4.WPFPrototypeUI", "Connect4.WPFPrototype.UI\Team9.Connect4.WPFPrototypeUI.csproj", "{636FF2E2-E419-4D02-BD3D-723823BCBA71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{9F986D8C-00F0-468E-92E3-BDFF1D7C0A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F986D8C-00F0-468E-92E3-BDFF1D7C0A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F986D8C-00F0-468E-92E3-BDFF1D7C0A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636FF2E2-E419-4D02-BD3D-723823BCBA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636FF2E2-E419-4D02-BD3D-723823BCBA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636FF2E2-E419-4D02-BD3D-723823BCBA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636FF2E2-E419-4D02-BD3D-723823BCBA71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
