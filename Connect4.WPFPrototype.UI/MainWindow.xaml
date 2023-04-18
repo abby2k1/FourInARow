@@ -134,6 +134,7 @@
         <Button x:Name="btnO112" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO112_Click"/>
         <Button x:Name="btnX111" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX111_Click"/>
         <Button x:Name="btnO111" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO111_Click"/>
+        <Button x:Name="btnNew" Content="New Game" HorizontalAlignment="Left" Margin="315,21,0,0" VerticalAlignment="Top" Height="25" Width="180" Click="btnNew_Click"/>
 
     </Grid>
 </Window>
