@@ -81,24 +81,25 @@ namespace Connect4.WPFPrototype.UI
         {
             for (int i = 39; i < 117; i++) 
             {
+                string winner = values[i];
                 if ((values[i] == "1" && values[i+1] == "1" && values[i+2] == "1" && values[i+3] == "1") || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2"))
-                {
-                    MessageBox.Show("WINNER!!!");
+                {                   
+                    WasWinner(winner);
                     ClearAll();
                 }
                 if ((values[i] == "1" && values[i + 13] == "1" && values[i + 26] == "1" && values[i + 39] == "1") || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
                 {
-                    MessageBox.Show("WINNER!!!");
+                    WasWinner(winner);
                     ClearAll();
                 }
                 if ((values[i] == "1" && values[i + 12] == "1" && values[i + 24] == "1" && values[i + 36] == "1") || (values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
                 {
-                    MessageBox.Show("WINNER!!!");
+                    WasWinner(winner);
                     ClearAll();
                 }
                 if ((values[i] == "1" && values[i + 11] == "1" && values[i + 22] == "1" && values[i + 33] == "1") || (values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
                 {
-                    MessageBox.Show("WINNER!!!");
+                    WasWinner(winner);
                     ClearAll();
                 }
                 //if ((values[i] == "1" && values[i - 1] == "1" && values[i - 2] == "1" && values[i - 3] == "1") || (values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
@@ -122,6 +123,14 @@ namespace Connect4.WPFPrototype.UI
                 //    ClearAll();
                 //}
             }
+        }
+
+        private void WasWinner(string winner)
+        {
+            if (winner == "1")
+                MessageBox.Show("Player 1 WINNER!!!"); 
+            else
+                MessageBox.Show("Player 2 WINNER!!!");
         }
 
         private void btnX44_Click(object sender, RoutedEventArgs e)
