@@ -136,33 +136,27 @@
         <Button x:Name="btnO111" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO111_Click"/>
         <Button x:Name="btnNew" Content="New Game" HorizontalAlignment="Left" Margin="325,399,0,0" VerticalAlignment="Top" Height="25" Width="180" Click="btnNew_Click"/>
         <Label x:Name="lblPlayerTurn" Content="Player Turn" HorizontalAlignment="Left" Height="48" Margin="354,23,0,0" VerticalAlignment="Top" Width="121" FontSize="20" FontFamily="Lucida Bright"/>
-        <Button x:Name="btnColumn1">
-            <Button.Template>
-                <ControlTemplate>
-                    <Polygon  
+        <Polygon  
     Points="75,50 100,31.25 100,68.75 75,50"  
     Stroke="Purple"
-    StrokeThickness="2" Margin="66,-104,407,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
-                        <Polygon.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="-90.559"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Polygon.RenderTransform>
-                        <Polygon.Fill>
-                            <SolidColorBrush Color="Blue" Opacity="0.4"/>
-                        </Polygon.Fill>
-                    </Polygon>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        
+    StrokeThickness="2" Margin="111,80,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+
         <Polygon  
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="146,-104,327,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            StrokeThickness="2" Margin="190,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -178,7 +172,7 @@
         <Polygon  
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="227,-104,246,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            StrokeThickness="2" Margin="270,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -194,7 +188,7 @@
         <Polygon  
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="307,-104,166,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            StrokeThickness="2" Margin="429,82,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -210,7 +204,24 @@
         <Polygon  
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="381,-104,92,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            StrokeThickness="2" Margin="510,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="589,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -226,24 +237,7 @@
         <Polygon  
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="466,-104,7,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
-            <Polygon.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90.559"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Polygon.RenderTransform>
-            <Polygon.Fill>
-                <SolidColorBrush Color="Blue" Opacity="0.4"/>
-            </Polygon.Fill>
-        </Polygon>
-        
-        <Polygon  
-            Points="75,50 100,31.25 100,68.75 75,50"  
-            Stroke="Purple"
-            StrokeThickness="2" Margin="541,-104,-68,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            StrokeThickness="2" Margin="348,82,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
