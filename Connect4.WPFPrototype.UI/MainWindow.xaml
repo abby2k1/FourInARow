@@ -7,134 +7,254 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Rectangle x:Name="recBoarder" HorizontalAlignment="Left" Height="282" Stroke="Black" VerticalAlignment="Top" Width="559" Margin="135,74,0,0"/>
-        <Rectangle x:Name="rec111" HorizontalAlignment="Left" Height="47" Margin="615,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec112" HorizontalAlignment="Left" Height="47" Margin="615,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec113" HorizontalAlignment="Left" Height="47" Margin="615,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec114" HorizontalAlignment="Left" Height="47" Margin="615,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec115" HorizontalAlignment="Left" Height="47" Margin="615,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec116" HorizontalAlignment="Left" Height="47" Margin="615,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec99" HorizontalAlignment="Left" Height="47" Margin="535,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec87" HorizontalAlignment="Left" Height="47" Margin="455,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec75" HorizontalAlignment="Left" Height="47" Margin="375,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec63" HorizontalAlignment="Left" Height="47" Margin="295,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec51" HorizontalAlignment="Left" Height="47" Margin="215,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec39" HorizontalAlignment="Left" Height="47" Margin="135,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec40" HorizontalAlignment="Left" Height="47" Margin="135,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec41" HorizontalAlignment="Left" Height="47" Margin="135,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec42" HorizontalAlignment="Left" Height="47" Margin="135,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec43" HorizontalAlignment="Left" Height="47" Margin="135,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec44" HorizontalAlignment="Left" Height="47" Margin="135,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec52" HorizontalAlignment="Left" Height="47" Margin="215,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec53" HorizontalAlignment="Left" Height="47" Margin="215,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec54" HorizontalAlignment="Left" Height="47" Margin="215,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec55" HorizontalAlignment="Left" Height="47" Margin="215,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec56" HorizontalAlignment="Left" Height="47" Margin="215,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec64" HorizontalAlignment="Left" Height="47" Margin="295,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec65" HorizontalAlignment="Left" Height="47" Margin="295,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec66" HorizontalAlignment="Left" Height="47" Margin="295,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec67" HorizontalAlignment="Left" Height="47" Margin="295,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec68" HorizontalAlignment="Left" Height="47" Margin="295,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec76" HorizontalAlignment="Left" Height="47" Margin="375,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec77" HorizontalAlignment="Left" Height="47" Margin="375,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec78" HorizontalAlignment="Left" Height="47" Margin="375,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec79" HorizontalAlignment="Left" Height="47" Margin="375,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec80" HorizontalAlignment="Left" Height="47" Margin="375,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec88" HorizontalAlignment="Left" Height="47" Margin="455,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec89" HorizontalAlignment="Left" Height="47" Margin="455,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec90" HorizontalAlignment="Left" Height="47" Margin="455,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec91" HorizontalAlignment="Left" Height="47" Margin="455,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec92" HorizontalAlignment="Left" Height="47" Margin="455,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec100" HorizontalAlignment="Left" Height="47" Margin="535,262,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec101" HorizontalAlignment="Left" Height="47" Margin="535,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec102" HorizontalAlignment="Left" Height="47" Margin="535,168,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec103" HorizontalAlignment="Left" Height="47" Margin="535,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Rectangle x:Name="rec104" HorizontalAlignment="Left" Height="47" Margin="535,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="btnX44" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,83,0,0" VerticalAlignment="Top" Width="40" Click="btnX44_Click"/>
-        <Button x:Name="btnX43" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX43_Click"/>
-        <Button x:Name="btnX42" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX42_Click"/>
-        <Button x:Name="btnX41" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX41_Click"/>
-        <Button x:Name="btnX40" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX40_Click"/>
-        <Button x:Name="btnX39" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX39_Click"/>
-        <Button x:Name="btnX56" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,83,0,0" VerticalAlignment="Top" Width="40" Click="btnX56_Click"/>
-        <Button x:Name="btnX55" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX55_Click"/>
-        <Button x:Name="btnX54" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX54_Click"/>
-        <Button x:Name="btnX53" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX53_Click"/>
-        <Button x:Name="btnX52" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX52_Click"/>
-        <Button x:Name="btnX51" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX51_Click"/>
-        <Button x:Name="btnX68" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,83,0,0" VerticalAlignment="Top" Width="40" Click="btnX68_Click"/>
-        <Button x:Name="btnX67" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX67_Click"/>
-        <Button x:Name="btnX66" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX66_Click"/>
-        <Button x:Name="btnX65" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX65_Click"/>
-        <Button x:Name="btnX64" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX64_Click"/>
-        <Button x:Name="btnX63" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX63_Click"/>
-        <Button x:Name="btnX80" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,84,0,0" VerticalAlignment="Top" Width="40" Click="btnX80_Click"/>
-        <Button x:Name="btnX79" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX79_Click"/>
-        <Button x:Name="btnX78" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX78_Click"/>
-        <Button x:Name="btnX77" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX77_Click"/>
-        <Button x:Name="btnX76" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX76_Click"/>
-        <Button x:Name="btnX75" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX75_Click"/>
-        <Button x:Name="btnX92" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,84,0,0" VerticalAlignment="Top" Width="40" Click="btnX92_Click"/>
-        <Button x:Name="btnX91" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX91_Click"/>
-        <Button x:Name="btnX90" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX90_Click"/>
-        <Button x:Name="btnX89" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX89_Click"/>
-        <Button x:Name="btnX88" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX88_Click"/>
-        <Button x:Name="btnX87" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX87_Click"/>
-        <Button x:Name="btnX104" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,84,0,0" VerticalAlignment="Top" Width="40" Click="btnX104_Click"/>
-        <Button x:Name="btnX103" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX103_Click"/>
-        <Button x:Name="btnX102" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX102_Click"/>
-        <Button x:Name="btnX101" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX101_Click"/>
-        <Button x:Name="btnX100" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX100_Click"/>
-        <Button x:Name="btnX99" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX99_Click"/>
-        <Button x:Name="btnX116" Content="X" HorizontalAlignment="Left" Height="24" Margin="615,85,0,0" VerticalAlignment="Top" Width="40" Click="btnX116_Click"/>
-        <Button x:Name="btnX115" Content="X" HorizontalAlignment="Left" Height="24" Margin="615,132,0,0" VerticalAlignment="Top" Width="40" Click="btnX115_Click"/>
-        <Button x:Name="btnX114" Content="X" HorizontalAlignment="Left" Height="24" Margin="615,180,0,0" VerticalAlignment="Top" Width="40" Click="btnX114_Click"/>
-        <Button x:Name="btnO44" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,83,0,0" VerticalAlignment="Top" Width="40" Click="btnO44_Click"/>
-        <Button x:Name="btnO43" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO43_Click"/>
-        <Button x:Name="btnO42" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO42_Click"/>
-        <Button x:Name="btnO41" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO41_Click"/>
-        <Button x:Name="btnO40" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO40_Click"/>
-        <Button x:Name="btnO39" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO39_Click"/>
-        <Button x:Name="btnO56" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,83,0,0" VerticalAlignment="Top" Width="40" Click="btnO56_Click"/>
-        <Button x:Name="btnO55" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO55_Click"/>
-        <Button x:Name="btnO54" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO54_Click"/>
-        <Button x:Name="btnO53" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO53_Click"/>
-        <Button x:Name="btnO52" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO52_Click"/>
-        <Button x:Name="btnO51" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO51_Click"/>
-        <Button x:Name="btnO68" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,83,0,0" VerticalAlignment="Top" Width="40" Click="btnO68_Click"/>
-        <Button x:Name="btnO67" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO67_Click"/>
-        <Button x:Name="btnO66" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO66_Click"/>
-        <Button x:Name="btnO65" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO65_Click"/>
-        <Button x:Name="btnO64" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO64_Click"/>
-        <Button x:Name="btnO63" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO63_Click"/>
-        <Button x:Name="btnO80" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,84,0,0" VerticalAlignment="Top" Width="40" Click="btnO80_Click"/>
-        <Button x:Name="btnO79" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO79_Click"/>
-        <Button x:Name="btnO78" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO78_Click"/>
-        <Button x:Name="btnO77" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO77_Click"/>
-        <Button x:Name="btnO76" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO76_Click"/>
-        <Button x:Name="btnO75" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO75_Click"/>
-        <Button x:Name="btnO92" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,84,0,0" VerticalAlignment="Top" Width="40" Click="btnO92_Click"/>
-        <Button x:Name="btnO91" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO91_Click"/>
-        <Button x:Name="btnO90" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO90_Click"/>
-        <Button x:Name="btnO89" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO89_Click"/>
-        <Button x:Name="btnO88" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO88_Click"/>
-        <Button x:Name="btnO87" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO87_Click"/>
-        <Button x:Name="btnO104" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,84,0,0" VerticalAlignment="Top" Width="40" Click="btnO104_Click"/>
-        <Button x:Name="btnO103" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO103_Click"/>
-        <Button x:Name="btnO102" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO102_Click"/>
-        <Button x:Name="btnO101" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO101_Click"/>
-        <Button x:Name="btnO100" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO100_Click"/>
-        <Button x:Name="btnO99" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO99_Click"/>
-        <Button x:Name="btnO116" Content="O" HorizontalAlignment="Left" Height="24" Margin="654,85,0,0" VerticalAlignment="Top" Width="40" Click="btnO116_Click"/>
-        <Button x:Name="btnO115" Content="O" HorizontalAlignment="Left" Height="24" Margin="654,132,0,0" VerticalAlignment="Top" Width="40" Click="btnO115_Click"/>
-        <Button x:Name="btnO114" Content="O" HorizontalAlignment="Left" Height="24" Margin="654,180,0,0" VerticalAlignment="Top" Width="40" Click="btnO114_Click"/>
-        <Button x:Name="btnX113" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,226,0,0" VerticalAlignment="Top" Width="40" Click="btnX113_Click"/>
-        <Button x:Name="btnO113" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,226,0,0" VerticalAlignment="Top" Width="40" Click="btnO113_Click"/>
-        <Button x:Name="btnX112" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,274,0,0" VerticalAlignment="Top" Width="40" Click="btnX112_Click"/>
-        <Button x:Name="btnO112" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,274,0,0" VerticalAlignment="Top" Width="40" Click="btnO112_Click"/>
-        <Button x:Name="btnX111" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,320,0,0" VerticalAlignment="Top" Width="40" Click="btnX111_Click"/>
-        <Button x:Name="btnO111" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,320,0,0" VerticalAlignment="Top" Width="40" Click="btnO111_Click"/>
-        <Button x:Name="btnNew" Content="New Game" HorizontalAlignment="Left" Margin="315,21,0,0" VerticalAlignment="Top" Height="25" Width="180" Click="btnNew_Click"/>
-
+        <Rectangle x:Name="recBoarder" HorizontalAlignment="Left" Height="282" Stroke="Black" VerticalAlignment="Top" Width="559" Margin="135,97,0,0"/>
+        <Rectangle x:Name="rec111" HorizontalAlignment="Left" Height="47" Margin="615,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec112" HorizontalAlignment="Left" Height="47" Margin="615,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec113" HorizontalAlignment="Left" Height="47" Margin="615,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec114" HorizontalAlignment="Left" Height="47" Margin="615,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec115" HorizontalAlignment="Left" Height="47" Margin="615,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec116" HorizontalAlignment="Left" Height="47" Margin="615,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec99" HorizontalAlignment="Left" Height="47" Margin="535,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec87" HorizontalAlignment="Left" Height="47" Margin="455,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec75" HorizontalAlignment="Left" Height="47" Margin="375,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec63" HorizontalAlignment="Left" Height="47" Margin="295,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec51" HorizontalAlignment="Left" Height="47" Margin="215,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec39" HorizontalAlignment="Left" Height="47" Margin="135,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec40" HorizontalAlignment="Left" Height="47" Margin="135,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec41" HorizontalAlignment="Left" Height="47" Margin="135,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec42" HorizontalAlignment="Left" Height="47" Margin="135,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec43" HorizontalAlignment="Left" Height="47" Margin="135,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec44" HorizontalAlignment="Left" Height="47" Margin="135,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec52" HorizontalAlignment="Left" Height="47" Margin="215,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec53" HorizontalAlignment="Left" Height="47" Margin="215,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec54" HorizontalAlignment="Left" Height="47" Margin="215,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec55" HorizontalAlignment="Left" Height="47" Margin="215,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec56" HorizontalAlignment="Left" Height="47" Margin="215,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec64" HorizontalAlignment="Left" Height="47" Margin="295,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec65" HorizontalAlignment="Left" Height="47" Margin="295,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec66" HorizontalAlignment="Left" Height="47" Margin="295,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec67" HorizontalAlignment="Left" Height="47" Margin="295,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec68" HorizontalAlignment="Left" Height="47" Margin="295,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec76" HorizontalAlignment="Left" Height="47" Margin="375,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec77" HorizontalAlignment="Left" Height="47" Margin="375,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec78" HorizontalAlignment="Left" Height="47" Margin="375,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec79" HorizontalAlignment="Left" Height="47" Margin="375,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec80" HorizontalAlignment="Left" Height="47" Margin="375,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec88" HorizontalAlignment="Left" Height="47" Margin="455,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec89" HorizontalAlignment="Left" Height="47" Margin="455,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec90" HorizontalAlignment="Left" Height="47" Margin="455,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec91" HorizontalAlignment="Left" Height="47" Margin="455,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec92" HorizontalAlignment="Left" Height="47" Margin="455,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec100" HorizontalAlignment="Left" Height="47" Margin="535,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec101" HorizontalAlignment="Left" Height="47" Margin="535,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec102" HorizontalAlignment="Left" Height="47" Margin="535,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec103" HorizontalAlignment="Left" Height="47" Margin="535,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Rectangle x:Name="rec104" HorizontalAlignment="Left" Height="47" Margin="535,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnX44" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,106,0,0" VerticalAlignment="Top" Width="40" Click="btnX44_Click"/>
+        <Button x:Name="btnX43" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX43_Click"/>
+        <Button x:Name="btnX42" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX42_Click"/>
+        <Button x:Name="btnX41" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX41_Click"/>
+        <Button x:Name="btnX40" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX40_Click"/>
+        <Button x:Name="btnX39" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX39_Click"/>
+        <Button x:Name="btnX56" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,106,0,0" VerticalAlignment="Top" Width="40" Click="btnX56_Click"/>
+        <Button x:Name="btnX55" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX55_Click"/>
+        <Button x:Name="btnX54" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX54_Click"/>
+        <Button x:Name="btnX53" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX53_Click"/>
+        <Button x:Name="btnX52" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX52_Click"/>
+        <Button x:Name="btnX51" Content="X" HorizontalAlignment="Left" Height="24" Margin="215,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX51_Click"/>
+        <Button x:Name="btnX68" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,106,0,0" VerticalAlignment="Top" Width="40" Click="btnX68_Click"/>
+        <Button x:Name="btnX67" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX67_Click"/>
+        <Button x:Name="btnX66" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX66_Click"/>
+        <Button x:Name="btnX65" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX65_Click"/>
+        <Button x:Name="btnX64" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX64_Click"/>
+        <Button x:Name="btnX63" Content="X" HorizontalAlignment="Left" Height="24" Margin="295,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX63_Click"/>
+        <Button x:Name="btnX80" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,107,0,0" VerticalAlignment="Top" Width="40" Click="btnX80_Click"/>
+        <Button x:Name="btnX79" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX79_Click"/>
+        <Button x:Name="btnX78" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX78_Click"/>
+        <Button x:Name="btnX77" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX77_Click"/>
+        <Button x:Name="btnX76" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX76_Click"/>
+        <Button x:Name="btnX75" Content="X" HorizontalAlignment="Left" Height="24" Margin="375,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX75_Click"/>
+        <Button x:Name="btnX92" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,107,0,0" VerticalAlignment="Top" Width="40" Click="btnX92_Click"/>
+        <Button x:Name="btnX91" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX91_Click"/>
+        <Button x:Name="btnX90" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX90_Click"/>
+        <Button x:Name="btnX89" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX89_Click"/>
+        <Button x:Name="btnX88" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX88_Click"/>
+        <Button x:Name="btnX87" Content="X" HorizontalAlignment="Left" Height="24" Margin="455,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX87_Click"/>
+        <Button x:Name="btnX104" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,107,0,0" VerticalAlignment="Top" Width="40" Click="btnX104_Click"/>
+        <Button x:Name="btnX103" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX103_Click"/>
+        <Button x:Name="btnX102" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX102_Click"/>
+        <Button x:Name="btnX101" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX101_Click"/>
+        <Button x:Name="btnX100" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX100_Click"/>
+        <Button x:Name="btnX99" Content="X" HorizontalAlignment="Left" Height="24" Margin="535,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX99_Click"/>
+        <Button x:Name="btnX116" Content="X" HorizontalAlignment="Left" Height="24" Margin="615,108,0,0" VerticalAlignment="Top" Width="40" Click="btnX116_Click"/>
+        <Button x:Name="btnX115" Content="X" HorizontalAlignment="Left" Height="24" Margin="615,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX115_Click"/>
+        <Button x:Name="btnX114" Content="X" HorizontalAlignment="Left" Height="24" Margin="615,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX114_Click"/>
+        <Button x:Name="btnO44" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,106,0,0" VerticalAlignment="Top" Width="40" Click="btnO44_Click"/>
+        <Button x:Name="btnO43" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO43_Click"/>
+        <Button x:Name="btnO42" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO42_Click"/>
+        <Button x:Name="btnO41" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO41_Click"/>
+        <Button x:Name="btnO40" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO40_Click"/>
+        <Button x:Name="btnO39" Content="O" HorizontalAlignment="Left" Height="24" Margin="174,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO39_Click"/>
+        <Button x:Name="btnO56" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,106,0,0" VerticalAlignment="Top" Width="40" Click="btnO56_Click"/>
+        <Button x:Name="btnO55" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO55_Click"/>
+        <Button x:Name="btnO54" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO54_Click"/>
+        <Button x:Name="btnO53" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO53_Click"/>
+        <Button x:Name="btnO52" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO52_Click"/>
+        <Button x:Name="btnO51" Content="O" HorizontalAlignment="Left" Height="24" Margin="254,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO51_Click"/>
+        <Button x:Name="btnO68" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,106,0,0" VerticalAlignment="Top" Width="40" Click="btnO68_Click"/>
+        <Button x:Name="btnO67" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO67_Click"/>
+        <Button x:Name="btnO66" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO66_Click"/>
+        <Button x:Name="btnO65" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO65_Click"/>
+        <Button x:Name="btnO64" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO64_Click"/>
+        <Button x:Name="btnO63" Content="O" HorizontalAlignment="Left" Height="24" Margin="334,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO63_Click"/>
+        <Button x:Name="btnO80" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,107,0,0" VerticalAlignment="Top" Width="40" Click="btnO80_Click"/>
+        <Button x:Name="btnO79" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO79_Click"/>
+        <Button x:Name="btnO78" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO78_Click"/>
+        <Button x:Name="btnO77" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO77_Click"/>
+        <Button x:Name="btnO76" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO76_Click"/>
+        <Button x:Name="btnO75" Content="O" HorizontalAlignment="Left" Height="24" Margin="414,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO75_Click"/>
+        <Button x:Name="btnO92" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,107,0,0" VerticalAlignment="Top" Width="40" Click="btnO92_Click"/>
+        <Button x:Name="btnO91" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO91_Click"/>
+        <Button x:Name="btnO90" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO90_Click"/>
+        <Button x:Name="btnO89" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO89_Click"/>
+        <Button x:Name="btnO88" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO88_Click"/>
+        <Button x:Name="btnO87" Content="O" HorizontalAlignment="Left" Height="24" Margin="494,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO87_Click"/>
+        <Button x:Name="btnO104" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,107,0,0" VerticalAlignment="Top" Width="40" Click="btnO104_Click"/>
+        <Button x:Name="btnO103" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO103_Click"/>
+        <Button x:Name="btnO102" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO102_Click"/>
+        <Button x:Name="btnO101" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO101_Click"/>
+        <Button x:Name="btnO100" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO100_Click"/>
+        <Button x:Name="btnO99" Content="O" HorizontalAlignment="Left" Height="24" Margin="574,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO99_Click"/>
+        <Button x:Name="btnO116" Content="O" HorizontalAlignment="Left" Height="24" Margin="654,108,0,0" VerticalAlignment="Top" Width="40" Click="btnO116_Click"/>
+        <Button x:Name="btnO115" Content="O" HorizontalAlignment="Left" Height="24" Margin="654,155,0,0" VerticalAlignment="Top" Width="40" Click="btnO115_Click"/>
+        <Button x:Name="btnO114" Content="O" HorizontalAlignment="Left" Height="24" Margin="654,203,0,0" VerticalAlignment="Top" Width="40" Click="btnO114_Click"/>
+        <Button x:Name="btnX113" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,249,0,0" VerticalAlignment="Top" Width="40" Click="btnX113_Click"/>
+        <Button x:Name="btnO113" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,249,0,0" VerticalAlignment="Top" Width="40" Click="btnO113_Click"/>
+        <Button x:Name="btnX112" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,297,0,0" VerticalAlignment="Top" Width="40" Click="btnX112_Click"/>
+        <Button x:Name="btnO112" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,297,0,0" VerticalAlignment="Top" Width="40" Click="btnO112_Click"/>
+        <Button x:Name="btnX111" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX111_Click"/>
+        <Button x:Name="btnO111" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO111_Click"/>
+        <Button x:Name="btnNew" Content="New Game" HorizontalAlignment="Left" Margin="325,399,0,0" VerticalAlignment="Top" Height="25" Width="180" Click="btnNew_Click"/>
+        <Label x:Name="lblPlayerTurn" Content="Player Turn" HorizontalAlignment="Left" Height="48" Margin="354,23,0,0" VerticalAlignment="Top" Width="121" FontSize="20" FontFamily="Lucida Bright"/>
+        <Button x:Name="btnColumn1">
+            <Button.Template>
+                <ControlTemplate>
+                    <Polygon  
+    Points="75,50 100,31.25 100,68.75 75,50"  
+    Stroke="Purple"
+    StrokeThickness="2" Margin="66,-104,407,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+                        <Polygon.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90.559"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Polygon.RenderTransform>
+                        <Polygon.Fill>
+                            <SolidColorBrush Color="Blue" Opacity="0.4"/>
+                        </Polygon.Fill>
+                    </Polygon>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="146,-104,327,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="227,-104,246,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="307,-104,166,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="381,-104,92,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="466,-104,7,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+        
+        <Polygon  
+            Points="75,50 100,31.25 100,68.75 75,50"  
+            Stroke="Purple"
+            StrokeThickness="2" Margin="541,-104,-68,329" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.559"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+            <Polygon.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
     </Grid>
 </Window>

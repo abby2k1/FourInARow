@@ -133,6 +133,12 @@ namespace Connect4.WPFPrototype.UI
                 MessageBox.Show("Player 2 WINNER!!!");
         }
 
+        private void btnColumn1_Click(object sender, RoutedEventArgs e)
+        {
+            rec44.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            values[44] = "1";
+        }
+
         private void btnX44_Click(object sender, RoutedEventArgs e)
         {
             rec44.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
