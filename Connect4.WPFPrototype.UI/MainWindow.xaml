@@ -50,6 +50,7 @@
         <Rectangle x:Name="rec102" HorizontalAlignment="Left" Height="47" Margin="535,191,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
         <Rectangle x:Name="rec103" HorizontalAlignment="Left" Height="47" Margin="535,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
         <Rectangle x:Name="rec104" HorizontalAlignment="Left" Height="47" Margin="535,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
+        <!--
         <Button x:Name="btnX44" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,106,0,0" VerticalAlignment="Top" Width="40" Click="btnX44_Click"/>
         <Button x:Name="btnX43" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,155,0,0" VerticalAlignment="Top" Width="40" Click="btnX43_Click"/>
         <Button x:Name="btnX42" Content="X" HorizontalAlignment="Left" Height="24" Margin="135,203,0,0" VerticalAlignment="Top" Width="40" Click="btnX42_Click"/>
@@ -135,7 +136,8 @@
         <Button x:Name="btnX111" Content="X" HorizontalAlignment="Left" Height="24" Margin="616,343,0,0" VerticalAlignment="Top" Width="40" Click="btnX111_Click"/>
         <Button x:Name="btnO111" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO111_Click"/>
         <Button x:Name="btnNew" Content="New Game" HorizontalAlignment="Left" Margin="325,399,0,0" VerticalAlignment="Top" Height="25" Width="180" Click="btnNew_Click"/>
-        <Label x:Name="lblPlayerTurn" Content="Player Turn" HorizontalAlignment="Left" Height="48" Margin="354,23,0,0" VerticalAlignment="Top" Width="121" FontSize="20" FontFamily="Lucida Bright"/>
+        -->
+        <Label x:Name="lblPlayerTurn" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="48" Margin="295,23,0,0" VerticalAlignment="Top" Width="240" FontSize="20" FontFamily="Lucida Bright"/>
         <Polygon x:Name="btnCol1"  
     Points="75,50 100,31.25 100,68.75 75,50"  
     Stroke="Purple"
