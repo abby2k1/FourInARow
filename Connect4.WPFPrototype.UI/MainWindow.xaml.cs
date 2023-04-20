@@ -21,6 +21,7 @@ namespace Connect4.WPFPrototype.UI
     public partial class MainWindow : Window
     {
         string[] values = new string[156];
+        int turn = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -125,18 +126,55 @@ namespace Connect4.WPFPrototype.UI
             }
         }
 
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void btnCol1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            for (int i = 39; i < 45; i++)
+            {
+                
+            }
+        }       
+
+        private void btnCol2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void btnCol3_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void btnCol4_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void btnCol5_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void btnCol6_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void btnCol7_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
         private void WasWinner(string winner)
         {
             if (winner == "1")
                 MessageBox.Show("Player 1 WINNER!!!"); 
             else
                 MessageBox.Show("Player 2 WINNER!!!");
-        }
-
-        private void btnColumn1_Click(object sender, RoutedEventArgs e)
-        {
-            rec44.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-            values[44] = "1";
         }
 
         private void btnX44_Click(object sender, RoutedEventArgs e)
@@ -725,11 +763,6 @@ namespace Connect4.WPFPrototype.UI
             rec111.Fill = new SolidColorBrush(Color.FromRgb(255, 165, 0));
             values[111] = "2";
             CheckWinner();
-        }
-
-        private void btnNew_Click(object sender, RoutedEventArgs e)
-        {
-            ClearAll();
         }
     }
 }

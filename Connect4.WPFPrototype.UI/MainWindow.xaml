@@ -136,10 +136,10 @@
         <Button x:Name="btnO111" Content="O" HorizontalAlignment="Left" Height="24" Margin="655,343,0,0" VerticalAlignment="Top" Width="40" Click="btnO111_Click"/>
         <Button x:Name="btnNew" Content="New Game" HorizontalAlignment="Left" Margin="325,399,0,0" VerticalAlignment="Top" Height="25" Width="180" Click="btnNew_Click"/>
         <Label x:Name="lblPlayerTurn" Content="Player Turn" HorizontalAlignment="Left" Height="48" Margin="354,23,0,0" VerticalAlignment="Top" Width="121" FontSize="20" FontFamily="Lucida Bright"/>
-        <Polygon  
+        <Polygon x:Name="btnCol1"  
     Points="75,50 100,31.25 100,68.75 75,50"  
     Stroke="Purple"
-    StrokeThickness="2" Margin="111,80,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+    StrokeThickness="2" Margin="111,80,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol1_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -153,10 +153,10 @@
             </Polygon.Fill>
         </Polygon>
 
-        <Polygon  
+        <Polygon x:Name="btnCol2" 
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="190,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            StrokeThickness="2" Margin="190,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol2_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -169,10 +169,10 @@
                 <SolidColorBrush Color="Blue" Opacity="0.4"/>
             </Polygon.Fill>
         </Polygon>
-        <Polygon  
+        <Polygon x:Name="btnCol3"
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="270,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            StrokeThickness="2" Margin="270,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol3_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -185,10 +185,10 @@
                 <SolidColorBrush Color="Blue" Opacity="0.4"/>
             </Polygon.Fill>
         </Polygon>
-        <Polygon  
+        <Polygon x:Name="btnCol5"
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="429,82,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            StrokeThickness="2" Margin="429,82,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol5_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -201,10 +201,10 @@
                 <SolidColorBrush Color="Blue" Opacity="0.4"/>
             </Polygon.Fill>
         </Polygon>
-        <Polygon  
+        <Polygon x:Name="btnCol6"  
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="510,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            StrokeThickness="2" Margin="510,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol6_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -218,10 +218,10 @@
             </Polygon.Fill>
         </Polygon>
 
-        <Polygon  
+        <Polygon x:Name="btnCol7" 
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="589,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            StrokeThickness="2" Margin="589,81,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol7_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -234,10 +234,10 @@
                 <SolidColorBrush Color="Blue" Opacity="0.4"/>
             </Polygon.Fill>
         </Polygon>
-        <Polygon  
+        <Polygon x:Name="btnCol4"
             Points="75,50 100,31.25 100,68.75 75,50"  
             Stroke="Purple"
-            StrokeThickness="2" Margin="348,82,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left">
+            StrokeThickness="2" Margin="348,82,0,0" RenderTransformOrigin="0.5,0.5" Height="NaN" Width="NaN" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="btnCol4_MouseDown">
             <Polygon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
