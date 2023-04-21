@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF08FFE3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Rectangle x:Name="recBoarder" HorizontalAlignment="Left" Height="282" Stroke="Black" VerticalAlignment="Top" Width="559" Margin="135,97,0,0"/>
         <Rectangle x:Name="rec111" HorizontalAlignment="Left" Height="47" Margin="615,332,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
         <Rectangle x:Name="rec112" HorizontalAlignment="Left" Height="47" Margin="615,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
@@ -252,5 +258,16 @@
                 <SolidColorBrush Color="Blue" Opacity="0.4"/>
             </Polygon.Fill>
         </Polygon>
+        <Rectangle x:Name="recButtonScreen" HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Visibility="Hidden">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFB52F2F" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="btnLocal" Content="Local Game" HorizontalAlignment="Left" Margin="309,153,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnLocal_Click"/>
+        <Button x:Name="btnRemote" Content="Remote Game" HorizontalAlignment="Left" Margin="540,153,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnRemote_Click"/>
+        <Button x:Name="btnComputer" Content="Against Computer" HorizontalAlignment="Left" Margin="69,153,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnComputer_Click"/>
     </Grid>
 </Window>
