@@ -76,7 +76,7 @@ namespace Connect4.WPFPrototype.UI
             rec113.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             rec112.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             rec111.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            //lblPlayerTurn.Content = "Player 1's Turn";
+            lblPlayerTurn.Content = "Player 1's Turn";
             btnCol1.Visibility = Visibility.Visible;
             btnCol2.Visibility = Visibility.Visible;
             btnCol3.Visibility = Visibility.Visible;
