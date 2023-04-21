@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,33 @@ namespace Team9.Connect4.BL
     public  class PlayerManager
     {
         private const string RowError = "Row doesn't exist.";
+
+        public async static Task<IEnumerable<Player>> Load()
+        {
+            try
+            {
+                List<Player> players = new List<Player>();
+                using (Connect4Entities dc = new Connect4Entities())
+                {
+                    (await dc.tblPlayers
+                        .ToListAsync()
+                        .ConfigureAwait(false))
+                        .ForEach(p => players.Add(new Player
+                        {
+                            Id = p.Id,
+                            Username = p.Username,
+                            Password = p.Password,
+                            SettingId = p.SettingId
+                        }));
+                }
+                return players;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public async static Task<int> Insert(Player player, bool rollback = false)
         {
             try

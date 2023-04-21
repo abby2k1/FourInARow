@@ -33,48 +33,43 @@ namespace Team9.Connect4.BL.Test
         {
             Task.Run(async () =>
             {
-                tblPlayer newrow = new tblPlayer();
+                Models.Player player = new Models.Player();
 
-                newrow.Id = Guid.NewGuid();
-                newrow.Username = "testUser";
-                newrow.Password = "password";
-                newrow.SettingId = Guid.NewGuid();
+                player.Username = "testUser";
+                player.Password = "password";
+                player.Id = Guid.NewGuid();
+                player.SettingId = Guid.NewGuid();
 
-                dc.tblPlayers.Add(newrow);
-                int results = dc.SaveChanges();
-
-                Assert.AreEqual(1, results);
+                int results = await PlayerManager.Insert(player, true);
+                Assert.IsTrue(results > 0);
             });
         }
 
         [TestMethod]
         public void UpdateTest()
         {
-            tblPlayer row = (from dt in dc.tblPlayers
-                             where dt.Username == "testUser"
-                             select dt).FirstOrDefault();
-            if(row != null)
+            Task.Run(async () =>
             {
-                row.Password = "newPassword";
-
-                int results = dc.SaveChanges();
-                Assert.IsTrue(results == 1);
-            }
+                var task = await PlayerManager.Load();
+                IEnumerable<Models.Player> players = task;
+                Models.Player player = players.FirstOrDefault(p => p.Username == "testUser");
+                player.Password = "newPassword";
+                int results = await PlayerManager.Update(player, true);
+                Assert.IsTrue(results > 0);
+            });
         }
 
         [TestMethod]
         public void DeleteTest()
         {
-            tblPlayer row = (from dt in dc.tblPlayers
-                             where dt.Username == "testUser"
-                             select dt).FirstOrDefault();
-            if (row != null)
+            Task.Run(async () =>
             {
-                dc.tblPlayers.Remove(row);
-
-                var results = dc.SaveChanges();
-                Assert.AreEqual(results, 1);
-            }
+                var task = await PlayerManager.Load();
+                IEnumerable<Models.Player> players = task;
+                Models.Player player = players.FirstOrDefault(p => p.Username == "testUser");
+                int results = await PlayerManager.Delete(player.Id, true);
+                Assert.IsTrue(results > 0);
+            });
         }
     }
 }
