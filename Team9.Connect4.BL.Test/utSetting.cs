@@ -15,7 +15,7 @@ namespace Team9.Connect4.BL.Test
     [TestClass]
     public class utSetting
     {
-        protected Connect4Entities dc;
+        protected Connect4Entities dc = new Connect4Entities();
 
         [TestInitialize]
         public void TestInitialize()
@@ -41,6 +41,7 @@ namespace Team9.Connect4.BL.Test
         public void LoadByPlayerIdTest()
         {
             Guid guid = dc.tblPlayers.FirstOrDefault().SettingId;
+            //c => c.SettingId != null
 
             var results = SettingManager.LoadByPlayerId(guid);
 
@@ -64,7 +65,7 @@ namespace Team9.Connect4.BL.Test
         [TestMethod]
         public async Task UpdateTest()
         {
-            Guid guid = dc.tblSettings.GetType().GUID;
+            Guid guid = dc.tblSettings.FirstOrDefault().Id;
             
             Setting setting = await SettingManager.Load(guid);
 
