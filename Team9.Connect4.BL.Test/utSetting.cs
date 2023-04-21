@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Team9.Connect4.BL;
 using Team9.Connect4.BL.Models;
 using Team9.Connect4.PL;
 
