@@ -25,7 +25,7 @@ namespace Team9.Connect4.BL
 
                     tblPlayer newrow = new tblPlayer();
                     newrow.Id = Guid.NewGuid();
-                    newrow.Username = player.Username;
+                    newrow.Username = player.UserName;
                     newrow.Password = player.Password;
                     newrow.SettingId = player.SettingId;
 
@@ -56,7 +56,7 @@ namespace Team9.Connect4.BL
 
                     if (row != null)
                     {
-                        row.Username = player.Username;
+                        row.Username = player.UserName;
                         row.Password = player.Password;
                         row.SettingId = player.SettingId;
 
