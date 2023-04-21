@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Team9.Connect4.BL
 {
-    internal class SettingManager
+    public class SettingManager
     {
+
     }
 }

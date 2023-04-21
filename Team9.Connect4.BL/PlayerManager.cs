@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Team9.Connect4.BL
 {
-    internal class PlayerManager
+    public  class PlayerManager
     {
+        public static int Insert()
+        {
+
+        }
     }
 }
