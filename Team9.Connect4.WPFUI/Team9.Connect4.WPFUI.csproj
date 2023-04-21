@@ -7,4 +7,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\BlackChip.jpg" />
+    <None Remove="Images\BlackChip.png" />
+    <None Remove="Images\RedChip.jpg" />
+    <None Remove="Images\RedChip.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\BlackChip.jpg" />
+    <Resource Include="Images\BlackChip.png" />
+    <Resource Include="Images\RedChip.jpg" />
+    <Resource Include="Images\RedChip.png" />
+  </ItemGroup>
+
 </Project>
