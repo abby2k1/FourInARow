@@ -8,9 +8,6 @@ namespace Team9.Connect4.BL
 {
     public  class PlayerManager
     {
-        public static int Insert()
-        {
 
-        }
     }
 }
