@@ -91,6 +91,5 @@ namespace Team9.Connect4.PL.Test
 
             Assert.IsNull(deletedrow);
         }
-
     }
 }
