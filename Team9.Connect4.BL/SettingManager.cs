@@ -33,7 +33,7 @@ namespace Team9.Connect4.BL
             return setting;
         }
 
-        public async static Task<Setting> LoadByPlayerId(int id)
+        public async static Task<Setting> LoadByPlayerId(Guid id)
         {
             Connect4Entities connect4Entities = new Connect4Entities();
             tblPlayer tblPlayer = new tblPlayer();
