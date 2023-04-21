@@ -36,13 +36,13 @@ namespace Team9.Connect4.BL
                     return results;
                 }
             }
-            catch (Exception)
-            {
-                throw;
+            catch (Exception ex) 
+            { 
+                throw ex; 
             }
         }
 
-        public static int Update(Player player, bool rollback = false)
+        public async static Task<int> Update(Player player, bool rollback = false)
         {
             try
             {
@@ -64,17 +64,22 @@ namespace Team9.Connect4.BL
 
                         if (rollback) dbContextTransaction.Rollback();
                     }
+                    else
+                    {
+
+                        throw new Exception(RowError);
+                    }
                 }
                 return results;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception(RowError);
+                throw ex;
             }
             
         }
 
-        public static int Delete(Guid id, bool rollback = false)
+        public async static Task<int> Delete(Guid id, bool rollback = false)
         {
             try
             {
@@ -100,9 +105,9 @@ namespace Team9.Connect4.BL
                 }
                 return results;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
             
         }
