@@ -157,47 +157,58 @@ namespace Connect4.WPFPrototype.UI
             for (int i = 39; i < 117; i++)
             {
                 string winner = values[i];
-                if ((values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == 1 || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i))
-                    || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == 1 || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
+                if ((values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && (nextAvailableCol1 == i + 3 || nextAvailableCol2 == i + 3 || nextAvailableCol3 == i + 3 || nextAvailableCol4 == i + 3 || nextAvailableCol5 == i + 3 || nextAvailableCol6 == i + 3 || nextAvailableCol7 == i + 3))
+                    || (values[i] == "2" && values[i + 1] == "2" && values[i + 3] == "2" && (nextAvailableCol1 == i + 2 || nextAvailableCol2 == i + 2 || nextAvailableCol3 == i + 2 || nextAvailableCol4 == i + 2 || nextAvailableCol5 == i + 2 || nextAvailableCol6 == i + 2 || nextAvailableCol7 == i + 2))
+                    || (values[i] == "2" && values[i + 2] == "2" && values[i + 3] == "2" && (nextAvailableCol1 == i + 1 || nextAvailableCol2 == i + 1 || nextAvailableCol3 == i + 1 || nextAvailableCol4 == i + 1 || nextAvailableCol5 == i + 1 || nextAvailableCol6 == i + 1 || nextAvailableCol7 == i + 1))
+                    || (values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
                     WasWinner(winner);
                     ClearAll();
                 }
-                if ((values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
+                if ((values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && (nextAvailableCol1 == i + 39 || nextAvailableCol2 == i + 39 || nextAvailableCol3 == i + 39 || nextAvailableCol4 == i + 39 || nextAvailableCol5 == i + 39 || nextAvailableCol6 == i + 39 || nextAvailableCol7 == i + 39))
+                    || (values[i] == "2" && values[i + 13] == "2" && values[i + 39] == "2" && (nextAvailableCol1 == i + 26 || nextAvailableCol2 == i + 26 || nextAvailableCol3 == i + 26 || nextAvailableCol4 == i + 26 || nextAvailableCol5 == i + 26 || nextAvailableCol6 == i + 26 || nextAvailableCol7 == i + 26))
+                    || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && (nextAvailableCol1 == i + 13 || nextAvailableCol2 == i + 13 || nextAvailableCol3 == i + 13 || nextAvailableCol4 == i + 13 || nextAvailableCol5 == i + 13 || nextAvailableCol6 == i + 13 || nextAvailableCol7 == i + 13))
+                    || (values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
                     WasWinner(winner);
                     ClearAll();
                 }
-                if ((values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
+                if ((values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && (nextAvailableCol1 == i + 36 || nextAvailableCol2 == i + 36 || nextAvailableCol3 == i + 36 || nextAvailableCol4 == i + 36 || nextAvailableCol5 == i + 36 || nextAvailableCol6 == i + 36 || nextAvailableCol7 == i + 36))
+                    || (values[i] == "2" && values[i + 12] == "2" && values[i + 36] == "2" && (nextAvailableCol1 == i + 24 || nextAvailableCol2 == i + 24 || nextAvailableCol3 == i + 24 || nextAvailableCol4 == i + 24 || nextAvailableCol5 == i + 24 || nextAvailableCol6 == i + 24 || nextAvailableCol7 == i + 24))
+                    || (values[i] == "2" && values[i + 24] == "2" && values[i + 36] == "2" && (nextAvailableCol1 == i + 12 || nextAvailableCol2 == i + 12 || nextAvailableCol3 == i + 12 || nextAvailableCol4 == i + 12 || nextAvailableCol5 == i + 12 || nextAvailableCol6 == i + 12 || nextAvailableCol7 == i + 12))
+                    || (values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
                     WasWinner(winner);
                     ClearAll();
                 }
-                if ((values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
+                if ((values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && (nextAvailableCol1 == i + 33 || nextAvailableCol2 == i + 33 || nextAvailableCol3 == i + 33 || nextAvailableCol4 == i + 33 || nextAvailableCol5 == i + 33 || nextAvailableCol6 == i + 33 || nextAvailableCol7 == i + 33))
+                    || (values[i] == "2" && values[i + 11] == "2" && values[i + 33] == "2" && (nextAvailableCol1 == i + 22 || nextAvailableCol2 == i + 22 || nextAvailableCol3 == i + 22 || nextAvailableCol4 == i + 22 || nextAvailableCol5 == i + 22 || nextAvailableCol6 == i + 22 || nextAvailableCol7 == i + 22))
+                    || (values[i] == "2" && values[i + 22] == "2" && values[i + 33] == "2" && (nextAvailableCol1 == i + 11 || nextAvailableCol2 == i + 11 || nextAvailableCol3 == i + 11 || nextAvailableCol4 == i + 11 || nextAvailableCol5 == i + 11 || nextAvailableCol6 == i + 11 || nextAvailableCol7 == i + 11))
+                    || (values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
                     WasWinner(winner);
                     ClearAll();
                 }
-                if ((values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
-                {
-                    WasWinner(winner);
-                    ClearAll();
-                }
-                if ((values[i] == "2" && values[i - 13] == "2" && values[i - 26] == "2" && values[i - 39] == "2"))
-                {
-                    WasWinner(winner);
-                    ClearAll();
-                }
-                if ((values[i] == "2" && values[i - 12] == "2" && values[i - 24] == "2" && values[i - 36] == "2"))
-                {
-                    WasWinner(winner);
-                    ClearAll();
-                }
-                if ((values[i] == "2" && values[i - 11] == "2" && values[i - 22] == "2" && values[i - 33] == "2"))
-                {
-                    WasWinner(winner);
-                    ClearAll();
-                }
+                //if ((values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
+                //{
+                //    WasWinner(winner);
+                //    ClearAll();
+                //}
+                //if ((values[i] == "2" && values[i - 13] == "2" && values[i - 26] == "2" && values[i - 39] == "2"))
+                //{
+                //    WasWinner(winner);
+                //    ClearAll();
+                //}
+                //if ((values[i] == "2" && values[i - 12] == "2" && values[i - 24] == "2" && values[i - 36] == "2"))
+                //{
+                //    WasWinner(winner);
+                //    ClearAll();
+                //}
+                //if ((values[i] == "2" && values[i - 11] == "2" && values[i - 22] == "2" && values[i - 33] == "2"))
+                //{
+                //    WasWinner(winner);
+                //    ClearAll();
+                //}
             }
         }
 
@@ -283,6 +294,7 @@ namespace Connect4.WPFPrototype.UI
                     values[44] = "2";
                     rec44.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol1 = 0;
+                    btnCol1.Visibility = Visibility.Hidden;
                     CheckWinner();
                     SwitchPlayer();
                 }
@@ -339,6 +351,7 @@ namespace Connect4.WPFPrototype.UI
                     values[56] = "2";
                     rec56.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol2 = 0;
+                    btnCol2.Visibility = Visibility.Hidden;
                     CheckWinner();
                     SwitchPlayer();
                 }
@@ -346,7 +359,7 @@ namespace Connect4.WPFPrototype.UI
                 {
                     btnCol2.Visibility = Visibility.Hidden;
                     ComputerRandom();
-                }               
+                }
             }
             else if (choice == 3)
             {
@@ -395,6 +408,7 @@ namespace Connect4.WPFPrototype.UI
                     values[68] = "2";
                     rec68.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol3 = 0;
+                    btnCol3.Visibility = Visibility.Hidden;
                     CheckWinner();
                     SwitchPlayer();
                 }
@@ -451,6 +465,7 @@ namespace Connect4.WPFPrototype.UI
                     values[80] = "2";
                     rec80.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol4 = 0;
+                    btnCol4.Visibility = Visibility.Hidden;
                     CheckWinner();
                     SwitchPlayer();
                 }
@@ -507,6 +522,7 @@ namespace Connect4.WPFPrototype.UI
                     values[92] = "2";
                     rec92.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol5 = 0;
+                    btnCol5.Visibility = Visibility.Hidden;
                     CheckWinner();
                     SwitchPlayer();
                 }
@@ -563,6 +579,7 @@ namespace Connect4.WPFPrototype.UI
                     values[104] = "2";
                     rec104.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol6 = 0;
+                    btnCol6.Visibility = Visibility.Hidden;
                     CheckWinner();
                     SwitchPlayer();
                 }
@@ -630,7 +647,7 @@ namespace Connect4.WPFPrototype.UI
             }
         }
         #endregion
-        
+
         #region ColumnClickEvents
         private void btnCol1_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -650,9 +667,10 @@ namespace Connect4.WPFPrototype.UI
             if (values[39] != "0")
             {
                 if (values[39] == "1")
-                    rec39.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
+                    rec39.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };                
                 else
                     rec39.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol1 = 40;
             }
             if (values[40] != "0")
             {
@@ -660,6 +678,7 @@ namespace Connect4.WPFPrototype.UI
                     rec40.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec40.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol1 = 41;
             }
             if (values[41] != "0")
             {
@@ -667,6 +686,7 @@ namespace Connect4.WPFPrototype.UI
                     rec41.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec41.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol1 = 42;
             }
             if (values[42] != "0")
             {
@@ -674,6 +694,7 @@ namespace Connect4.WPFPrototype.UI
                     rec42.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec42.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol1 = 43;
             }
             if (values[43] != "0")
             {
@@ -681,6 +702,7 @@ namespace Connect4.WPFPrototype.UI
                     rec43.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec43.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol1 = 44;
             }
             if (values[44] != "0")
             {
@@ -688,6 +710,7 @@ namespace Connect4.WPFPrototype.UI
                     rec44.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec44.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol1 = 0;
             }
             CheckWinner();
             SwitchPlayer();
@@ -713,6 +736,7 @@ namespace Connect4.WPFPrototype.UI
                     rec51.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec51.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol2 = 52;
             }
             if (values[52] != "0")
             {
@@ -720,6 +744,7 @@ namespace Connect4.WPFPrototype.UI
                     rec52.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec52.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol2 = 53;
             }
             if (values[53] != "0")
             {
@@ -727,6 +752,7 @@ namespace Connect4.WPFPrototype.UI
                     rec53.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec53.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol2 = 54;
             }
             if (values[54] != "0")
             {
@@ -734,6 +760,7 @@ namespace Connect4.WPFPrototype.UI
                     rec54.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec54.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol2 = 55;
             }
             if (values[55] != "0")
             {
@@ -741,6 +768,7 @@ namespace Connect4.WPFPrototype.UI
                     rec55.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec55.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol2 = 56;
             }
             if (values[56] != "0")
             {
@@ -748,6 +776,7 @@ namespace Connect4.WPFPrototype.UI
                     rec56.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec56.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol2 = 0;
             }
             CheckWinner();
             SwitchPlayer();
@@ -774,6 +803,7 @@ namespace Connect4.WPFPrototype.UI
                     rec63.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec63.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol3 = 64;
             }
             if (values[64] != "0")
             {
@@ -781,6 +811,7 @@ namespace Connect4.WPFPrototype.UI
                     rec64.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec64.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol3 = 65;
             }
             if (values[65] != "0")
             {
@@ -788,6 +819,7 @@ namespace Connect4.WPFPrototype.UI
                     rec65.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec65.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol3 = 66;
             }
             if (values[66] != "0")
             {
@@ -795,6 +827,7 @@ namespace Connect4.WPFPrototype.UI
                     rec66.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec66.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol3 = 67;
             }
             if (values[67] != "0")
             {
@@ -802,6 +835,7 @@ namespace Connect4.WPFPrototype.UI
                     rec67.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec67.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol3 = 68;
             }
             if (values[68] != "0")
             {
@@ -809,6 +843,7 @@ namespace Connect4.WPFPrototype.UI
                     rec68.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec68.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol3 = 0;
             }
             CheckWinner();
             SwitchPlayer();
@@ -835,6 +870,7 @@ namespace Connect4.WPFPrototype.UI
                     rec75.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec75.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol4 = 76;
             }
             if (values[76] != "0")
             {
@@ -842,6 +878,7 @@ namespace Connect4.WPFPrototype.UI
                     rec76.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec76.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol4 = 77;
             }
             if (values[77] != "0")
             {
@@ -849,6 +886,7 @@ namespace Connect4.WPFPrototype.UI
                     rec77.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec77.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol4 = 78;
             }
             if (values[78] != "0")
             {
@@ -856,6 +894,7 @@ namespace Connect4.WPFPrototype.UI
                     rec78.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec78.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol4 = 79;
             }
             if (values[79] != "0")
             {
@@ -863,6 +902,7 @@ namespace Connect4.WPFPrototype.UI
                     rec79.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec79.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol4 = 80;
             }
             if (values[80] != "0")
             {
@@ -870,6 +910,7 @@ namespace Connect4.WPFPrototype.UI
                     rec80.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec80.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol4 = 0;
             }
             CheckWinner();
             SwitchPlayer();
@@ -896,6 +937,7 @@ namespace Connect4.WPFPrototype.UI
                     rec87.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec87.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol5 = 88;
             }
             if (values[88] != "0")
             {
@@ -903,6 +945,7 @@ namespace Connect4.WPFPrototype.UI
                     rec88.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec88.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol5 = 89;
             }
             if (values[89] != "0")
             {
@@ -910,6 +953,7 @@ namespace Connect4.WPFPrototype.UI
                     rec89.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec89.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol5 = 90;
             }
             if (values[90] != "0")
             {
@@ -917,6 +961,7 @@ namespace Connect4.WPFPrototype.UI
                     rec90.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec90.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol5 = 91;
             }
             if (values[91] != "0")
             {
@@ -924,6 +969,7 @@ namespace Connect4.WPFPrototype.UI
                     rec91.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec91.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol5 = 92;
             }
             if (values[92] != "0")
             {
@@ -931,6 +977,7 @@ namespace Connect4.WPFPrototype.UI
                     rec92.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec92.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol5 = 0;
             }
             CheckWinner();
             SwitchPlayer();
@@ -957,6 +1004,7 @@ namespace Connect4.WPFPrototype.UI
                     rec99.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec99.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol6 = 100;
             }
             if (values[100] != "0")
             {
@@ -964,6 +1012,7 @@ namespace Connect4.WPFPrototype.UI
                     rec100.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec100.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol6 = 101;
             }
             if (values[101] != "0")
             {
@@ -971,6 +1020,7 @@ namespace Connect4.WPFPrototype.UI
                     rec101.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec101.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol6 = 102;
             }
             if (values[102] != "0")
             {
@@ -978,6 +1028,7 @@ namespace Connect4.WPFPrototype.UI
                     rec102.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec102.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol6 = 103;
             }
             if (values[103] != "0")
             {
@@ -985,6 +1036,7 @@ namespace Connect4.WPFPrototype.UI
                     rec103.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec103.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol6 = 104;
             }
             if (values[104] != "0")
             {
@@ -992,6 +1044,7 @@ namespace Connect4.WPFPrototype.UI
                     rec104.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec104.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol6 = 0;
             }
             CheckWinner();
             SwitchPlayer();
@@ -1018,6 +1071,7 @@ namespace Connect4.WPFPrototype.UI
                     rec111.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec111.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol7 = 112;
             }
             if (values[112] != "0")
             {
@@ -1025,6 +1079,7 @@ namespace Connect4.WPFPrototype.UI
                     rec112.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec112.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol7 = 113;
             }
             if (values[113] != "0")
             {
@@ -1032,6 +1087,7 @@ namespace Connect4.WPFPrototype.UI
                     rec113.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec113.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol7 = 114;
             }
             if (values[114] != "0")
             {
@@ -1039,6 +1095,7 @@ namespace Connect4.WPFPrototype.UI
                     rec114.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec114.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol7 = 115;
             }
             if (values[115] != "0")
             {
@@ -1046,6 +1103,7 @@ namespace Connect4.WPFPrototype.UI
                     rec115.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec115.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol7 = 116;
             }
             if (values[116] != "0")
             {
@@ -1053,6 +1111,7 @@ namespace Connect4.WPFPrototype.UI
                     rec116.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/RedChip.jpg")) };
                 else
                     rec116.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFPrototypeUI;component/Images/BlackChip.jpg")) };
+                nextAvailableCol7 = 0;
             }
             CheckWinner();
             SwitchPlayer();
