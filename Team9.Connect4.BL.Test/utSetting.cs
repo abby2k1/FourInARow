@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Team9.Connect4.BL.Models;
 using Team9.Connect4.PL;
 
 namespace Team9.Connect4.BL.Test
@@ -46,53 +49,37 @@ namespace Team9.Connect4.BL.Test
         [TestMethod]
         public void InsertTest()
         {
-            tblSetting newrow = new tblSetting();
+            Setting setting = new Setting();
 
-            newrow.Id = new Guid();
-            newrow.PlayerColor = "Cornflower Blue";
-            newrow.BoardColor = "Rebecca Purple";
-            newrow.OpponentColor = "Blanched Almond";
+            setting.Id = new Guid();
+            setting.PlayerColor = Color.Blue;
+            setting.BoardColor = Color.BlanchedAlmond;
+            setting.OpponentColor = Color.Magenta;
 
-            dc.tblSettings.Add(newrow);
-            var results = dc.SaveChanges();
-
-            Assert.IsTrue(results == 1);
+            var results = SettingManager.Insert(setting, true);
+            Assert.IsNotNull(results);
         }
 
         [TestMethod]
-        public void UpdateTest()
+        public async Task UpdateTest()
         {
-            InsertTest();
+            Guid guid = dc.tblSettings.GetType().GUID;
+            
+            Setting setting = await SettingManager.Load(guid);
 
-            tblSetting existingrow = dc.tblSettings.FirstOrDefault(c => c.PlayerColor == "Cornflower Blue");
+            setting.BoardColor = Color.PeachPuff;
 
-
-            existingrow.PlayerColor = "Updated Color";
-            dc.Update(existingrow);
-            int results = dc.SaveChanges();
-
-
-            Assert.AreEqual(results, 1);
+            var results = SettingManager.Update(setting, true);
+            Assert.IsNotNull(results);
         }
 
         [TestMethod]
-        public void DeleteTest()
+        public async Task DeleteTest()
         {
-            InsertTest();
+            Guid guid = dc.tblSettings.GetType().GUID;
 
-            tblSetting row = dc.tblSettings.FirstOrDefault(c => c.OpponentColor == "Blanched Almond");
-
-            Guid deleted = row.Id;
-
-            if (row != null)
-            {
-                dc.tblSettings.Remove(row);
-                dc.SaveChanges();
-            }
-
-            tblSetting deletedrow = dc.tblSettings.FirstOrDefault(c => c.Id == deleted);
-
-            Assert.IsNull(deletedrow);
+            var results = SettingManager.Delete(guid, true);
+            Assert.IsNotNull(results);
         }
     }
 }
