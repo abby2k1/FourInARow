@@ -11,4 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Team9.Connect4.BL.Models\Team9.Connect4.BL.Models.csproj" />
+    <ProjectReference Include="..\Team9.Connect4.BL\Team9.Connect4.BL.csproj" />
+  </ItemGroup>
+
 </Project>
