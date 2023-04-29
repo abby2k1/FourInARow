@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.WPFPrototypeUI", "Connect4.WPFPrototype.UI\Team9.Connect4.WPFPrototypeUI.csproj", "{636FF2E2-E419-4D02-BD3D-723823BCBA71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.WPFPrototypeUI", "Team9.Connect4.WPFPrototype.UI\Team9.Connect4.WPFPrototypeUI.csproj", "{636FF2E2-E419-4D02-BD3D-723823BCBA71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Connect4.MAUI", "Team9.Connect4.MAUI\Team9.Connect4.MAUI.csproj", "{E4C89FE9-C004-4ADA-9253-C5F32CE964DA}"
 EndProject
