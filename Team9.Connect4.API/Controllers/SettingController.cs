@@ -7,6 +7,19 @@ namespace Team9.Connect4.API.Controllers
     [ApiController]
     public class SettingController : ControllerBase
     {
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<BL.Models.Setting>>> Get()
+        {
+            try
+            {
+                return Ok(await SettingManager.Load());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<BL.Models.Setting>>> Get(Guid id)
