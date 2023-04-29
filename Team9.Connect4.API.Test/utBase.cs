@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Reflection;
 
-namespace Team9.Connect4.API.Test
+namespace MDW.VehicleTracker.API.Test
 {
     class APIProject : WebApplicationFactory<Program>
     {
@@ -23,23 +23,11 @@ namespace Team9.Connect4.API.Test
     {
         public HttpClient client { get; }
         public Type type;
-
         public utBase()
         {
             var application = new APIProject();
             client = application.CreateClient();
             client.BaseAddress = new Uri(client.BaseAddress + "api/");
-        }
-
-        [TestMethod]
-        public async Task LoadTestAsync<T>()
-        {
-            dynamic items;
-            var response = await client.GetStringAsync(typeof(T).Name);
-            items = (JArray)JsonConvert.DeserializeObject(response);
-            List<T> values = items.ToObject<List<T>>();
-
-            Assert.IsTrue(values.Count > 0);
         }
 
         [TestMethod]
@@ -50,7 +38,6 @@ namespace Team9.Connect4.API.Test
             HttpResponseMessage response = client.DeleteAsync(typeof(T).Name + "/" + id + "/" + rollback).Result;
             string result = response.Content.ReadAsStringAsync().Result;
             Assert.IsTrue(Convert.ToInt32(result) > 0);
-
         }
 
         private async Task<Guid> GetId<T>(KeyValuePair<string, string> filter)
@@ -80,6 +67,17 @@ namespace Team9.Connect4.API.Test
         }
 
         [TestMethod]
+        public async Task LoadTestAsync<T>()
+        {
+            dynamic items;
+            var response = await client.GetStringAsync(typeof(T).Name);
+            items = (JArray)JsonConvert.DeserializeObject(response);
+            List<T> values = items.ToObject<List<T>>();
+
+            Assert.IsTrue(values.Count > 0);
+        }
+
+        [TestMethod]
         public async Task InsertTestAsync<T>(T item)
         {
             bool rollback = true;
@@ -94,9 +92,21 @@ namespace Team9.Connect4.API.Test
 
             Guid guid = Guid.Parse(result);
 
-            // Assert that the guid is not te same as an empty guid 0000000-000000000-
+            // Assert that the Guid coming back is not the same as empty guid
             Assert.IsFalse(guid.Equals(Guid.Empty));
 
+        }
+
+        [TestMethod]
+        public async Task LoadByIdTestAsync<T>(KeyValuePair<string, string> filter)
+        {
+            Guid id = await GetId<T>(filter);
+            dynamic items;
+            var response = client.GetStringAsync(typeof(T).Name + "/" + id).Result;
+            items = JsonConvert.DeserializeObject(response);
+            T item = items.ToObject<T>();
+
+            Assert.AreEqual(id, item.GetType().GetProperty("Id").GetValue(item, null));
         }
 
         [TestMethod]
@@ -133,19 +143,6 @@ namespace Team9.Connect4.API.Test
 
             Assert.IsTrue(Convert.ToInt32(result) > 0);
 
-        }
-
-
-        [TestMethod]
-        public async Task LoadByIdTestAsync<T>(KeyValuePair<string, string> filter)
-        {
-            Guid id = await GetId<T>(filter);
-            dynamic items;
-            var response = client.GetStringAsync(typeof(T).Name + "/" + id).Result;
-            items = JsonConvert.DeserializeObject(response);
-            T item = items.ToObject<T>();
-
-            Assert.AreEqual(id, item.GetType().GetProperty("Id").GetValue(item, null));
         }
     }
 }

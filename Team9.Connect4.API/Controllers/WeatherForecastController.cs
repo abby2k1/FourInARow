@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Team9.Connect4.API;
 
-namespace Team9.Connect4.WebUI.Controllers
+namespace Team9.Connect4.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

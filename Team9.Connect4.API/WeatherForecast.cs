@@ -1,4 +1,4 @@
-namespace Team9.Connect4.WebUI
+namespace Team9.Connect4.API
 {
     public class WeatherForecast
     {
