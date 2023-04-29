@@ -1,5 +1,8 @@
 ﻿using Azure;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Newtonsoft.Json;
@@ -15,7 +18,6 @@ namespace Team9.Connect4.API.Test
             // Sharing the extra set up
             return base.CreateHost(builder);
         }
-
     }
 
     [TestClass]
@@ -23,11 +25,24 @@ namespace Team9.Connect4.API.Test
     {
         public HttpClient client { get; }
         public Type type;
+
         public utBase()
         {
             var application = new APIProject();
             client = application.CreateClient();
             client.BaseAddress = new Uri(client.BaseAddress + "api/");
+        }
+
+        [TestMethod]
+        public async Task LoadTestAsync<T>()
+        {
+            dynamic items;
+            var response = await client.GetStringAsync(typeof(T).Name);
+            items = (JArray)JsonConvert.DeserializeObject(response);
+            List<T> values = items.ToObject<List<T>>();
+
+            Assert.IsTrue(values.Count > 0);
+
         }
 
         [TestMethod]
@@ -38,6 +53,7 @@ namespace Team9.Connect4.API.Test
             HttpResponseMessage response = client.DeleteAsync(typeof(T).Name + "/" + id + "/" + rollback).Result;
             string result = response.Content.ReadAsStringAsync().Result;
             Assert.IsTrue(Convert.ToInt32(result) > 0);
+
         }
 
         private async Task<Guid> GetId<T>(KeyValuePair<string, string> filter)
@@ -63,18 +79,9 @@ namespace Team9.Connect4.API.Test
                     id = (Guid)v.GetType().GetProperty("Id").GetValue(v, null);
                 }
             }
+
             return id;
-        }
 
-        [TestMethod]
-        public async Task LoadTestAsync<T>()
-        {
-            dynamic items;
-            var response = await client.GetStringAsync(typeof(T).Name);
-            items = (JArray)JsonConvert.DeserializeObject(response);
-            List<T> values = items.ToObject<List<T>>();
-
-            Assert.IsTrue(values.Count > 0);
         }
 
         [TestMethod]
@@ -92,21 +99,8 @@ namespace Team9.Connect4.API.Test
 
             Guid guid = Guid.Parse(result);
 
-            // Assert that the Guid coming back is not the same as empty guid
+            // Assert that the guid is not the same as an empty guid 00000000-0000000-
             Assert.IsFalse(guid.Equals(Guid.Empty));
-
-        }
-
-        [TestMethod]
-        public async Task LoadByIdTestAsync<T>(KeyValuePair<string, string> filter)
-        {
-            Guid id = await GetId<T>(filter);
-            dynamic items;
-            var response = client.GetStringAsync(typeof(T).Name + "/" + id).Result;
-            items = JsonConvert.DeserializeObject(response);
-            T item = items.ToObject<T>();
-
-            Assert.AreEqual(id, item.GetType().GetProperty("Id").GetValue(item, null));
         }
 
         [TestMethod]
@@ -142,6 +136,19 @@ namespace Team9.Connect4.API.Test
             var result = response.Content.ReadAsStringAsync().Result;
 
             Assert.IsTrue(Convert.ToInt32(result) > 0);
+
+        }
+
+        [TestMethod]
+        public async Task LoadByIdTestAsync<T>(KeyValuePair<string, string> filter)
+        {
+            Guid id = await GetId<T>(filter);
+            dynamic items;
+            var response = client.GetStringAsync(typeof(T).Name + "/" + id).Result;
+            items = JsonConvert.DeserializeObject(response);
+            T item = items.ToObject<T>();
+
+            Assert.AreEqual(id, item.GetType().GetProperty("Id").GetValue(item, null));
 
         }
     }
