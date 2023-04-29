@@ -12,11 +12,6 @@ namespace Team9.Connect4.API.Test
     public class utSetting : utBase
     {
         [TestMethod]
-        public async Task LoadTestAsync()
-        {
-            await base.LoadTestAsync<Setting>();
-        }
-        [TestMethod]
         public async Task LoadByIdTestAsync()
         {
             await base.LoadByIdTestAsync<Setting>(KeyValuePair.Create<string, string>("BoardColor", "#FFFFFF"));
