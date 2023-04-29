@@ -17,6 +17,31 @@ namespace Team9.Connect4.BL
         {
             return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
         }
+        public async static Task<IEnumerable<Setting>> Load()
+        {
+            try
+            {
+                List<Setting> settings = new List<Setting>();
+                using (Connect4Entities dc = new Connect4Entities())
+                {
+                    dc.tblSettings
+                        .ToList()
+                        .ForEach(c => settings.Add(new Setting
+                        {
+                            Id = c.Id,
+                            BoardColor = ColorTranslator.FromHtml(c.BoardColor),
+                            OpponentColor = ColorTranslator.FromHtml(c.OpponentColor),
+                            PlayerColor = ColorTranslator.FromHtml(c.PlayerColor)
+                        }));
+                }
+                return settings;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         public async static Task<Setting> Load(Guid id)
         {

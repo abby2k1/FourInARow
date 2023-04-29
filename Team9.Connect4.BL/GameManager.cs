@@ -113,12 +113,12 @@ namespace Team9.Connect4.BL
         {
             try
             {
-                List<Game> vehicles = new List<Game>();
+                List<Game> games = new List<Game>();
                 using (Connect4Entities dc = new Connect4Entities())
                 {
                     dc.tblResults
                         .ToList()
-                        .ForEach(c => vehicles.Add(new Game
+                        .ForEach(c => games.Add(new Game
                         {
                             Id = c.Id,
                             Turns = c.Turns,
@@ -126,7 +126,7 @@ namespace Team9.Connect4.BL
                             LoserId = (Guid)c.LoserID
                         }));
                 }
-                return vehicles;
+                return games;
             }
             catch (Exception ex)
             {
