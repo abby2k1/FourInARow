@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Reflection;
 
-namespace MDW.VehicleTracker.API.Test
+namespace Team9.Connect4.API.Test
 {
     class APIProject : WebApplicationFactory<Program>
     {
