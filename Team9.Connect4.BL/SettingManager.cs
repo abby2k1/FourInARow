@@ -58,32 +58,6 @@ namespace Team9.Connect4.BL
             return setting;
         }
 
-        public async static Task<List<Setting>> Load()
-        {
-            try
-            {
-                ColorConverter colorConverter = new ColorConverter();
-                List<Setting> settings = new List<Setting>();
-                using (Connect4Entities dc = new Connect4Entities())
-                {
-                    dc.tblSettings
-                        .ToList()
-                        .ForEach(c => settings.Add(new Setting
-                        {
-                            Id = c.Id,
-                            PlayerColor = (Color)colorConverter.ConvertFromString(c.PlayerColor),
-                            OpponentColor = (Color)colorConverter.ConvertFromString(c.OpponentColor),
-                            BoardColor = (Color)colorConverter.ConvertFromString(c.BoardColor)
-                }));
-                }
-                return settings;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public async static Task<Setting> LoadByPlayerId(Guid id)
         {
             Connect4Entities connect4Entities = new Connect4Entities();
