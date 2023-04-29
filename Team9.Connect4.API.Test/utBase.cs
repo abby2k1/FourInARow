@@ -1,5 +1,8 @@
 ﻿using Azure;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Newtonsoft.Json;
@@ -7,38 +10,51 @@ using Newtonsoft.Json.Linq;
 using System.Reflection;
 
 namespace Team9.Connect4.API.Test
-{ 
-class APIProject : WebApplicationFactory<Program>
 {
-    protected override IHost CreateHost(IHostBuilder builder)
+    class APIProject : WebApplicationFactory<Program>
     {
-        // Sharing the extra set up
-        return base.CreateHost(builder);
+        protected override IHost CreateHost(IHostBuilder builder)
+        {
+            // Sharing the extra set up
+            return base.CreateHost(builder);
+        }
     }
 
-}
-
-[TestClass]
-public abstract class utBase
-{
-    public HttpClient client { get; }
-    public Type type;
-    public utBase()
+    [TestClass]
+    public abstract class utBase
     {
-        var application = new APIProject();
-        client = application.CreateClient();
-        client.BaseAddress = new Uri(client.BaseAddress + "api/");
-    }
+        public HttpClient client { get; }
+        public Type type;
 
-    [TestMethod]
-    public async Task DeleteTestAsync<T>(KeyValuePair<string, string> filter)
-    {
-        Guid id = await GetId<T>(filter);
-        bool rollback = true;
-        HttpResponseMessage response = client.DeleteAsync(typeof(T).Name + "/" + id + "/" + rollback).Result;
-        string result = response.Content.ReadAsStringAsync().Result;
-        Assert.IsTrue(Convert.ToInt32(result) > 0);
-    }
+        public utBase()
+        {
+            var application = new APIProject();
+            client = application.CreateClient();
+            client.BaseAddress = new Uri(client.BaseAddress + "api/");
+        }
+
+        [TestMethod]
+        public async Task LoadTestAsync<T>()
+        {
+            dynamic items;
+            var response = await client.GetStringAsync(typeof(T).Name);
+            items = (JArray)JsonConvert.DeserializeObject(response);
+            List<T> values = items.ToObject<List<T>>();
+
+            Assert.IsTrue(values.Count > 0);
+
+        }
+
+        [TestMethod]
+        public async Task DeleteTestAsync<T>(KeyValuePair<string, string> filter)
+        {
+            Guid id = await GetId<T>(filter);
+            bool rollback = true;
+            HttpResponseMessage response = client.DeleteAsync(typeof(T).Name + "/" + id + "/" + rollback).Result;
+            string result = response.Content.ReadAsStringAsync().Result;
+            Assert.IsTrue(Convert.ToInt32(result) > 0);
+
+        }
 
     private async Task<Guid> GetId<T>(KeyValuePair<string, string> filter)
     {
@@ -56,26 +72,17 @@ public abstract class utBase
         var field = values[0].GetType().GetProperty(key);
         Guid id = Guid.Empty;
 
-        foreach (T v in values)
-        {
-            if (v.GetType().GetProperty(key).GetValue(v, null).ToString() == value)
+            foreach (T v in values)
             {
-                id = (Guid)v.GetType().GetProperty("Id").GetValue(v, null);
+                if (v.GetType().GetProperty(key).GetValue(v, null).ToString() == value)
+                {
+                    id = (Guid)v.GetType().GetProperty("Id").GetValue(v, null);
+                }
             }
+
+            return id;
+
         }
-        return id;
-    }
-
-    [TestMethod]
-    public async Task LoadTestAsync<T>()
-    {
-        dynamic items;
-        var response = await client.GetStringAsync(typeof(T).Name);
-        items = (JArray)JsonConvert.DeserializeObject(response);
-        List<T> values = items.ToObject<List<T>>();
-
-        Assert.IsTrue(values.Count > 0);
-    }
 
     [TestMethod]
     public async Task InsertTestAsync<T>(T item)
@@ -92,26 +99,13 @@ public abstract class utBase
 
         Guid guid = Guid.Parse(result);
 
-        // Assert that the Guid coming back is not the same as empty guid
-        Assert.IsFalse(guid.Equals(Guid.Empty));
+            // Assert that the guid is not the same as an empty guid 00000000-0000000-
+            Assert.IsFalse(guid.Equals(Guid.Empty));
+        }
 
-    }
-
-    [TestMethod]
-    public async Task LoadByIdTestAsync<T>(KeyValuePair<string, string> filter)
-    {
-        Guid id = await GetId<T>(filter);
-        dynamic items;
-        var response = client.GetStringAsync(typeof(T).Name + "/" + id).Result;
-        items = JsonConvert.DeserializeObject(response);
-        T item = items.ToObject<T>();
-
-        Assert.AreEqual(id, item.GetType().GetProperty("Id").GetValue(item, null));
-    }
-
-    [TestMethod]
-    public async Task UpdateTestAsync<T>(KeyValuePair<string, string> filter, T item)
-    {
+        [TestMethod]
+        public async Task UpdateTestAsync<T>(KeyValuePair<string, string> filter, T item)
+        {
 
         var response1 = await client.GetStringAsync(typeof(T).Name);
         dynamic items = (JArray)JsonConvert.DeserializeObject(response1);
@@ -143,6 +137,19 @@ public abstract class utBase
 
         Assert.IsTrue(Convert.ToInt32(result) > 0);
 
+        }
+
+        [TestMethod]
+        public async Task LoadByIdTestAsync<T>(KeyValuePair<string, string> filter)
+        {
+            Guid id = await GetId<T>(filter);
+            dynamic items;
+            var response = client.GetStringAsync(typeof(T).Name + "/" + id).Result;
+            items = JsonConvert.DeserializeObject(response);
+            T item = items.ToObject<T>();
+
+            Assert.AreEqual(id, item.GetType().GetProperty("Id").GetValue(item, null));
+
+        }
     }
-}
 }

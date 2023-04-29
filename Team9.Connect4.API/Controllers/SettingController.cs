@@ -13,8 +13,9 @@ namespace Team9.Connect4.API.Controllers
         /// </summary>
         /// <param name="id">tblSetting.Id</param>
         /// <returns>Setting</returns>
+        // GET api/<VehicleController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<BL.Models.Setting>>> Get(Guid id)
+        public async Task<ActionResult<BL.Models.Setting>> Get(Guid id)
         {
             try
             {
@@ -26,10 +27,8 @@ namespace Team9.Connect4.API.Controllers
                 {
                     return Ok(await SettingManager.LoadByPlayerId(id));
                 }
-                catch (Exception ex2)
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, ex2.Message);
-                }
+                catch { }
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
