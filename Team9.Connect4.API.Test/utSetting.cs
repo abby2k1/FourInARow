@@ -16,10 +16,11 @@ namespace Team9.Connect4.API.Test
         {
             await base.LoadTestAsync<Setting>();
         }
+
         [TestMethod]
         public async Task LoadByIdTestAsync()
         {
-            await base.LoadByIdTestAsync<Setting>(KeyValuePair.Create<string, string>("BoardColor", "FFFFFF"));
+            await base.LoadByIdTestAsync<Setting>(KeyValuePair.Create<string, string>("BoardColor", "#FFFFFF"));
         }
 
         [TestMethod]
@@ -38,7 +39,7 @@ namespace Team9.Connect4.API.Test
         [TestMethod]
         public async Task DeleteTestAsync()
         {
-            await base.DeleteTestAsync<Setting>(new KeyValuePair<string, string>("BoardColor", "FFFFFF"));
+            await base.DeleteTestAsync<Setting>(new KeyValuePair<string, string>("BoardColor", "#FFFFFF"));
         }
 
         [TestMethod]
@@ -51,7 +52,7 @@ namespace Team9.Connect4.API.Test
                 OpponentColor = Color.Black,
                 BoardColor = Color.Beige
             };
-            await base.UpdateTestAsync<Setting>(new KeyValuePair<string, string>("BoardColor", "FFFFFF"), setting);
+            await base.UpdateTestAsync<Setting>(new KeyValuePair<string, string>("BoardColor", "#FFFFFF"), setting);
         }
     }
 }
