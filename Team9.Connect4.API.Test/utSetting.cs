@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Team9.Connect4.BL.Models;
-using Team9.Connect4.API;
 using System.Drawing;
 
 namespace Team9.Connect4.API.Test
@@ -12,6 +11,11 @@ namespace Team9.Connect4.API.Test
     [TestClass]
     public class utSetting : utBase
     {
+        [TestMethod]
+        public async Task LoadTestAsync()
+        {
+            await base.LoadTestAsync<Setting>();
+        }
         [TestMethod]
         public async Task LoadByIdTestAsync()
         {
