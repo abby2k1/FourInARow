@@ -70,6 +70,7 @@
     <Build Include="ForeignKeys\fk_tblPlayer_SettingId.sql" />
     <Build Include="ForeignKeys\fk_tblResult_WinnerId.sql" />
     <Build Include="ForeignKeys\fk_tblResult_LoserId.sql" />
+    <Build Include="Tables\tblSavedGame.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />
@@ -83,8 +84,12 @@
     <None Include="PostDeploy\DefaultData\Results.sql" />
     <None Include="Remote.Publish.xml" />
     <None Include="local.publish.xml" />
+    <None Include="PostDeploy\DefaultData\SavedGame.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StoredProcedures\spLeaderboard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Team9.Connect4.DB.refactorlog" />
   </ItemGroup>
 </Project>

@@ -12,3 +12,4 @@
 DROP TABLE IF EXISTS dbo.tblResult
 DROP TABLE IF EXISTS dbo.tblPlayer
 DROP TABLE IF EXISTS dbo.tblSetting
+DROP TABLE IF EXISTS dbo.tblSavedGame

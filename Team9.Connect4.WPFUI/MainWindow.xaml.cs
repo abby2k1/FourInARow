@@ -103,6 +103,10 @@ namespace Connect4.WPFPrototype.UI
             btnLocal.Visibility = Visibility.Visible;
             btnRemote.Visibility = Visibility.Visible;
             btnComputer.Visibility = Visibility.Visible;
+            lblCodeText.Visibility = Visibility.Hidden;
+            lblGameCode.Visibility = Visibility.Hidden;
+            lblGameCode.Content = "TEST";
+            btnStartGame.Visibility = Visibility.Hidden;
             turn = 1;
             firstMove = true;
             localGame = false;
@@ -1248,7 +1252,9 @@ namespace Connect4.WPFPrototype.UI
 
         private void btnRemote_Click(object sender, RoutedEventArgs e)
         {
-            recButtonScreen.Visibility = Visibility.Hidden;
+            lblCodeText.Visibility = Visibility.Visible;
+            lblGameCode.Visibility = Visibility.Visible;
+            btnStartGame.Visibility = Visibility.Visible;
             btnLocal.Visibility = Visibility.Hidden;
             btnRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
@@ -1256,6 +1262,14 @@ namespace Connect4.WPFPrototype.UI
             localGame = false;
             aiGame = false;
             turn = 1;
+        }
+
+        private void btnStartGame_Click(object sender, RoutedEventArgs e)
+        {
+            recButtonScreen.Visibility = Visibility.Hidden;            
+            btnStartGame.Visibility = Visibility.Hidden;
+            lblGameCode.Visibility = Visibility.Hidden;
+            lblCodeText.Visibility = Visibility.Hidden;
         }
 
         //private void btnX44_Click(object sender, RoutedEventArgs e)

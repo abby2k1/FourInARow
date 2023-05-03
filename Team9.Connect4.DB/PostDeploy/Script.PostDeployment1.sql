@@ -12,3 +12,4 @@ Post-Deployment Script Template
 :r .\DefaultData\Settings.sql
 :r .\DefaultData\Players.sql
 :r .\DefaultData\Results.sql
+:r .\DefaultData\SavedGame.sql
