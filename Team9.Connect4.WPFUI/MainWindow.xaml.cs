@@ -127,22 +127,22 @@ namespace Connect4.WPFPrototype.UI
                 if ((values[i] == "1" && values[i + 1] == "1" && values[i + 2] == "1" && values[i + 3] == "1") || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2"))
                 {
                     WasWinner(winner);
-                    ClearAll();
+                    break;
                 }
                 if ((values[i] == "1" && values[i + 13] == "1" && values[i + 26] == "1" && values[i + 39] == "1") || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
                 {
                     WasWinner(winner);
-                    ClearAll();
+                    break;
                 }
                 if ((values[i] == "1" && values[i + 12] == "1" && values[i + 24] == "1" && values[i + 36] == "1") || (values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
                 {
                     WasWinner(winner);
-                    ClearAll();
+                    break;
                 }
                 if ((values[i] == "1" && values[i + 11] == "1" && values[i + 22] == "1" && values[i + 33] == "1") || (values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
                 {
                     WasWinner(winner);
-                    ClearAll();
+                    break;
                 }
                 //if ((values[i] == "1" && values[i - 1] == "1" && values[i - 2] == "1" && values[i - 3] == "1") || (values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
                 //{
@@ -320,13 +320,16 @@ namespace Connect4.WPFPrototype.UI
         private void ComputerRandom()
         {
             turn = 2;
-            Random rnd = new Random();
-            //int choice = rnd.Next(1, 8);
-            int choice = rnd.Next(1, 8);
+            int choice = 0;
             if (aiSpotPlace > 0)
             {
                 choice = aiSpotPlace;
                 aiSpotPlace = 0;
+            }
+            else
+            {
+                Random rnd = new Random();
+                choice = rnd.Next(1, 8);
             }
             if (choice == 1)
             {
@@ -1215,6 +1218,8 @@ namespace Connect4.WPFPrototype.UI
                 MessageBox.Show("Computer Wins", "Game Winner!!");
             else
                 MessageBox.Show("Player 2 WINNER!!!", "Game Winner!!");
+
+            ClearAll();
         }
 
         private void btnLocal_Click(object sender, RoutedEventArgs e)
@@ -1226,6 +1231,7 @@ namespace Connect4.WPFPrototype.UI
             localGame = true;
             remoteGame = false;
             aiGame = false;
+            turn = 1;
         }
 
         private void btnComputer_Click(object sender, RoutedEventArgs e)
@@ -1237,6 +1243,7 @@ namespace Connect4.WPFPrototype.UI
             aiGame = true;
             localGame = false;
             remoteGame = false;
+            turn = 1;
         }
 
         private void btnRemote_Click(object sender, RoutedEventArgs e)
@@ -1248,6 +1255,7 @@ namespace Connect4.WPFPrototype.UI
             remoteGame = true;
             localGame = false;
             aiGame = false;
+            turn = 1;
         }
 
         //private void btnX44_Click(object sender, RoutedEventArgs e)
