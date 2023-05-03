@@ -36,6 +36,7 @@ namespace Connect4.WPFPrototype.UI
         int nextAvailableCol5 = 87;
         int nextAvailableCol6 = 99;
         int nextAvailableCol7 = 111;
+        int aiSpotPlace = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -102,6 +103,19 @@ namespace Connect4.WPFPrototype.UI
             btnLocal.Visibility = Visibility.Visible;
             btnRemote.Visibility = Visibility.Visible;
             btnComputer.Visibility = Visibility.Visible;
+            turn = 1;
+            firstMove = true;
+            localGame = false;
+            remoteGame = false;
+            aiGame = false;
+            nextAvailableCol1 = 39;
+            nextAvailableCol2 = 51;
+            nextAvailableCol3 = 63;
+            nextAvailableCol4 = 75;
+            nextAvailableCol5 = 87;
+            nextAvailableCol6 = 99;
+            nextAvailableCol7 = 111;
+            aiSpotPlace = 0;
 
         }
 
@@ -163,7 +177,22 @@ namespace Connect4.WPFPrototype.UI
                     || (values[i] == "2" && values[i + 2] == "2" && values[i + 3] == "2" && (nextAvailableCol1 == i + 1 || nextAvailableCol2 == i + 1 || nextAvailableCol3 == i + 1 || nextAvailableCol4 == i + 1 || nextAvailableCol5 == i + 1 || nextAvailableCol6 == i + 1 || nextAvailableCol7 == i + 1))
                     || (values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
-                    WasWinner(winner);
+                    if (i >= 39 && i <= 44)
+                        aiSpotPlace = 1;
+                    else if (i >= 51 && i <= 56)
+                        aiSpotPlace = 2;
+                    else if (i >= 63 && i <= 68)
+                        aiSpotPlace = 3;
+                    else if (i >= 75 && i <= 80)
+                        aiSpotPlace = 4;
+                    else if (i >= 87 && i <= 92)
+                        aiSpotPlace = 5;
+                    else if (i >= 99 && i <= 104)
+                        aiSpotPlace = 6;
+                    else if (i >= 111 && i <= 116)
+                        aiSpotPlace = 7;
+                    ComputerRandom();
+                    //WasWinner(winner);
                     ClearAll();
                 }
                 if ((values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && (nextAvailableCol1 == i + 39 || nextAvailableCol2 == i + 39 || nextAvailableCol3 == i + 39 || nextAvailableCol4 == i + 39 || nextAvailableCol5 == i + 39 || nextAvailableCol6 == i + 39 || nextAvailableCol7 == i + 39))
@@ -171,7 +200,22 @@ namespace Connect4.WPFPrototype.UI
                     || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && (nextAvailableCol1 == i + 13 || nextAvailableCol2 == i + 13 || nextAvailableCol3 == i + 13 || nextAvailableCol4 == i + 13 || nextAvailableCol5 == i + 13 || nextAvailableCol6 == i + 13 || nextAvailableCol7 == i + 13))
                     || (values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
-                    WasWinner(winner);
+                    if (i >= 39 && i <= 44)
+                        aiSpotPlace = 1;
+                    else if (i >= 51 && i <= 56)
+                        aiSpotPlace = 2;
+                    else if (i >= 63 && i <= 68)
+                        aiSpotPlace = 3;
+                    else if (i >= 75 && i <= 80)
+                        aiSpotPlace = 4;
+                    else if (i >= 87 && i <= 92)
+                        aiSpotPlace = 5;
+                    else if (i >= 99 && i <= 104)
+                        aiSpotPlace = 6;
+                    else if (i >= 111 && i <= 116)
+                        aiSpotPlace = 7;
+                    ComputerRandom();
+                    //WasWinner(winner);
                     ClearAll();
                 }
                 if ((values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && (nextAvailableCol1 == i + 36 || nextAvailableCol2 == i + 36 || nextAvailableCol3 == i + 36 || nextAvailableCol4 == i + 36 || nextAvailableCol5 == i + 36 || nextAvailableCol6 == i + 36 || nextAvailableCol7 == i + 36))
@@ -179,7 +223,22 @@ namespace Connect4.WPFPrototype.UI
                     || (values[i] == "2" && values[i + 24] == "2" && values[i + 36] == "2" && (nextAvailableCol1 == i + 12 || nextAvailableCol2 == i + 12 || nextAvailableCol3 == i + 12 || nextAvailableCol4 == i + 12 || nextAvailableCol5 == i + 12 || nextAvailableCol6 == i + 12 || nextAvailableCol7 == i + 12))
                     || (values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
-                    WasWinner(winner);
+                    if (i >= 39 && i <= 44)
+                        aiSpotPlace = 1;
+                    else if (i >= 51 && i <= 56)
+                        aiSpotPlace = 2;
+                    else if (i >= 63 && i <= 68)
+                        aiSpotPlace = 3;
+                    else if (i >= 75 && i <= 80)
+                        aiSpotPlace = 4;
+                    else if (i >= 87 && i <= 92)
+                        aiSpotPlace = 5;
+                    else if (i >= 99 && i <= 104)
+                        aiSpotPlace = 6;
+                    else if (i >= 111 && i <= 116)
+                        aiSpotPlace = 7;
+                    ComputerRandom();
+                    //WasWinner(winner);
                     ClearAll();
                 }
                 if ((values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && (nextAvailableCol1 == i + 33 || nextAvailableCol2 == i + 33 || nextAvailableCol3 == i + 33 || nextAvailableCol4 == i + 33 || nextAvailableCol5 == i + 33 || nextAvailableCol6 == i + 33 || nextAvailableCol7 == i + 33))
@@ -187,7 +246,22 @@ namespace Connect4.WPFPrototype.UI
                     || (values[i] == "2" && values[i + 22] == "2" && values[i + 33] == "2" && (nextAvailableCol1 == i + 11 || nextAvailableCol2 == i + 11 || nextAvailableCol3 == i + 11 || nextAvailableCol4 == i + 11 || nextAvailableCol5 == i + 11 || nextAvailableCol6 == i + 11 || nextAvailableCol7 == i + 11))
                     || (values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2" && (nextAvailableCol1 == i || nextAvailableCol2 == i || nextAvailableCol3 == i || nextAvailableCol4 == i || nextAvailableCol5 == i || nextAvailableCol6 == i || nextAvailableCol7 == i)))
                 {
-                    WasWinner(winner);
+                    if (i >= 39 && i <= 44)
+                        aiSpotPlace = 1;
+                    else if (i >= 51 && i <= 56)
+                        aiSpotPlace = 2;
+                    else if (i >= 63 && i <= 68)
+                        aiSpotPlace = 3;
+                    else if (i >= 75 && i <= 80)
+                        aiSpotPlace = 4;
+                    else if (i >= 87 && i <= 92)
+                        aiSpotPlace = 5;
+                    else if (i >= 99 && i <= 104)
+                        aiSpotPlace = 6;
+                    else if (i >= 111 && i <= 116)
+                        aiSpotPlace = 7;
+                    ComputerRandom();
+                    //WasWinner(winner);
                     ClearAll();
                 }
                 //if ((values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
@@ -247,7 +321,13 @@ namespace Connect4.WPFPrototype.UI
         {
             turn = 2;
             Random rnd = new Random();
+            //int choice = rnd.Next(1, 8);
             int choice = rnd.Next(1, 8);
+            if (aiSpotPlace > 0)
+            {
+                choice = aiSpotPlace;
+                aiSpotPlace = 0;
+            }
             if (choice == 1)
             {
                 if (values[39] == "0")
@@ -302,6 +382,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol1.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 2;
                     ComputerRandom();
                 }
             }
@@ -359,6 +440,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol2.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 3;
                     ComputerRandom();
                 }
             }
@@ -416,6 +498,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol3.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 4;
                     ComputerRandom();
                 }
             }
@@ -473,6 +556,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol4.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 5;
                     ComputerRandom();
                 }
             }
@@ -530,6 +614,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol5.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 6;
                     ComputerRandom();
                 }
             }
@@ -587,6 +672,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol6.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 7;
                     ComputerRandom();
                 }
             }
@@ -643,6 +729,7 @@ namespace Connect4.WPFPrototype.UI
                 else
                 {
                     btnCol7.Visibility = Visibility.Hidden;
+                    aiSpotPlace = 1;
                     ComputerRandom();
                 }
             }
@@ -1123,6 +1210,9 @@ namespace Connect4.WPFPrototype.UI
         {
             if (winner == "1")
                 MessageBox.Show("Player 1 WINNER!!!", "Game Winner!!");
+            else
+                if (aiGame == true)
+                MessageBox.Show("Computer Wins", "Game Winner!!");
             else
                 MessageBox.Show("Player 2 WINNER!!!", "Game Winner!!");
         }
