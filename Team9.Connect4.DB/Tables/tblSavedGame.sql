@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[tblSavedGame]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [ResultsId] UNIQUEIDENTIFIER NOT NULL, 
+    [Player1Id] UNIQUEIDENTIFIER NOT NULL, 
+    [Player2Id] UNIQUEIDENTIFIER NOT NULL, 
+    [BoardState] NVARCHAR(MAX) NOT NULL
+)
