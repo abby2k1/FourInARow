@@ -148,26 +148,6 @@ namespace Connect4.WPFPrototype.UI
                     WasWinner(winner);
                     break;
                 }
-                //if ((values[i] == "1" && values[i - 1] == "1" && values[i - 2] == "1" && values[i - 3] == "1") || (values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
-                //{
-                //    MessageBox.Show("WINNER!!!");
-                //    ClearAll();
-                //}
-                //if ((values[i] == "1" && values[i - 13] == "1" && values[i - 26] == "1" && values[i - 39] == "1") || (values[i] == "2" && values[i - 13] == "2" && values[i - 26] == "2" && values[i - 39] == "2"))
-                //{
-                //    MessageBox.Show("WINNER!!!");
-                //    ClearAll();
-                //}
-                //if ((values[i] == "1" && values[i - 12] == "1" && values[i - 24] == "1" && values[i - 36] == "1") || (values[i] == "2" && values[i - 12] == "2" && values[i - 24] == "2" && values[i - 36] == "2"))
-                //{
-                //    MessageBox.Show("WINNER!!!");
-                //    ClearAll();
-                //}
-                //if ((values[i] == "1" && values[i - 11] == "1" && values[i - 22] == "1" && values[i - 33] == "1") || (values[i] == "2" && values[i - 11] == "2" && values[i - 22] == "2" && values[i - 33] == "2"))
-                //{
-                //    MessageBox.Show("WINNER!!!");
-                //    ClearAll();
-                //}
             }
         }
 
