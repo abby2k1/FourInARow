@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    width: 200px;
+}
