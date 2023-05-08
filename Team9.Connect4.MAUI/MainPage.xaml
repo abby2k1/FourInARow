@@ -54,13 +54,13 @@
         <Rectangle x:Name="rec104" HorizontalOptions="Start" Height="47" Margin="535,97,0,0" Stroke="Black" VerticalOptions="Start" Width="80"/>
         
         <Label x:Name="lblPlayerTurn" Text="" HorizontalTextAlignment="Center" HorizontalOptions="Start" Height="48" Margin="295,23,0,0" VerticalOptions="Start" Width="240" FontSize="20" FontFamily="Lucida Bright"/>
-        <Button x:Name="btnCol1" Margin="110,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol1_MouseDown" />
-        <Button x:Name="btnCol2" Margin="190,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol2_MouseDown" />
-        <Button x:Name="btnCol3" Margin="270,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol3_MouseDown" />
-        <Button x:Name="btnCol4" Margin="350,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol4_MouseDown" />
-        <Button x:Name="btnCol5" Margin="430,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol5_MouseDown" />
-        <Button x:Name="btnCol6" Margin="510,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol6_MouseDown" />
-        <Button x:Name="btnCol7" Margin="590,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol7_MouseDown" />
+        <Button x:Name="btnCol1" Margin="110,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol1_Clicked" />
+        <Button x:Name="btnCol2" Margin="190,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol2_Clicked" />
+        <Button x:Name="btnCol3" Margin="270,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol1_Clicked" />
+        <Button x:Name="btnCol4" Margin="350,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol4_Clicked" />
+        <Button x:Name="btnCol5" Margin="430,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol5_Clicked" />
+        <Button x:Name="btnCol6" Margin="510,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol6_Clicked" />
+        <Button x:Name="btnCol7" Margin="590,80,0,0"  Height="20" Width="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol7_Clicked" />
         
         <Rectangle x:Name="recButtonScreen" HorizontalOptions="Center" Height="434" Stroke="Black" VerticalOptions="Center" Width="800" IsVisible="False">
             <Rectangle.Fill>
@@ -70,8 +70,8 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="btnLocal" Text="Local Game" HorizontalOptions="Start" Margin="309,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnLocal_Click"/>
-        <Button x:Name="btnRemote" Text="Remote Game" HorizontalOptions="Start" Margin="540,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnRemote_Click"/>
-        <Button x:Name="btnComputer" Text="Against Computer" HorizontalOptions="Start" Margin="69,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnComputer_Click"/>
+        <Button x:Name="btnLocal" Text="Local Game" HorizontalOptions="Start" Margin="309,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnLocal_Clicked"/>
+        <Button x:Name="btnRemote" Text="Remote Game" HorizontalOptions="Start" Margin="540,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnRemote_Clicked"/>
+        <Button x:Name="btnComputer" Text="Against Computer" HorizontalOptions="Start" Margin="69,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnComputer_Clicked"/>
     </Grid>
 </ContentPage>

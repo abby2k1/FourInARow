@@ -19,19 +19,21 @@ public partial class Connect4Entities : DbContext
 
     public virtual DbSet<tblResult> tblResults { get; set; }
 
+    public virtual DbSet<tblSavedGame> tblSavedGames { get; set; }
+
     public virtual DbSet<tblSetting> tblSettings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true");
-        //optionsBuilder.UseSqlServer("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        //optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true");
+        optionsBuilder.UseSqlServer("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        optionsBuilder.UseLazyLoadingProxies();
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<tblPlayer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC073012DE6C");
+            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC07C90C48EB");
 
             entity.ToTable("tblPlayer");
 
@@ -45,7 +47,7 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblResult>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC079E699DAF");
+            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC071F46774B");
 
             entity.ToTable("tblResult");
 
@@ -60,9 +62,21 @@ public partial class Connect4Entities : DbContext
                 .HasConstraintName("fk_tblResult_WinnerId");
         });
 
+        modelBuilder.Entity<tblSavedGame>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__tblSaved__3214EC072FA8B99D");
+
+            entity.ToTable("tblSavedGame");
+
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.GameCode)
+                .HasMaxLength(10)
+                .IsFixedLength();
+        });
+
         modelBuilder.Entity<tblSetting>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC07051DAEEE");
+            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC0751E36449");
 
             entity.ToTable("tblSetting");
 
