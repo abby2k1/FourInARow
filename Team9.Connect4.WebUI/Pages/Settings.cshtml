@@ -6,4 +6,46 @@
 
 <div class="text-center">
     <h1 class="display-4">Settings</h1>
+
+    <div id="">
+        <p class="lblBoardColor">
+            Pick a Board Color:
+        </p>
+        <input type="color" id="colorPickerBoard" />
+    </div>
+    
+    <br />
+
+    <div>
+        <p class="lblPlayerColor">
+            Pick Your Color:
+        </p>
+        <input type="color" id="colorPickerPlayer" />
+    </div>
+    
+    <br />
+
+    <div>
+        <p class="lblOpponentColor">
+            Pick Opponents Color:
+        </p>
+        <input type="color" id="colorPickerOpponent" />
+    </div>
+    
+    <div class="container">
+        <button class="btn" id="btnHome">
+            <a asp-page="/Index">Back to Home</a>
+        </button>
+    </div>
+    
+
+    @*<script>
+        var colorPicker = document.getElementById("colorPicker");
+        colorPicker = addEventListener("change", function() {
+            var color = colorPicker.value;
+            document.writeln("Selected color: " + color);
+        });
+    </script>*@
+
+
 </div>

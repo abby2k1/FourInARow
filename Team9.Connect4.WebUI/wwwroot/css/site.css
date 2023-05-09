@@ -29,6 +29,15 @@ body {
     border-radius: 5px;
 }
 
+.container {
+    text-align: right;
+}
+
+#btnHome {
+    margin-top: 200px;
+    
+}
+
 [role=button] {
     cursor: pointer;
 }
