@@ -10,7 +10,7 @@
     <br />
     <br />
     <button class="btn" id="btnSettings">
-        @Html.ActionLink("Settings", "Settings", "Home")
+        <a asp-page="/Settings">Settings</a>
     </button>
     
     <button class="btn" id="btnPlay">Play</button>
@@ -18,7 +18,7 @@
 
 <script>
     $(function () {
-        $("#myButton").click(function () {
+        $("#btnSettings").click(function () {
             alert("Button clicked!");
         });
     });

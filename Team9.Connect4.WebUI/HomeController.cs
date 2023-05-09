@@ -3,27 +3,32 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Team9.Connect4.WebUI
 {
-    public class SettingController : Controller
+    public class HomeController : Controller
     {
-        // GET: SettingController
+        // GET: HomeController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: SettingController/Details/5
+        public ActionResult Settings()
+        {
+            return View("Settings");
+        }
+
+        // GET: HomeController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: SettingController/Create
+        // GET: HomeController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SettingController/Create
+        // POST: HomeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +43,13 @@ namespace Team9.Connect4.WebUI
             }
         }
 
-        // GET: SettingController/Edit/5
+        // GET: HomeController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: SettingController/Edit/5
+        // POST: HomeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +64,13 @@ namespace Team9.Connect4.WebUI
             }
         }
 
-        // GET: SettingController/Delete/5
+        // GET: HomeController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: SettingController/Delete/5
+        // POST: HomeController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
