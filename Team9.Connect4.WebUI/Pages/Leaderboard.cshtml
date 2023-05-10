@@ -1,0 +1,76 @@
+﻿@page
+@model Team9.Connect4.WebUI.Pages.Shared.LeaderboardModel
+@{
+    ViewData["Title"] = "Leaderboard";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div>
+        <table class="leaderboardTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Winner</th>
+                    <th>Turns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5647812309</td>
+                    <td>Player1</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>9873456120</td>
+                    <td>Player2</td>
+                    <td>16</td>
+                </tr>
+            </tbody>
+        </table>
+
+        @*<dl class="row">
+        <dt class="col-sm-2">
+        Id
+        @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+        Winner
+        @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+        Turns
+        @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Cost)
+        </dd>
+        </dl>*@
+
+        @*<div class="form-group col-sm-10">
+        <label asp-for="Title" class="control-label"></label>
+        <img class="imagepropmed"
+        alt="@Model.Title"
+        id="movieimage"
+        onclick="on('/images/@Model.ImagePath');"
+        src="~/images/@Model.ImagePath" />
+        <input asp-for="ImagePath" class="form-control" />
+        //<input type="file" name="File" id="File" accept="image/" onchange="loadFile(event)" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+        </div>*@
+
+        <div class="container">
+            <button class="btn" id="btnHome">
+                <a asp-page="/Index">Back to Home</a>
+            </button>
+        </div>
+
+    </div>
+</body>
+

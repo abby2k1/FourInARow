@@ -3,33 +3,45 @@
 @{
     ViewData["Title"] = "Settings";
 }
-
-<div class="text-center">
+<body>
+    <div class="text-center">
     <h1 class="display-4">Settings</h1>
 
-    <div id="">
-        <p class="lblBoardColor">
-            Pick a Board Color:
-        </p>
-        <input type="color" id="colorPickerBoard" />
+    <div class="floatContainer">
+        <div class="containerLeft">
+            <p class="lblBoardColor">
+                Pick a Board Color:
+            </p>
+        </div>
+        <div class="containerRight">
+            <input type="color" id="colorPickerBoard" />
+        </div>
     </div>
-    
+
     <br />
 
-    <div>
-        <p class="lblPlayerColor">
-            Pick Your Color:
-        </p>
-        <input type="color" id="colorPickerPlayer" />
+    <div class="floatContainer">
+        <div class="containerLeft">
+            <p class="lblPlayerColor">
+                Pick Your Color:
+            </p>
+        </div>
+        <div class="containerRight">
+            <input type="color" id="colorPickerPlayer" />
+        </div>
     </div>
-    
+
     <br />
 
-    <div>
-        <p class="lblOpponentColor">
-            Pick Opponents Color:
-        </p>
-        <input type="color" id="colorPickerOpponent" />
+    <div class="floatContainer">
+        <div class="containerLeft">
+            <p class="lblOpponentColor">
+                Pick Opponents Color:
+            </p>
+        </div>
+        <div class="containerRight">
+            <input type="color" id="colorPickerOpponent" />
+        </div>
     </div>
     
     <div class="container">
@@ -49,3 +61,4 @@
 
 
 </div>
+</body>

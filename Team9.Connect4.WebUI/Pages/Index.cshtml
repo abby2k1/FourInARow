@@ -4,23 +4,28 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Connect 4</h1>
-    <br />
-    <br />
-    <br />
-    <button class="btn" id="btnSettings">
-        <a asp-page="/Settings">Settings</a>
-    </button>
-    
-    <button class="btn" id="btnPlay">Play</button>
-    <button class="btn" id="btnLeaderboard">Leaderboard</button>
-</div>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Connect 4</h1>
+        <br />
+        <br />
+        <br />
+        <button class="btn" id="btnSettings">
+            <a asp-page="/Settings">Settings</a>
+        </button>
 
-<script>
-    $(function () {
-        $("#btnSettings").click(function () {
-            alert("Button clicked!");
+        <button class="btn" id="btnPlay">Play</button>
+        <button class="btn" id="btnLeaderboard">
+            <a asp-page="/Leaderboard">Leaderboard</a>
+        </button>
+    </div>
+
+    <script>
+        $(function () {
+            $("#btnSettings").click(function () {
+                alert("Button clicked!");
+            });
         });
-    });
-</script>
+    </script>
+</body>
+
