@@ -1189,5 +1189,17 @@
             lblGameCode.IsVisible = false;
             lblCodeText.IsVisible = false;
         }
+
+        private void btnLocal_Clicked(object sender, EventArgs e)
+        {
+            recButtonScreen.IsVisible = false;
+            btnLocal.IsVisible = false;
+            btnRemote.IsVisible = false;
+            btnComputer.IsVisible = false;
+            localGame = true;
+            remoteGame = false;
+            aiGame = false;
+            turn = 1;
+        }
     }
 }
