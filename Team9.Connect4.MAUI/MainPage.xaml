@@ -75,6 +75,6 @@
         <Button x:Name="btnComputer" Text="Against Computer" HorizontalOptions="Start" Margin="69,153,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnComputer_Clicked"/>
         <Label x:Name="lblCodeText" Text="Your Game Code Is:" HorizontalOptions="Start" Margin="335,47,0,0" VerticalOptions="Start" TextColor="White" Height="33" Width="146"/>
         <Label x:Name="lblGameCode" Text="" HorizontalOptions="Start" Margin="335,80,0,0" VerticalOptions="Start" TextColor="White" Height="62" Width="146" FontSize="36"/>
-        <Button x:Name="btnStartGame" Text="Start Remote Game" HorizontalOptions="Start" Margin="308,332,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnStartGame_Click"/>
+        <Button x:Name="btnStartGame" Text="Start Remote Game" HorizontalOptions="Start" Margin="308,332,0,0" VerticalOptions="Start" Width="212" Height="85" Clicked="btnStartGame_Clicked"/>
     </Grid>
 </ContentPage>

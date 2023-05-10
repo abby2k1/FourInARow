@@ -300,6 +300,7 @@ namespace Connect4.WPFPrototype.UI
             }
 
         }
+
         #region ComputerRandom
         private void ComputerRandom()
         {
@@ -1252,6 +1253,7 @@ namespace Connect4.WPFPrototype.UI
             lblCodeText.Visibility = Visibility.Hidden;
         }
 
+        #region OldButtonCode
         //private void btnX44_Click(object sender, RoutedEventArgs e)
         //{
         //    rec44.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
@@ -1839,5 +1841,6 @@ namespace Connect4.WPFPrototype.UI
         //    values[111] = "2";
         //    CheckWinner();
         //}
+        #endregion
     }
 }

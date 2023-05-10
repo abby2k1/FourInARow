@@ -105,14 +105,19 @@ namespace Team9.Connect4.BL
                     {
                         throw new Exception("Row was not found.");
                     }
+
+                    if (!rollback)
+                    {
+                        //CheckWinner();
+                    }
                     return results;
                 }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
+            
         }
         public async static Task<IEnumerable<Game>> Load()
         {

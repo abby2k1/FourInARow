@@ -5,5 +5,5 @@
     [Player1Id] UNIQUEIDENTIFIER NOT NULL, 
     [Player2Id] UNIQUEIDENTIFIER NOT NULL, 
     [BoardState] NVARCHAR(MAX) NOT NULL, 
-    [GameCode] NCHAR(10) NOT NULL
+    [GameCode] NCHAR(10) NOT NULL Unique
 )

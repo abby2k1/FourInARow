@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,6 +140,21 @@ namespace Team9.Connect4.BL
 
                 throw ex;
             }
+        }
+        public async static Task<SavedGame> Load(Guid id)
+        {
+            Connect4Entities dc = new Connect4Entities();
+            tblSavedGame tblSavedGame = new tblSavedGame();
+            tblSavedGame = await dc.tblSavedGames.FindAsync(id);
+            SavedGame savedGame = new SavedGame();
+            savedGame.Id = tblSavedGame.Id;
+            savedGame.ResultsId = tblSavedGame.ResultsId;
+            savedGame.Player1Id = tblSavedGame.Player1Id;
+            savedGame.Player2Id = tblSavedGame.Player2Id;
+            savedGame.BoardState = tblSavedGame.BoardState;
+            savedGame.GameCode = tblSavedGame.GameCode;
+
+            return savedGame;
         }
     }
 }
