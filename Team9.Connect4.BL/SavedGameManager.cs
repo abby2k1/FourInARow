@@ -9,9 +9,9 @@ using Team9.Connect4.PL;
 
 namespace Team9.Connect4.BL
 {
-    public class GameManager
+    public class SavedGameManager
     {
-        public async static Task<int> Insert(Game game, bool rollback = false)
+        public async static Task<int> Insert(SavedGame savedGame, bool rollback = false)
         {
             try
             {
@@ -21,15 +21,17 @@ namespace Team9.Connect4.BL
                 {
                     if (rollback) transaction = dc.Database.BeginTransaction();
 
-                    tblResult newrow = new tblResult();
+                    tblSavedGame newrow = new tblSavedGame();
                     newrow.Id = Guid.NewGuid();
-                    newrow.Turns = game.Turns;
-                    newrow.WinnerId = game.WinnerId;
-                    newrow.LoserID = game.LoserId;
+                    newrow.ResultsId = savedGame.ResultsId;
+                    newrow.Player1Id = savedGame.Player1Id;
+                    newrow.Player2Id = savedGame.Player2Id;
+                    newrow.BoardState = savedGame.BoardState;
+                    newrow.GameCode = savedGame.GameCode;
 
-                    game.Id = newrow.Id;
+                    savedGame.Id = newrow.Id;
 
-                    dc.tblResults.Add(newrow);
+                    dc.tblSavedGames.Add(newrow);
                     int results = dc.SaveChanges();
 
                     if (rollback) transaction.Rollback();
@@ -50,25 +52,20 @@ namespace Team9.Connect4.BL
                 IDbContextTransaction transaction = null;
                 using (Connect4Entities dc = new Connect4Entities())
                 {
-                    if (rollback) transaction = dc.Database.BeginTransaction();
 
-                    tblSavedGame tblSavedGame = dc.tblSavedGames.FirstOrDefault(c => c.ResultsId == id);
-                    if (tblSavedGame != null)
-                    {
-                        dc.tblSavedGames.Remove(tblSavedGame);
-                    }
-
-                    tblResult row = dc.tblResults.FirstOrDefault(c => c.Id == id);
+                    tblSavedGame row = dc.tblSavedGames.FirstOrDefault(c => c.Id == id);
                     int results = 0;
                     if (row != null)
                     {
-                        dc.tblResults.Remove(row);
+                        if (rollback) transaction = dc.Database.BeginTransaction();
+
+                        dc.tblSavedGames.Remove(row);
                         results = dc.SaveChanges();
                         if (rollback) transaction.Rollback();
+
                     }
                     else
                     {
-                        if (rollback) transaction.Rollback();
                         throw new Exception("Row was not found.");
                     }
                     return results;
@@ -81,22 +78,24 @@ namespace Team9.Connect4.BL
             }
         }
 
-        public async static Task<int> Update(Game game, bool rollback = false)
+        public async static Task<int> Update(SavedGame savedGame, bool rollback = false)
         {
             try
             {
                 IDbContextTransaction transaction = null;
                 using (Connect4Entities dc = new Connect4Entities())
                 {
-                    tblResult row = dc.tblResults.FirstOrDefault(c => c.Id == game.Id);
+                    tblSavedGame row = dc.tblSavedGames.FirstOrDefault(c => c.Id == savedGame.Id);
                     int results = 0;
                     if (row != null)
                     {
                         if (rollback) transaction = dc.Database.BeginTransaction();
-                        //row.Id = Guid.NewGuid();
-                        row.Turns = game.Turns;
-                        row.WinnerId = game.WinnerId;
-                        row.LoserID = game.LoserId;
+                        row.Id = Guid.NewGuid();
+                        row.ResultsId = savedGame.ResultsId;
+                        row.Player1Id = savedGame.Player1Id;
+                        row.Player2Id = savedGame.Player2Id;
+                        row.BoardState = savedGame.BoardState;
+                        row.GameCode = savedGame.GameCode;
                         results = dc.SaveChanges();
                         if (rollback) transaction.Rollback();
 
@@ -114,24 +113,26 @@ namespace Team9.Connect4.BL
                 throw ex;
             }
         }
-        public async static Task<IEnumerable<Game>> Load()
+        public async static Task<IEnumerable<SavedGame>> Load()
         {
             try
             {
-                List<Game> games = new List<Game>();
+                List<SavedGame> savedGames = new List<SavedGame>();
                 using (Connect4Entities dc = new Connect4Entities())
                 {
-                    dc.tblResults
+                    dc.tblSavedGames
                         .ToList()
-                        .ForEach(c => games.Add(new Game
+                        .ForEach(c => savedGames.Add(new SavedGame
                         {
                             Id = c.Id,
-                            Turns = c.Turns,
-                            WinnerId = (Guid)c.WinnerId,
-                            LoserId = (Guid)c.LoserID
+                            ResultsId = (Guid)c.ResultsId,
+                            Player1Id = (Guid)c.Player1Id,
+                            Player2Id = (Guid)c.Player2Id,
+                            BoardState = c.BoardState,
+                            GameCode = c.GameCode
                         }));
                 }
-                return games;
+                return savedGames;
             }
             catch (Exception ex)
             {

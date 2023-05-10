@@ -7,7 +7,7 @@ public partial class tblSavedGame
 {
     public Guid Id { get; set; }
 
-    public Guid ResultsId { get; set; }
+    public Guid? ResultsId { get; set; } = null!;
 
     public Guid Player1Id { get; set; }
 
