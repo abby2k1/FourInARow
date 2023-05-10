@@ -54,13 +54,13 @@
         <Rectangle x:Name="rec104" HorizontalOptions="Start" HeightRequest="47" Margin="535,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
         
         <Label x:Name="lblPlayerTurn" Text="" HorizontalTextAlignment="Center" HorizontalOptions="Start" HeightRequest="48" Margin="295,23,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="20" FontFamily="Lucida Bright"/>
-        <Button x:Name="btnCol1" Margin="110,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol1_Clicked" />
-        <Button x:Name="btnCol2" Margin="190,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol2_Clicked" />
-        <Button x:Name="btnCol3" Margin="270,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol3_Clicked" />
-        <Button x:Name="btnCol4" Margin="350,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol4_Clicked" />
-        <Button x:Name="btnCol5" Margin="430,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol5_Clicked" />
-        <Button x:Name="btnCol6" Margin="510,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol6_Clicked" />
-        <Button x:Name="btnCol7" Margin="590,80,0,0"  HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol7_Clicked" />
+        <Button x:Name="btnCol1" Margin="137,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol1_Clicked" />
+        <Button x:Name="btnCol2" Margin="217,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol2_Clicked" />
+        <Button x:Name="btnCol3" Margin="297,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol3_Clicked" />
+        <Button x:Name="btnCol4" Margin="377,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol4_Clicked" />
+        <Button x:Name="btnCol5" Margin="457,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol5_Clicked" />
+        <Button x:Name="btnCol6" Margin="537,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol6_Clicked" />
+        <Button x:Name="btnCol7" Margin="617,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol7_Clicked" />
         
         <Rectangle x:Name="recButtonScreen" HorizontalOptions="Center" HeightRequest="2160" Stroke="Black" VerticalOptions="Center" WidthRequest="3840" IsVisible="False">
             <Rectangle.Fill>
