@@ -630,6 +630,10 @@
             btnLocal.IsVisible = true;
             btnRemote.IsVisible = true;
             btnComputer.IsVisible = true;
+            lblCodeText.IsVisible = false;
+            lblGameCode.IsVisible = false;
+            lblGameCode.Text = "TEST";
+            btnStartGame.IsVisible = false;
             turn = 1;
             firstMove = true;
             localGame = false;
@@ -643,6 +647,7 @@
             nextAvailableCol6 = 99;
             nextAvailableCol7 = 111;
             aiSpotPlace = 0;
+
         }
 
         private void CheckWinner()
