@@ -12,7 +12,7 @@ namespace Team9.Connect4.WebUI.Pages.Shared
         {
             List<Leaderboard> leaderboards = new List<Leaderboard>();
 
-            using (SqlConnection conn = new SqlConnection("Server=(localhost)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true"))
+            using (SqlConnection conn = new SqlConnection("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 conn.Open();
 
