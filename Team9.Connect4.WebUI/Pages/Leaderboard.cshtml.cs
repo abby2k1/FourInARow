@@ -16,7 +16,7 @@ namespace Team9.Connect4.WebUI.Pages.Shared
             {
                 conn.Open();
 
-                SqlCommand sqlCommand = new SqlCommand("spLeaderboard", conn);
+                SqlCommand sqlCommand = new SqlCommand("dbo.spLeaderboard", conn);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 SqlDataReader dataReader = sqlCommand.ExecuteReader();

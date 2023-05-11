@@ -4,4 +4,4 @@ AS
 	p.Username Username
 	FROM tblResult r
 	INNER JOIN tblPlayer p on r.Id = p.Id
-RETURN 0
+RETURN
