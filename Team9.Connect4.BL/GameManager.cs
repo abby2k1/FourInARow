@@ -136,7 +136,7 @@ namespace Team9.Connect4.BL
                             LoserId = (Guid)c.LoserID
                         }));
                 }
-                return games;
+                return games.OrderBy(c=>c.Turns);
             }
             catch (Exception ex)
             {
