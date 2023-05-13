@@ -8,4 +8,8 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <ProjectReference Include="..\Team9.Connect4.BL.Models\Team9.Connect4.BL.Models.csproj" />
+    <ProjectReference Include="..\Team9.Connect4.BL\Team9.Connect4.BL.csproj" />
+  </ItemGroup>
 </Project>
