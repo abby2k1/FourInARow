@@ -72,6 +72,7 @@
     <Build Include="ForeignKeys\fk_tblResult_LoserId.sql" />
     <Build Include="Tables\tblSavedGame.sql" />
     <Build Include="ForeignKeys\fk_tblSavedGame_ResultsId.sql" />
+    <Build Include="StoredProcedures\spGameHistory.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />

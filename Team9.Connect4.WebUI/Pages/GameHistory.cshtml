@@ -1,42 +1,30 @@
 ﻿@page
-@model Team9.Connect4.BL.Models.Game
-@*@model Team9.Connect4.WebUI.Pages.GameHistoryModel*@
+@using Team9.Connect4.BL.Models;
+@*@model Team9.Connect4.WebUI.Pages.Shared.GameHistoryModel*@
+@model Team9.Connect4.BL.Models.SavedGame
 @{
     ViewData["Title"] = "Leaderboard";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <body>
-    <div>
-
-
-        <table class="gameTable">
-            <thead>
-                <tr>
-                    @*<th>Id</th>*@
-                    <th>Player1</th>
-                    <th>Player2</th>
-                    <th>Turns</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    @*<td>5647812309</td>*@
-                    <td>Player1</td>
-                    <td>13</td>
-                </tr>
-                <tr>
-                    @*<td>9873456120</td>*@
-                    <td>Player2</td>
-                    <td>16</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="container">
-            <button class="btn" id="btnHome">
-                <a asp-page="/Index">Back to Home</a>
-            </button>
-        </div>
-
+    <table class="gameTable">
+        <thead>
+            <tr>
+                <th>Results</th>
+                <th>Player 1</th>
+                <th>Player 2</th>
+                <th>Board State</th>
+                <th>Game Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <div class="container">
+        <button class="btn" id="btnHome">
+            <a asp-page="/Index">Back to Home</a>
+        </button>
     </div>
 </body>
