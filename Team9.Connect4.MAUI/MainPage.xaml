@@ -5,76 +5,124 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
+                <GradientStop Color="LightGreen"/>
                 <GradientStop Color="#FF08FFE3" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Rectangle x:Name="recBoarder" HorizontalOptions="Start" HeightRequest="282" Stroke="Black" VerticalOptions="Start" WidthRequest="559" Margin="135,97,0,0"/>
-        <Rectangle x:Name="rec111" HorizontalOptions="Start" HeightRequest="47" Margin="615,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec112" HorizontalOptions="Start" HeightRequest="47" Margin="615,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec113" HorizontalOptions="Start" HeightRequest="47" Margin="615,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec114" HorizontalOptions="Start" HeightRequest="47" Margin="615,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec115" HorizontalOptions="Start" HeightRequest="47" Margin="615,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec116" HorizontalOptions="Start" HeightRequest="47" Margin="615,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec99" HorizontalOptions="Start" HeightRequest="47" Margin="535,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec87" HorizontalOptions="Start" HeightRequest="47" Margin="455,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec75" HorizontalOptions="Start" HeightRequest="47" Margin="375,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec63" HorizontalOptions="Start" HeightRequest="47" Margin="295,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec51" HorizontalOptions="Start" HeightRequest="47" Margin="215,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec39" HorizontalOptions="Start" HeightRequest="47" Margin="135,332,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec40" HorizontalOptions="Start" HeightRequest="47" Margin="135,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec41" HorizontalOptions="Start" HeightRequest="47" Margin="135,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec42" HorizontalOptions="Start" HeightRequest="47" Margin="135,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec43" HorizontalOptions="Start" HeightRequest="47" Margin="135,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec44" HorizontalOptions="Start" HeightRequest="47" Margin="135,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec52" HorizontalOptions="Start" HeightRequest="47" Margin="215,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec53" HorizontalOptions="Start" HeightRequest="47" Margin="215,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec54" HorizontalOptions="Start" HeightRequest="47" Margin="215,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec55" HorizontalOptions="Start" HeightRequest="47" Margin="215,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec56" HorizontalOptions="Start" HeightRequest="47" Margin="215,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec64" HorizontalOptions="Start" HeightRequest="47" Margin="295,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec65" HorizontalOptions="Start" HeightRequest="47" Margin="295,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec66" HorizontalOptions="Start" HeightRequest="47" Margin="295,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec67" HorizontalOptions="Start" HeightRequest="47" Margin="295,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec68" HorizontalOptions="Start" HeightRequest="47" Margin="295,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec76" HorizontalOptions="Start" HeightRequest="47" Margin="375,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec77" HorizontalOptions="Start" HeightRequest="47" Margin="375,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec78" HorizontalOptions="Start" HeightRequest="47" Margin="375,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec79" HorizontalOptions="Start" HeightRequest="47" Margin="375,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec80" HorizontalOptions="Start" HeightRequest="47" Margin="375,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec88" HorizontalOptions="Start" HeightRequest="47" Margin="455,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec89" HorizontalOptions="Start" HeightRequest="47" Margin="455,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec90" HorizontalOptions="Start" HeightRequest="47" Margin="455,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec91" HorizontalOptions="Start" HeightRequest="47" Margin="455,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec92" HorizontalOptions="Start" HeightRequest="47" Margin="455,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec100" HorizontalOptions="Start" HeightRequest="47" Margin="535,285,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec101" HorizontalOptions="Start" HeightRequest="47" Margin="535,238,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec102" HorizontalOptions="Start" HeightRequest="47" Margin="535,191,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec103" HorizontalOptions="Start" HeightRequest="47" Margin="535,144,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
-        <Rectangle x:Name="rec104" HorizontalOptions="Start" HeightRequest="47" Margin="535,97,0,0" Stroke="Black" VerticalOptions="Start" WidthRequest="80"/>
+        <Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,0">
+            <Label x:Name="lblTitle" Text="Connect 4" HorizontalTextAlignment="Center" HorizontalOptions="Start" HeightRequest="48" Margin="0,0,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="40" FontFamily="Lucida Bright"/>
+            <Button x:Name="btnStart" Margin="0,50,0,0" Text="Start" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnStart_Clicked" />
+            <Button x:Name="btnReset" Margin="0,50,0,0" Text="Reset" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnReset_Clicked" />
+        </Grid>
+        <Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0,80,0,0">
+            <Label x:Name="lblPlayerTurn" Text="" HorizontalTextAlignment="Center" HorizontalOptions="Start" HeightRequest="48" Margin="295,23,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="20" FontFamily="Lucida Bright"/>
+            <Button x:Name="btnDrop" Margin="0,50,0,0" Text="DROP IT!" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnDrop_Clicked" />
+            <Slider x:Name="sldDrop" Margin="0,100,0,0" DragCompletedCommand="sldDrop_ValueChanged" Maximum="7" Minimum="1" Value="4" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="165" HeightRequest="20"/>
+        </Grid>
         
-        <Label x:Name="lblPlayerTurn" Text="" HorizontalTextAlignment="Center" HorizontalOptions="Start" HeightRequest="48" Margin="295,23,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="20" FontFamily="Lucida Bright"/>
-        <Button x:Name="btnCol1" Margin="137,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol1_Clicked" />
-        <Button x:Name="btnCol2" Margin="217,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol2_Clicked" />
-        <Button x:Name="btnCol3" Margin="297,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol3_Clicked" />
-        <Button x:Name="btnCol4" Margin="377,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol4_Clicked" />
-        <Button x:Name="btnCol5" Margin="457,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol5_Clicked" />
-        <Button x:Name="btnCol6" Margin="537,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol6_Clicked" />
-        <Button x:Name="btnCol7" Margin="617,50,0,0" Text="DROP" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnCol7_Clicked" />
-        
-        <Rectangle x:Name="recButtonScreen" HorizontalOptions="Center" HeightRequest="2160" Stroke="Black" VerticalOptions="Center" WidthRequest="3840" IsVisible="False">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFB52F2F" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Button x:Name="btnLocal" Text="Local Game" HorizontalOptions="Start" Margin="309,153,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnLocal_Clicked"/>
-        <Button x:Name="btnRemote" Text="Remote Game" HorizontalOptions="Start" Margin="540,153,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnRemote_Clicked"/>
-        <Button x:Name="btnComputer" Text="Against Computer" HorizontalOptions="Start" Margin="69,153,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnComputer_Clicked"/>
-        <Label x:Name="lblCodeText" Text="Your Game Code Is:" HorizontalOptions="Start" Margin="335,47,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
-        <Label x:Name="lblGameCode" Text="" HorizontalOptions="Start" Margin="335,80,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="62" WidthRequest="146" FontSize="36"/>
-        <Button x:Name="btnStartGame" Text="Start Remote Game" HorizontalOptions="Start" Margin="308,332,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnStartGame_Clicked"/>
+        <Grid x:Name="grdBoard" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,200,0,0">
+            <Rectangle x:Name="recBorder" Fill="Blue" HorizontalOptions="Start" HeightRequest="150" Stroke="Black" VerticalOptions="Start" WidthRequest="175"/>
+            <Ellipse x:Name="e1x1" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,0,0,0"     Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e1x2" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,25,0,0"    Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e1x3" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,50,0,0"    Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e1x4" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,75,0,0"    Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e1x5" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,100,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e1x6" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,125,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e1x7" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="0,150,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x1" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,0,0,0"    Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x2" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,25,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x3" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,50,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x4" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,75,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x5" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,100,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x6" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,125,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e2x7" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="25,150,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x1" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,0,0,0"    Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x2" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,25,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x3" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,50,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x4" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,75,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x5" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,100,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x6" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,125,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e3x7" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="50,150,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x1" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,0,0,0"    Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x2" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,25,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x3" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,50,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x4" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,75,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x5" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,100,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x6" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,125,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e4x7" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="75,150,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x1" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,0,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x2" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,25,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x3" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,50,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x4" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,75,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x5" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,100,0,0" Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x6" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,125,0,0" Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e5x7" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="100,150,0,0" Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x1" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,0,0,0"   Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x2" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,25,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x3" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,50,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x4" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,75,0,0"  Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x5" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,100,0,0" Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x6" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,125,0,0" Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Ellipse x:Name="e6x7" Fill="#000000" HorizontalOptions="Start" HeightRequest="25" Margin="125,150,0,0" Stroke="#111111" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x1" HorizontalOptions="Start" HeightRequest="25" Margin="0,0,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x2" HorizontalOptions="Start" HeightRequest="25" Margin="0,25,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x3" HorizontalOptions="Start" HeightRequest="25" Margin="0,50,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x4" HorizontalOptions="Start" HeightRequest="25" Margin="0,75,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x5" HorizontalOptions="Start" HeightRequest="25" Margin="0,100,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x6" HorizontalOptions="Start" HeightRequest="25" Margin="0,125,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r1x7" HorizontalOptions="Start" HeightRequest="25" Margin="0,150,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x1" HorizontalOptions="Start" HeightRequest="25" Margin="25,0,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x2" HorizontalOptions="Start" HeightRequest="25" Margin="25,25,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x3" HorizontalOptions="Start" HeightRequest="25" Margin="25,50,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x4" HorizontalOptions="Start" HeightRequest="25" Margin="25,75,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x5" HorizontalOptions="Start" HeightRequest="25" Margin="25,100,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x6" HorizontalOptions="Start" HeightRequest="25" Margin="25,125,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r2x7" HorizontalOptions="Start" HeightRequest="25" Margin="25,150,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x1" HorizontalOptions="Start" HeightRequest="25" Margin="50,0,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x2" HorizontalOptions="Start" HeightRequest="25" Margin="50,25,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x3" HorizontalOptions="Start" HeightRequest="25" Margin="50,50,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x4" HorizontalOptions="Start" HeightRequest="25" Margin="50,75,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x5" HorizontalOptions="Start" HeightRequest="25" Margin="50,100,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x6" HorizontalOptions="Start" HeightRequest="25" Margin="50,125,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r3x7" HorizontalOptions="Start" HeightRequest="25" Margin="50,150,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x1" HorizontalOptions="Start" HeightRequest="25" Margin="75,0,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x2" HorizontalOptions="Start" HeightRequest="25" Margin="75,25,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x3" HorizontalOptions="Start" HeightRequest="25" Margin="75,50,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x4" HorizontalOptions="Start" HeightRequest="25" Margin="75,75,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x5" HorizontalOptions="Start" HeightRequest="25" Margin="75,100,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x6" HorizontalOptions="Start" HeightRequest="25" Margin="75,125,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r4x7" HorizontalOptions="Start" HeightRequest="25" Margin="75,150,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x1" HorizontalOptions="Start" HeightRequest="25" Margin="100,0,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x2" HorizontalOptions="Start" HeightRequest="25" Margin="100,25,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x3" HorizontalOptions="Start" HeightRequest="25" Margin="100,50,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x4" HorizontalOptions="Start" HeightRequest="25" Margin="100,75,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x5" HorizontalOptions="Start" HeightRequest="25" Margin="100,100,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x6" HorizontalOptions="Start" HeightRequest="25" Margin="100,125,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r5x7" HorizontalOptions="Start" HeightRequest="25" Margin="100,150,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x1" HorizontalOptions="Start" HeightRequest="25" Margin="125,0,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x2" HorizontalOptions="Start" HeightRequest="25" Margin="125,25,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x3" HorizontalOptions="Start" HeightRequest="25" Margin="125,50,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x4" HorizontalOptions="Start" HeightRequest="25" Margin="125,75,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x5" HorizontalOptions="Start" HeightRequest="25" Margin="125,100,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x6" HorizontalOptions="Start" HeightRequest="25" Margin="125,125,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+            <Rectangle x:Name="r6x7" HorizontalOptions="Start" HeightRequest="25" Margin="125,150,0,0" Stroke="#555555" VerticalOptions="Start" WidthRequest="25"/>
+        </Grid>
+
+        <Grid>
+            <Rectangle x:Name="recButtonScreen" HorizontalOptions="Center" HeightRequest="2160" Stroke="Black" VerticalOptions="Center" WidthRequest="3840" IsVisible="False">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFB52F2F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="btnLocal" Text="Local Game" HorizontalOptions="Start" Margin="309,153,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnLocal_Clicked"/>
+            <Button x:Name="btnRemote" Text="Remote Game" HorizontalOptions="Start" Margin="540,153,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnRemote_Clicked"/>
+            <Button x:Name="btnComputer" Text="Against Computer" HorizontalOptions="Start" Margin="69,153,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnComputer_Clicked"/>
+            <Label x:Name="lblCodeText" Text="Your Game Code Is:" HorizontalOptions="Start" Margin="335,47,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
+            <Label x:Name="lblGameCode" Text="" HorizontalOptions="Start" Margin="335,80,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="62" WidthRequest="146" FontSize="36"/>
+            <Button x:Name="btnStartGame" Text="Start Remote Game" HorizontalOptions="Start" Margin="308,332,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnStartGame_Clicked"/>
+        </Grid>
     </Grid>
 </ContentPage>

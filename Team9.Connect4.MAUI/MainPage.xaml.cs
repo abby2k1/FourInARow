@@ -1,29 +1,44 @@
-﻿namespace Team9.Connect4.MAUI
+﻿using Android.Media;
+using Microsoft.Maui.Controls.Shapes;
+
+namespace Team9.Connect4.MAUI
 {
     public partial class MainPage : ContentPage
     {
-        string[] values = new string[156];
+        //string[] values = new string[156];
+        string[][] plays = new string[6][];
         int turn = 1;
         bool firstMove = true;
         bool localGame = false;
         bool remoteGame = false;
         bool aiGame = false;
-        int nextAvailableCol1 = 39;
-        int nextAvailableCol2 = 51;
-        int nextAvailableCol3 = 63;
-        int nextAvailableCol4 = 75;
-        int nextAvailableCol5 = 87;
-        int nextAvailableCol6 = 99;
-        int nextAvailableCol7 = 111;
-        int aiSpotPlace = 0;
+        //int nextAvailableCol1 = 39;
+        //int nextAvailableCol2 = 51;
+        //int nextAvailableCol3 = 63;
+        //int nextAvailableCol4 = 75;
+        //int nextAvailableCol5 = 87;
+        //int nextAvailableCol6 = 99;
+        //int nextAvailableCol7 = 111;
+        //int aiSpotPlace = 0;
         Color playerColor = Color.FromRgb(255, 0, 0);
-        Color opponentColor = Color.FromRgb(255, 255, 0);
+        Color player1Color = Color.FromRgb(255, 0, 0);
+        Color player2Color = Color.FromRgb(255, 255, 0);
+        Color boardColor = Color.FromRgb(0, 0, 255);
+        int playerNumber = 1;
 
         public MainPage()
         {
             InitializeComponent();
 
             ClearAll();
+
+            plays[0] = new string[5];
+            plays[1] = new string[5];
+            plays[2] = new string[5];
+            plays[3] = new string[5];
+            plays[4] = new string[5];
+            plays[5] = new string[5];
+            plays[6] = new string[5];
         }
 
         #region ComputerRandom
@@ -560,13 +575,14 @@
                         ComputerWin();
                     ComputerRandom();
                 }
-
+                playerColor = player2Color;
             }
             else
             {
                 turn = 1;
                 lblPlayerTurn.Text = "Player 1's Turn";
                 firstMove = false;
+                playerColor = player1Color;
             }
         }
 
@@ -1205,6 +1221,903 @@
             remoteGame = false;
             aiGame = false;
             turn = 1;
+        }
+
+        private void btnDrop_Clicked(object sender, EventArgs e)
+        {
+            int sldValue = Convert.ToInt32(sldDrop.Value);
+            ClearAllRectangles();
+            switch (sldValue)
+            {
+                case 1:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[0][i] == "0")
+                        {
+                            plays[0][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x1.Fill = new SolidColorBrush(playerColor);
+                                    //r6x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x1.Fill = new SolidColorBrush(playerColor);
+                                    //r5x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x1.Fill = new SolidColorBrush(playerColor);
+                                    //r4x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x1.Fill = new SolidColorBrush(playerColor);
+                                    //r3x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x1.Fill = new SolidColorBrush(playerColor);
+                                    //r2x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x1.Fill = new SolidColorBrush(playerColor);
+                                    //r1x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[1][i] == "0")
+                        {
+                            plays[1][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x2.Fill = new SolidColorBrush(playerColor);
+                                    //r6x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x2.Fill = new SolidColorBrush(playerColor);
+                                    //r5x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x2.Fill = new SolidColorBrush(playerColor);
+                                    //r4x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x2.Fill = new SolidColorBrush(playerColor);
+                                    //r3x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x2.Fill = new SolidColorBrush(playerColor);
+                                    //r2x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x2.Fill = new SolidColorBrush(playerColor);
+                                    //r1x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[2][i] == "0")
+                        {
+                            plays[2][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x3.Fill = new SolidColorBrush(playerColor);
+                                    //r6x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x3.Fill = new SolidColorBrush(playerColor);
+                                    //r5x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x3.Fill = new SolidColorBrush(playerColor);
+                                    //r4x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x3.Fill = new SolidColorBrush(playerColor);
+                                    //r3x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x3.Fill = new SolidColorBrush(playerColor);
+                                    //r2x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x3.Fill = new SolidColorBrush(playerColor);
+                                    //r1x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[3][i] == "0")
+                        {
+                            plays[3][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x4.Fill = new SolidColorBrush(playerColor);
+                                    //r6x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x4.Fill = new SolidColorBrush(playerColor);
+                                    //r5x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x4.Fill = new SolidColorBrush(playerColor);
+                                    //r4x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x4.Fill = new SolidColorBrush(playerColor);
+                                    //r3x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x4.Fill = new SolidColorBrush(playerColor);
+                                    //r2x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x4.Fill = new SolidColorBrush(playerColor);
+                                    //r1x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[4][i] == "0")
+                        {
+                            plays[4][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x5.Fill = new SolidColorBrush(playerColor);
+                                    //r6x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x5.Fill = new SolidColorBrush(playerColor);
+                                    //r5x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x5.Fill = new SolidColorBrush(playerColor);
+                                    //r4x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x5.Fill = new SolidColorBrush(playerColor);
+                                    //r3x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x5.Fill = new SolidColorBrush(playerColor);
+                                    //r2x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x5.Fill = new SolidColorBrush(playerColor);
+                                    //r1x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+                case 6:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[5][i] == "0")
+                        {
+                            plays[5][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x6.Fill = new SolidColorBrush(playerColor);
+                                    //r6x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x6.Fill = new SolidColorBrush(playerColor);
+                                    //r5x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x6.Fill = new SolidColorBrush(playerColor);
+                                    //r4x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x6.Fill = new SolidColorBrush(playerColor);
+                                    //r3x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x6.Fill = new SolidColorBrush(playerColor);
+                                    //r2x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x6.Fill = new SolidColorBrush(playerColor);
+                                    //r1x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+                case 7:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[6][i] == "0")
+                        {
+                            plays[6][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    e6x7.Fill = new SolidColorBrush(playerColor);
+                                    //r6x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    e5x7.Fill = new SolidColorBrush(playerColor);
+                                    //r5x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    e4x7.Fill = new SolidColorBrush(playerColor);
+                                    //r4x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    e3x7.Fill = new SolidColorBrush(playerColor);
+                                    //r3x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    e2x7.Fill = new SolidColorBrush(playerColor);
+                                    //r2x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    e1x7.Fill = new SolidColorBrush(playerColor);
+                                    //r1x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                            EndTurn();
+                        }
+                        else if (i == 5)
+                        {
+                            DisplayAlert("Error", "Column is full", "OK");
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void sldDrop_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            sldDrop.Value = Convert.ToInt32(sldDrop.Value);
+            int sldValue = Convert.ToInt32(sldDrop.Value);
+            ClearAllRectangles();
+            switch (sldValue)
+            {
+                case 1:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[0][i] == "0")
+                        {
+                            //plays[0][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x1.Fill = new SolidColorBrush(playerColor);
+                                    r6x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x1.Fill = new SolidColorBrush(playerColor);
+                                    r5x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x1.Fill = new SolidColorBrush(playerColor);
+                                    r4x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x1.Fill = new SolidColorBrush(playerColor);
+                                    r3x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x1.Fill = new SolidColorBrush(playerColor);
+                                    r2x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x1.Fill = new SolidColorBrush(playerColor);
+                                    r1x1.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[1][i] == "0")
+                        {
+                            //plays[1][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x2.Fill = new SolidColorBrush(playerColor);
+                                    r6x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x2.Fill = new SolidColorBrush(playerColor);
+                                    r5x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x2.Fill = new SolidColorBrush(playerColor);
+                                    r4x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x2.Fill = new SolidColorBrush(playerColor);
+                                    r3x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x2.Fill = new SolidColorBrush(playerColor);
+                                    r2x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x2.Fill = new SolidColorBrush(playerColor);
+                                    r1x2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[2][i] == "0")
+                        {
+                            //plays[2][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x3.Fill = new SolidColorBrush(playerColor);
+                                    r6x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x3.Fill = new SolidColorBrush(playerColor);
+                                    r5x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x3.Fill = new SolidColorBrush(playerColor);
+                                    r4x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x3.Fill = new SolidColorBrush(playerColor);
+                                    r3x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x3.Fill = new SolidColorBrush(playerColor);
+                                    r2x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x3.Fill = new SolidColorBrush(playerColor);
+                                    r1x3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[3][i] == "0")
+                        {
+                            //plays[3][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x4.Fill = new SolidColorBrush(playerColor);
+                                    r6x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x4.Fill = new SolidColorBrush(playerColor);
+                                    r5x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x4.Fill = new SolidColorBrush(playerColor);
+                                    r4x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x4.Fill = new SolidColorBrush(playerColor);
+                                    r3x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x4.Fill = new SolidColorBrush(playerColor);
+                                    r2x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x4.Fill = new SolidColorBrush(playerColor);
+                                    r1x4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+                case 5:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[4][i] == "0")
+                        {
+                            //plays[4][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x5.Fill = new SolidColorBrush(playerColor);
+                                    r6x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x5.Fill = new SolidColorBrush(playerColor);
+                                    r5x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x5.Fill = new SolidColorBrush(playerColor);
+                                    r4x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x5.Fill = new SolidColorBrush(playerColor);
+                                    r3x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x5.Fill = new SolidColorBrush(playerColor);
+                                    r2x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x5.Fill = new SolidColorBrush(playerColor);
+                                    r1x5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+                case 6:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[5][i] == "0")
+                        {
+                            //plays[5][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x6.Fill = new SolidColorBrush(playerColor);
+                                    r6x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x6.Fill = new SolidColorBrush(playerColor);
+                                    r5x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x6.Fill = new SolidColorBrush(playerColor);
+                                    r4x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x6.Fill = new SolidColorBrush(playerColor);
+                                    r3x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x6.Fill = new SolidColorBrush(playerColor);
+                                    r2x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x6.Fill = new SolidColorBrush(playerColor);
+                                    r1x6.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+                case 7:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (plays[6][i] == "0")
+                        {
+                            //plays[6][i] = turn.ToString();
+                            switch (i)
+                            {
+                                case 0:
+                                    //e6x7.Fill = new SolidColorBrush(playerColor);
+                                    r6x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 1:
+                                    //e5x7.Fill = new SolidColorBrush(playerColor);
+                                    r5x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 2:
+                                    //e4x7.Fill = new SolidColorBrush(playerColor);
+                                    r4x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 3:
+                                    //e3x7.Fill = new SolidColorBrush(playerColor);
+                                    r3x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 4:
+                                    //e2x7.Fill = new SolidColorBrush(playerColor);
+                                    r2x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                                case 5:
+                                    //e1x7.Fill = new SolidColorBrush(playerColor);
+                                    r1x7.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                                    break;
+                            }
+                            i = 7;
+                        }
+                        //else if (i == 5)
+                        //{
+                        //    DisplayAlert("Error", "Column is full", "OK");
+                        //}
+                    }
+                    break;
+            }
+        }
+
+        private void ClearAllRectangles()
+        {
+            foreach (Rectangle rec in grdBoard)
+            {
+                //rec.Fill = new SolidColorBrush(Color.FromHex("#FFFFFF"));
+                rec.Fill = null;
+            }
+            recBorder.Fill = boardColor;
+        }
+        private void ClearAllCircles()
+        {
+            foreach (Ellipse ell in grdBoard)
+            {
+                ell.Fill = new SolidColorBrush(Color.FromHex("#000000"));
+            }
+        }
+
+        private void EndTurn()
+        {
+            ClearAllRectangles();
+            CheckWinner();
+            SwitchPlayer();
+        }
+
+        private string[] UnJaggedArray(string[][] jagged)
+        {
+            string[] unJagged = new string[156];
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    unJagged[iii] = jagged[i][ii];
+                }
+            }
+            return unJagged;
+        }
+
+        private string[][] ReJaggedArray(string[] unJagged)
+        {
+            string[][] jagged = new string[6][];
+            jagged[0] = new string[5];
+            jagged[1] = new string[5];
+            jagged[2] = new string[5];
+            jagged[3] = new string[5];
+            jagged[4] = new string[5];
+            jagged[5] = new string[5];
+            jagged[6] = new string[5];
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    jagged[i][ii] = unJagged[iii];
+                }
+            }
+            return jagged;
+        }
+
+        private void LoadBoard()
+        {
+            string[] loadFromApi = new string[156];
+            //api code here
+
+            int player1turns = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    if (loadFromApi[iii] == "1")
+                    {
+                        player1turns++;
+                    }
+                }
+            }
+
+            int player2turns = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    if (loadFromApi[iii] == "2")
+                    {
+                        player2turns++;
+                    }
+                }
+            }
+
+            if (player1turns > player2turns)
+            {
+                turn = 2;
+                lblPlayerTurn.Text = "Player 2's Turn";
+                playerColor = player2Color;
+                //if (playerNumber == 1)
+                //{
+                //    lblPlayerTurn.Text = "Waiting for Player 2's Turn...";
+                //    btnDrop.IsEnabled = false;
+                //}
+            }
+            else
+            {
+                turn = 1;
+                lblPlayerTurn.Text = "Player 1's Turn";
+                playerColor = player1Color;
+                //if (playerNumber == 2)
+                //{
+                //    lblPlayerTurn.Text = "Waiting for Player 1's Turn...";
+                //    btnDrop.IsEnabled = false;
+                //}
+            }
+
+            plays = ReJaggedArray(loadFromApi);
+            ClearAllRectangles();
+            ClearAllCircles();
+            LoadAllCircles();
+        }
+
+        private void LoadAllCircles()
+        {
+            if (plays[0][0] == "1")
+                e6x1.Fill = new SolidColorBrush(player1Color);
+            else if (plays[0][0] == "2")
+                e6x1.Fill = new SolidColorBrush(player2Color);
+            if (plays[0][1] == "1")
+                e5x1.Fill = new SolidColorBrush(player1Color);
+            else if (plays[0][1] == "2")
+                e5x1.Fill = new SolidColorBrush(player2Color);
+            if (plays[0][2] == "1")
+                e4x1.Fill = new SolidColorBrush(player1Color);
+            else if (plays[0][2] == "2")
+                e4x1.Fill = new SolidColorBrush(player2Color);
+            if (plays[0][3] == "1")
+                e3x1.Fill = new SolidColorBrush(player1Color);
+            else if (plays[0][3] == "2")
+                e3x1.Fill = new SolidColorBrush(player2Color);
+            if (plays[0][4] == "1")
+                e2x1.Fill = new SolidColorBrush(player1Color);
+            else if (plays[0][4] == "2")
+                e2x1.Fill = new SolidColorBrush(player2Color);
+            if (plays[0][5] == "1")
+                e1x1.Fill = new SolidColorBrush(player1Color);
+            else if (plays[0][5] == "2")
+                e1x1.Fill = new SolidColorBrush(player2Color);
+            if (plays[1][0] == "1")
+                e6x2.Fill = new SolidColorBrush(player1Color);
+            else if (plays[1][0] == "2")
+                e6x2.Fill = new SolidColorBrush(player2Color);
+            if (plays[1][1] == "1")
+                e5x2.Fill = new SolidColorBrush(player1Color);
+            else if (plays[1][1] == "2")
+                e5x2.Fill = new SolidColorBrush(player2Color);
+            if (plays[1][2] == "1")
+                e4x2.Fill = new SolidColorBrush(player1Color);
+            else if (plays[1][2] == "2")
+                e4x2.Fill = new SolidColorBrush(player2Color);
+            if (plays[1][3] == "1")
+                e3x2.Fill = new SolidColorBrush(player1Color);
+            else if (plays[1][3] == "2")
+                e3x2.Fill = new SolidColorBrush(player2Color);
+            if (plays[1][4] == "1")
+                e2x2.Fill = new SolidColorBrush(player1Color);
+            else if (plays[1][4] == "2")
+                e2x2.Fill = new SolidColorBrush(player2Color);
+            if (plays[1][5] == "1")
+                e1x2.Fill = new SolidColorBrush(player1Color);
+            else if (plays[1][5] == "2")
+                e1x2.Fill = new SolidColorBrush(player2Color);
+            if (plays[2][0] == "1")
+                e6x3.Fill = new SolidColorBrush(player1Color);
+            else if (plays[2][0] == "2")
+                e6x3.Fill = new SolidColorBrush(player2Color);
+            if (plays[2][1] == "1")
+                e5x3.Fill = new SolidColorBrush(player1Color);
+            else if (plays[2][1] == "2")
+                e5x3.Fill = new SolidColorBrush(player2Color);
+            if (plays[2][2] == "1")
+                e4x3.Fill = new SolidColorBrush(player1Color);
+            else if (plays[2][2] == "2")
+                e4x3.Fill = new SolidColorBrush(player2Color);
+            if (plays[2][3] == "1")
+                e3x3.Fill = new SolidColorBrush(player1Color);
+            else if (plays[2][3] == "2")
+                e3x3.Fill = new SolidColorBrush(player2Color);
+            if (plays[2][4] == "1")
+                e2x3.Fill = new SolidColorBrush(player1Color);
+            else if (plays[2][4] == "2")
+                e2x3.Fill = new SolidColorBrush(player2Color);
+            if (plays[2][5] == "1")
+                e1x3.Fill = new SolidColorBrush(player1Color);
+            else if (plays[2][5] == "2")
+                e1x3.Fill = new SolidColorBrush(player2Color);
+            if (plays[3][0] == "1")
+                e6x4.Fill = new SolidColorBrush(player1Color);
+            else if (plays[3][0] == "2")
+                e6x4.Fill = new SolidColorBrush(player2Color);
+            if (plays[3][1] == "1")
+                e5x4.Fill = new SolidColorBrush(player1Color);
+            else if (plays[3][1] == "2")
+                e5x4.Fill = new SolidColorBrush(player2Color);
+            if (plays[3][2] == "1")
+                e4x4.Fill = new SolidColorBrush(player1Color);
+            else if (plays[3][2] == "2")
+                e4x4.Fill = new SolidColorBrush(player2Color);
+            if (plays[3][3] == "1")
+                e3x4.Fill = new SolidColorBrush(player1Color);
+            else if (plays[3][3] == "2")
+                e3x4.Fill = new SolidColorBrush(player2Color);
+            if (plays[3][4] == "1")
+                e2x4.Fill = new SolidColorBrush(player1Color);
+            else if (plays[3][4] == "2")
+                e2x4.Fill = new SolidColorBrush(player2Color);
+            if (plays[3][5] == "1")
+                e1x4.Fill = new SolidColorBrush(player1Color);
+            else if (plays[3][5] == "2")
+                e1x4.Fill = new SolidColorBrush(player2Color);
+            if (plays[4][0] == "1")
+                e6x5.Fill = new SolidColorBrush(player1Color);
+            else if (plays[4][0] == "2")
+                e6x5.Fill = new SolidColorBrush(player2Color);
+            if (plays[4][1] == "1")
+                e5x5.Fill = new SolidColorBrush(player1Color);
+            else if (plays[4][1] == "2")
+                e5x5.Fill = new SolidColorBrush(player2Color);
+            if (plays[4][2] == "1")
+                e4x5.Fill = new SolidColorBrush(player1Color);
+            else if (plays[4][2] == "2")
+                e4x5.Fill = new SolidColorBrush(player2Color);
+            if (plays[4][3] == "1")
+                e3x5.Fill = new SolidColorBrush(player1Color);
+            else if (plays[4][3] == "2")
+                e3x5.Fill = new SolidColorBrush(player2Color);
+            if (plays[4][4] == "1")
+                e2x5.Fill = new SolidColorBrush(player1Color);
+            else if (plays[4][4] == "2")
+                e2x5.Fill = new SolidColorBrush(player2Color);
+            if (plays[4][5] == "1")
+                e1x5.Fill = new SolidColorBrush(player1Color);
+            else if (plays[4][5] == "2")
+                e1x5.Fill = new SolidColorBrush(player2Color);
+            if (plays[5][0] == "1")
+                e6x6.Fill = new SolidColorBrush(player1Color);
+            else if (plays[5][0] == "2")
+                e6x6.Fill = new SolidColorBrush(player2Color);
+            if (plays[5][1] == "1")
+                e5x6.Fill = new SolidColorBrush(player1Color);
+            else if (plays[5][1] == "2")
+                e5x6.Fill = new SolidColorBrush(player2Color);
+            if (plays[5][2] == "1")
+                e4x6.Fill = new SolidColorBrush(player1Color);
+            else if (plays[5][2] == "2")
+                e4x6.Fill = new SolidColorBrush(player2Color);
+            if (plays[5][3] == "1")
+                e3x6.Fill = new SolidColorBrush(player1Color);
+            else if (plays[5][3] == "2")
+                e3x6.Fill = new SolidColorBrush(player2Color);
+            if (plays[5][4] == "1")
+                e2x6.Fill = new SolidColorBrush(player1Color);
+            else if (plays[5][4] == "2")
+                e2x6.Fill = new SolidColorBrush(player2Color);
+            if (plays[5][5] == "1")
+                e1x6.Fill = new SolidColorBrush(player1Color);
+            else if (plays[5][5] == "2")
+                e1x6.Fill = new SolidColorBrush(player2Color);
+            if (plays[6][0] == "1")
+                e6x7.Fill = new SolidColorBrush(player1Color);
+            else if (plays[6][0] == "2")
+                e6x7.Fill = new SolidColorBrush(player2Color);
+            if (plays[6][1] == "1")
+                e5x7.Fill = new SolidColorBrush(player1Color);
+            else if (plays[6][1] == "2")
+                e5x7.Fill = new SolidColorBrush(player2Color);
+            if (plays[6][2] == "1")
+                e4x7.Fill = new SolidColorBrush(player1Color);
+            else if (plays[6][2] == "2")
+                e4x7.Fill = new SolidColorBrush(player2Color);
+            if (plays[6][3] == "1")
+                e3x7.Fill = new SolidColorBrush(player1Color);
+            else if (plays[6][3] == "2")
+                e3x7.Fill = new SolidColorBrush(player2Color);
+            if (plays[6][4] == "1")
+                e2x7.Fill = new SolidColorBrush(player1Color);
+            else if (plays[6][4] == "2")
+                e2x7.Fill = new SolidColorBrush(player2Color);
+            if (plays[6][5] == "1")
+                e1x7.Fill = new SolidColorBrush(player1Color);
+            else if (plays[6][5] == "2")
+                e1x7.Fill = new SolidColorBrush(player2Color);
+        }
+
+        private void SaveBoard()
+        {
+            string[] sendToApi = UnJaggedArray(plays);
+            //api code here
         }
     }
 }
