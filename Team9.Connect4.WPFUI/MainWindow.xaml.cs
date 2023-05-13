@@ -16,7 +16,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Connect4.WPFUI
+namespace Team9.Connect4.WPFUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
