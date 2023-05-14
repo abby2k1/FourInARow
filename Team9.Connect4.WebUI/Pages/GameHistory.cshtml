@@ -1,10 +1,12 @@
 ﻿@page
 @using Team9.Connect4.BL.Models;
-@*@model Team9.Connect4.WebUI.Pages.Shared.GameHistoryModel*@
-@model Team9.Connect4.BL.Models.SavedGame
+@model Team9.Connect4.WebUI.Pages.Shared.GameHistoryModel
+@*@model Team9.Connect4.BL.Models.SavedGame*@
 @{
     ViewData["Title"] = "Leaderboard";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    var gameHistories = Model.GetGameHistory();
 }
 
 <body>
@@ -19,7 +21,17 @@
             </tr>
         </thead>
         <tbody>
-            
+            @foreach (var gameHistory in gameHistories)
+            {
+                <tr>
+                    <td>@gameHistory.Results</td>
+                    <td>@gameHistory.Player1Username</td>
+                    <td>@gameHistory.Player2Username</td>
+                    <td>@gameHistory.BoardState</td>
+                    <td>@gameHistory.GameCode</td>
+                    <td>@gameHistory.Turns</td>
+                </tr>
+            }
         </tbody>
     </table>
     <div class="container">
