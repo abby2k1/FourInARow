@@ -1410,7 +1410,7 @@ namespace Team9.Connect4.MAUI
             }
         }
 
-        private void sldDrop_ValueChanged(object sender, ValueChangedEventArgs e)
+        private void sldDrop_DragCompleted(object sender, EventArgs e)
         {
             sldDrop.Value = Convert.ToInt32(sldDrop.Value);
             int sldValue = Convert.ToInt32(sldDrop.Value);

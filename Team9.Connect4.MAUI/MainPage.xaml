@@ -17,7 +17,7 @@
         <Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0,80,0,0">
             <Label x:Name="lblPlayerTurn" Text="" HorizontalTextAlignment="Center" HorizontalOptions="Start" HeightRequest="48" Margin="295,23,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="20" FontFamily="Lucida Bright"/>
             <Button x:Name="btnDrop" Margin="0,50,0,0" Text="DROP IT!" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnDrop_Clicked" />
-            <Slider x:Name="sldDrop" Margin="0,100,0,0" DragCompletedCommand="sldDrop_ValueChanged" Maximum="7" Minimum="1" Value="4" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="165" HeightRequest="20"/>
+            <Slider x:Name="sldDrop" Margin="0,100,0,0" DragCompleted="sldDrop_DragCompleted" Maximum="7" Minimum="1" Value="4" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="165" HeightRequest="20"/>
         </Grid>
         
         <Grid x:Name="grdBoard" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,200,0,0">
