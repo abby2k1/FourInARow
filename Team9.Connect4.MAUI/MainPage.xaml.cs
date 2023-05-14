@@ -2020,5 +2020,10 @@ namespace Team9.Connect4.MAUI
         }
 
         #endregion
+
+        private void btnStart_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
