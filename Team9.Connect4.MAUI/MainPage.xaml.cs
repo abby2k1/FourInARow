@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maui.Controls.Shapes;
+using Microsoft.Maui.Platform;
 
 namespace Team9.Connect4.MAUI
 {
@@ -38,24 +39,20 @@ namespace Team9.Connect4.MAUI
             plays[4] = new string[6];
             plays[5] = new string[6];
             plays[6] = new string[6];
+
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    plays[i][j] = "0";
+                }
+            }
         }
 
         #region ComputerRandom
-        private void ComputerRandom()
+
+        private bool ComputerChoice(int choice)
         {
-            turn = 2;
-            playerColor = player2Color;
-            int choice = 0;
-            if (aiSpotPlace > 0)
-            {
-                choice = aiSpotPlace;
-                aiSpotPlace = 0;
-            }
-            else
-            {
-                Random rnd = new Random();
-                choice = rnd.Next(1, 8);
-            }
             switch (choice)
             {
                 case 1:
@@ -94,11 +91,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -138,11 +136,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -182,11 +181,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -226,11 +226,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -270,11 +271,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -314,11 +316,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -358,21 +361,75 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
             }
+            return true;
+        }
+
+        private void ComputerPlay()
+        {
+            turn = 2;
+            playerColor = player2Color;
+            int choice = 0;
+            if (aiSpotPlace > 0)
+            {
+                choice = aiSpotPlace;
+                aiSpotPlace = 0;
+            }
+            else
+            {
+                Random rnd = new Random();
+                choice = rnd.Next(1, 8);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                if (!ComputerChoice(choice))
+                {
+                    return;
+                }
+                Random rnd = new Random();
+                choice = rnd.Next(1, 8);
+                if (i == 3)
+                {
+                    for (int ii = 1; ii < 8; ii++)
+                    {
+                        if (!ComputerChoice(ii))
+                        {
+                            return;
+                        }
+                    }
+                    EndedInDraw();
+                }
+            }
+        }
+        #endregion
+
+        private void EndedInDraw()
+        {
+            CheckWinner();
+        }
+        
+        private void ComputerRandom()
+        {
+            ComputerPlay();
+            EndComputerTurn();
+        }
+
+        private void EndComputerTurn()
+        {
             turn = 1;
             lblPlayerTurn.Text = "Player 1's Turn";
             firstMove = false;
             playerColor = player1Color;
         }
-        #endregion
 
         private void ComputerWin()
         {
@@ -509,6 +566,14 @@ namespace Team9.Connect4.MAUI
             plays[5] = new string[6];
             plays[6] = new string[6];
 
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    plays[i][j] = "0";
+                }
+            }
+
             lblPlayerTurn.Text = "Player 1's Turn";
             ClearAllCircles();
             ClearAllRectangles();
@@ -517,17 +582,19 @@ namespace Team9.Connect4.MAUI
             btnRemote.IsVisible = true;
             btnComputer.IsVisible = true;
             lblCodeText.IsVisible = false;
-            lblGameCode.IsVisible = false;
-            lblGameCode.Text = "TEST";
+            txtGameCode.IsVisible = false;
+            txtGameCode.Text = "TEST";
             btnStartGame.IsVisible = false;
             turn = 1;
             firstMove = true;
             localGame = false;
             remoteGame = false;
             aiGame = false;
+            sldDrop.Value = 4;
+            sldDrop_DragCompleted(null, null);
         }
 
-        private void CheckWinner()
+        private bool CheckWinner()
         {
             string[] values = UnJaggedArray(plays);
             for (int i = 39; i < 117; i++)
@@ -536,24 +603,36 @@ namespace Team9.Connect4.MAUI
                 if ((values[i] == "1" && values[i + 1] == "1" && values[i + 2] == "1" && values[i + 3] == "1") || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 13] == "1" && values[i + 26] == "1" && values[i + 39] == "1") || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 12] == "1" && values[i + 24] == "1" && values[i + 36] == "1") || (values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 11] == "1" && values[i + 22] == "1" && values[i + 33] == "1") || (values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
             }
+            for (int i = 39; i < 117; i++)
+            {
+                if (values[i] == "0")
+                    return false;
+            }
+            DisplayAlert("Game Tied", "The game ended in a draw.", "OK");
+            ClearAll();
+            return true;
         }
 
         private void WasWinner(string winner)
@@ -1048,8 +1127,9 @@ namespace Team9.Connect4.MAUI
 
         private void btnRemote_Clicked(object sender, EventArgs e)
         {
+            ClearAll();
             lblCodeText.IsVisible = true;
-            lblGameCode.IsVisible = true;
+            txtGameCode.IsVisible = true;
             btnStartGame.IsVisible = true;
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
@@ -1062,6 +1142,7 @@ namespace Team9.Connect4.MAUI
 
         private void btnComputer_Clicked(object sender, EventArgs e)
         {
+            ClearAll();
             recButtonScreen.IsVisible = false;
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
@@ -1076,12 +1157,13 @@ namespace Team9.Connect4.MAUI
         {
             recButtonScreen.IsVisible = false;
             btnStartGame.IsVisible = false;
-            lblGameCode.IsVisible = false;
+            txtGameCode.IsVisible = false;
             lblCodeText.IsVisible = false;
         }
 
         private void btnLocal_Clicked(object sender, EventArgs e)
         {
+            ClearAll();
             recButtonScreen.IsVisible = false;
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
@@ -1723,7 +1805,7 @@ namespace Team9.Connect4.MAUI
         }
         private void ClearAllCircles()
         {
-            foreach (Ellipse ell in grdBoard)
+            foreach (Ellipse ell in grdBoardE)
             {
                 ell.Fill = new SolidColorBrush(Color.FromHex("#000000"));
             }
@@ -1734,6 +1816,7 @@ namespace Team9.Connect4.MAUI
             ClearAllRectangles();
             CheckWinner();
             SwitchPlayer();
+            sldDrop_DragCompleted(null, null);
             /*
             if (remoteGame)
             {
@@ -2023,15 +2106,5 @@ namespace Team9.Connect4.MAUI
         }
 
         #endregion
-
-        private void btnStart_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReset_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }
