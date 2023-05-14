@@ -586,6 +586,7 @@ namespace Team9.Connect4.MAUI
             btnRemote.IsVisible = true;
             btnComputer.IsVisible = true;
             lstPlayers.IsVisible = true;
+            lstPlayers.ItemsSource = players;
             lblCodeText.IsVisible = false;
             txtGameCode.IsVisible = false;
             txtGameCode.Text = "TEST";
@@ -2205,7 +2206,7 @@ namespace Team9.Connect4.MAUI
 
         #region API
 
-        string API = "http://team9connect4api.azurewebsites.net/api/";
+        string API = "https://team9connect4api.azurewebsites.net/";
 
         private SavedGame GetSavedGame(string gameCode)
         {
@@ -2288,7 +2289,7 @@ namespace Team9.Connect4.MAUI
 
         #region SignalR
 
-        string hubAddress = "http://team9connect4api.azurewebsites.net/connect4hub";
+        string hubAddress = "https://team9connect4api.azurewebsites.net/connect4hub";
         HubConnection hubConnection;
         public void StartSignalR()
         {
