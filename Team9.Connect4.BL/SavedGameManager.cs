@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -105,6 +106,14 @@ namespace Team9.Connect4.BL
                     {
                         throw new Exception("Row was not found.");
                     }
+                    HubConnection hubConnection;
+                    string hubAddress = "http://team9connect4api.azurewebsites.net/connect4hub";
+                    hubConnection = new HubConnectionBuilder()
+                        .WithUrl(hubAddress)
+                        .Build();
+                    await hubConnection.StartAsync();
+                    string message = "aaaaaaa";
+                    await hubConnection.InvokeAsync("SendMessage", "System", message);
                     return results;
                 }
             }
@@ -113,6 +122,7 @@ namespace Team9.Connect4.BL
 
                 throw ex;
             }
+            
         }
         public async static Task<IEnumerable<SavedGame>> Load()
         {

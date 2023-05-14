@@ -1,5 +1,4 @@
-﻿using AuthenticationServices;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Maui.Controls.Shapes;
 using Microsoft.Maui.Graphics.Converters;
 using Microsoft.Maui.Platform;
@@ -1143,6 +1142,7 @@ namespace Team9.Connect4.MAUI
 
         private void btnRemote_Clicked(object sender, EventArgs e)
         {
+            player1 = (Player)lstPlayers.SelectedItem;
             ClearAll();
             lblCodeText.IsVisible = true;
             txtGameCode.IsVisible = true;
@@ -2199,13 +2199,6 @@ namespace Team9.Connect4.MAUI
             UpdateGame(id, values, gameCode);
         }
 
-        private SavedGame GetSavedGame(string gameCode)
-        {
-            var apiclient = new ApiClient(API);
-            var response = apiclient.GetItem<SavedGame>("SavedGame/" + gameCode);
-            return response;
-        }
-
         #endregion
 
         #endregion
@@ -2213,6 +2206,13 @@ namespace Team9.Connect4.MAUI
         #region API
 
         string API = "http://team9connect4api.azurewebsites.net/api/";
+
+        private SavedGame GetSavedGame(string gameCode)
+        {
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<SavedGame>("SavedGame/" + gameCode);
+            return response;
+        }
         private Guid GetGuidSavedGame(string gameCode)
         {
             //api code here to get saved game
