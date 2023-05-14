@@ -5,7 +5,7 @@ namespace Team9.Connect4.MAUI
     public partial class MainPage : ContentPage
     {
         //string[] values = new string[156];
-        string[][] plays = new string[6][];
+        string[][] plays = new string[7][];
         int turn = 1;
         bool firstMove = true;
         bool localGame = false;
@@ -31,13 +31,13 @@ namespace Team9.Connect4.MAUI
 
             ClearAll();
 
-            plays[0] = new string[5];
-            plays[1] = new string[5];
-            plays[2] = new string[5];
-            plays[3] = new string[5];
-            plays[4] = new string[5];
-            plays[5] = new string[5];
-            plays[6] = new string[5];
+            plays[0] = new string[6];
+            plays[1] = new string[6];
+            plays[2] = new string[6];
+            plays[3] = new string[6];
+            plays[4] = new string[6];
+            plays[5] = new string[6];
+            plays[6] = new string[6];
         }
 
         #region ComputerRandom
@@ -500,12 +500,15 @@ namespace Team9.Connect4.MAUI
 
         private void ClearAll()
         {
-            plays = new string[6][];
-            for (int i = 0; i < 7; i++)
-            {
-                plays[i] = new string[5];
-            }
-            
+            plays = new string[7][];
+            plays[0] = new string[6];
+            plays[1] = new string[6];
+            plays[2] = new string[6];
+            plays[3] = new string[6];
+            plays[4] = new string[6];
+            plays[5] = new string[6];
+            plays[6] = new string[6];
+
             lblPlayerTurn.Text = "Player 1's Turn";
             ClearAllCircles();
             ClearAllRectangles();
@@ -1757,14 +1760,14 @@ namespace Team9.Connect4.MAUI
 
         private string[][] ReJaggedArray(string[] unJagged)
         {
-            string[][] jagged = new string[6][];
-            jagged[0] = new string[5];
-            jagged[1] = new string[5];
-            jagged[2] = new string[5];
-            jagged[3] = new string[5];
-            jagged[4] = new string[5];
-            jagged[5] = new string[5];
-            jagged[6] = new string[5];
+            string[][] jagged = new string[7][];
+            jagged[0] = new string[6];
+            jagged[1] = new string[6];
+            jagged[2] = new string[6];
+            jagged[3] = new string[6];
+            jagged[4] = new string[6];
+            jagged[5] = new string[6];
+            jagged[6] = new string[6];
             for (int i = 0; i < 7; i++)
             {
                 for (int ii = 0; ii < 6; ii++)
