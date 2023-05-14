@@ -587,6 +587,7 @@ namespace Team9.Connect4.MAUI
             btnComputer.IsVisible = true;
             lstPlayers.IsVisible = true;
             lstPlayers.ItemsSource = players;
+            //lstPlayers.BindingContext = players;
             lblCodeText.IsVisible = false;
             txtGameCode.IsVisible = false;
             txtGameCode.Text = "TEST";

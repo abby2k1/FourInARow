@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[tblSetting]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
-	[PlayerColor] NVARCHAR(MAX) NOT NULL,
-	[OpponentColor] NVARCHAR(MAX) NOT NULL,
-	[BoardColor] NVARCHAR(MAX) NOT NULL
+	[PlayerColor] NVARCHAR(6) NOT NULL,
+	[OpponentColor] NVARCHAR(6) NOT NULL,
+	[BoardColor] NVARCHAR(6) NOT NULL
 )
