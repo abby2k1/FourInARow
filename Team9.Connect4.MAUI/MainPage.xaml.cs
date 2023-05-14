@@ -2025,5 +2025,10 @@ namespace Team9.Connect4.MAUI
         {
 
         }
+
+        private void btnReset_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
