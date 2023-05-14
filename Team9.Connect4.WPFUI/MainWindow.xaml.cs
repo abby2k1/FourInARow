@@ -1247,7 +1247,7 @@ namespace Team9.Connect4.WPFUI
 
         private void btnStartGame_Click(object sender, RoutedEventArgs e)
         {
-            recButtonScreen.Visibility = Visibility.Hidden;            
+            recButtonScreen.Visibility = Visibility.Hidden;
             btnStartGame.Visibility = Visibility.Hidden;
             lblGameCode.Visibility = Visibility.Hidden;
             lblCodeText.Visibility = Visibility.Hidden;
