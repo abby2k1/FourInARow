@@ -156,5 +156,20 @@ namespace Team9.Connect4.BL
 
             return savedGame;
         }
+
+        public async static Task<SavedGame> Load(string gameCode)
+        {
+            Connect4Entities dc = new Connect4Entities();
+            tblSavedGame tblSavedGame = new tblSavedGame();
+            tblSavedGame = dc.tblSavedGames.FirstOrDefault(c => c.GameCode == gameCode);
+            SavedGame savedGame = new SavedGame();
+            savedGame.Id = tblSavedGame.Id;
+            savedGame.ResultsId = tblSavedGame.ResultsId;
+            savedGame.Player1Id = tblSavedGame.Player1Id;
+            savedGame.Player2Id = tblSavedGame.Player2Id;
+            savedGame.BoardState = tblSavedGame.BoardState;
+            savedGame.GameCode = tblSavedGame.GameCode;
+            return savedGame;
+        }
     }
 }

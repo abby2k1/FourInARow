@@ -10,8 +10,8 @@ namespace Team9.Connect4.BL.Models
     public class Setting
     {
         public Guid Id { get; set; }
-        public Color PlayerColor { get; set; }
-        public Color OpponentColor { get; set; }
-        public Color BoardColor { get; set; }
+        public String? PlayerColor { get; set; }
+        public String? OpponentColor { get; set; }
+        public String? BoardColor { get; set; }
     }
 }

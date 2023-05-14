@@ -13,10 +13,6 @@ namespace Team9.Connect4.BL
 {
     public class SettingManager
     {
-        private static String HexConverter(System.Drawing.Color c)
-        {
-            return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
-        }
         public async static Task<IEnumerable<Setting>> Load()
         {
             try
@@ -29,9 +25,9 @@ namespace Team9.Connect4.BL
                         .ForEach(c => settings.Add(new Setting
                         {
                             Id = c.Id,
-                            BoardColor = ColorTranslator.FromHtml(c.BoardColor),
-                            OpponentColor = ColorTranslator.FromHtml(c.OpponentColor),
-                            PlayerColor = ColorTranslator.FromHtml(c.PlayerColor)
+                            BoardColor = c.BoardColor,
+                            OpponentColor = c.OpponentColor,
+                            PlayerColor = c.PlayerColor
                         }));
                 }
                 return settings;
@@ -50,10 +46,9 @@ namespace Team9.Connect4.BL
             tblSetting = await dc.tblSettings.FindAsync(id);
             Setting setting = new Setting();
             setting.Id = tblSetting.Id;
-            ColorConverter colorConverter = new ColorConverter();
-            setting.PlayerColor = (Color)colorConverter.ConvertFromString(tblSetting.PlayerColor);
-            setting.OpponentColor = (Color)colorConverter.ConvertFromString(tblSetting.OpponentColor);
-            setting.BoardColor = (Color)colorConverter.ConvertFromString(tblSetting.BoardColor);
+            setting.PlayerColor = tblSetting.PlayerColor;
+            setting.OpponentColor = tblSetting.OpponentColor;
+            setting.BoardColor = tblSetting.BoardColor;
 
             return setting;
         }
@@ -67,10 +62,9 @@ namespace Team9.Connect4.BL
             tblSetting = await connect4Entities.tblSettings.FindAsync(tblPlayer.SettingId);
             Setting setting = new Setting();
             setting.Id = tblSetting.Id;
-            ColorConverter colorConverter = new ColorConverter();
-            setting.PlayerColor = (Color)colorConverter.ConvertFromString(tblSetting.PlayerColor);
-            setting.OpponentColor = (Color)colorConverter.ConvertFromString(tblSetting.OpponentColor);
-            setting.BoardColor = (Color)colorConverter.ConvertFromString(tblSetting.BoardColor);
+            setting.PlayerColor = tblSetting.PlayerColor;
+            setting.OpponentColor = tblSetting.OpponentColor;
+            setting.BoardColor = tblSetting.BoardColor;
 
             return setting;
         }
@@ -80,9 +74,9 @@ namespace Team9.Connect4.BL
             Connect4Entities connect4Entities = new Connect4Entities();
             tblSetting tblSetting = new tblSetting();
             tblSetting.Id = Guid.NewGuid();
-            tblSetting.PlayerColor = HexConverter(setting.PlayerColor);
-            tblSetting.OpponentColor = HexConverter(setting.OpponentColor);
-            tblSetting.BoardColor = HexConverter(setting.BoardColor);
+            tblSetting.PlayerColor = setting.PlayerColor;
+            tblSetting.OpponentColor = setting.OpponentColor;
+            tblSetting.BoardColor = setting.BoardColor;
 
             using (IDbContextTransaction transaction = connect4Entities.Database.BeginTransaction())
             {
@@ -113,9 +107,9 @@ namespace Team9.Connect4.BL
             Connect4Entities connect4Entities = new Connect4Entities();
             tblSetting tblSetting = new tblSetting();
             tblSetting.Id = setting.Id;
-            tblSetting.PlayerColor = HexConverter(setting.PlayerColor);
-            tblSetting.OpponentColor = HexConverter(setting.OpponentColor);
-            tblSetting.BoardColor = HexConverter(setting.BoardColor);
+            tblSetting.PlayerColor = setting.PlayerColor;
+            tblSetting.OpponentColor = setting.OpponentColor;
+            tblSetting.BoardColor = setting.BoardColor;
 
             using (IDbContextTransaction transaction = connect4Entities.Database.BeginTransaction())
             {

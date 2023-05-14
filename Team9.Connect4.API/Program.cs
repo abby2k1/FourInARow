@@ -1,3 +1,6 @@
+using Team9.Connect4.API.Hubs;
+using System.Reflection;
+
 public class Program
 {
     private static void Main(string[] args)
@@ -10,6 +13,12 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddSignalR()
+            .AddJsonProtocol(options =>
+            {
+                options.PayloadSerializerOptions.PropertyNamingPolicy = null;
+            });
 
         var app = builder.Build();
 
@@ -25,6 +34,13 @@ public class Program
         app.UseAuthorization();
 
         app.MapControllers();
+
+        app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapHub<Connect4Hub>("/connect4hub");
+        });
 
         app.Run();
 
