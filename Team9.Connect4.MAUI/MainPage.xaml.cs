@@ -1144,6 +1144,11 @@ namespace Team9.Connect4.MAUI
 
         private void btnRemote_Clicked(object sender, EventArgs e)
         {
+            if (lstPlayers.SelectedItem == null)
+            {
+                DisplayAlert("Error", "Please select a player", "OK");
+                return;
+            }
             player1 = (Player)lstPlayers.SelectedItem;
             ClearAll();
             lblCodeText.IsVisible = true;
@@ -1167,13 +1172,16 @@ namespace Team9.Connect4.MAUI
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
-            player1 = (Player)lstPlayers.SelectedItem;
-            Setting setting = GetSetting(player1.SettingId);
-            ColorTypeConverter colorConverter = new ColorTypeConverter();
-            player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
-            player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
-            playerColor = player1Color;
-            boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            if (lstPlayers.SelectedItem != null)
+            {
+                player1 = (Player)lstPlayers.SelectedItem;
+                Setting setting = GetSetting(player1.SettingId);
+                ColorTypeConverter colorConverter = new ColorTypeConverter();
+                player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
+                player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+                playerColor = player1Color;
+                boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            }
             lstPlayers.IsVisible = false;
             aiGame = true;
             localGame = false;
@@ -1247,13 +1255,16 @@ namespace Team9.Connect4.MAUI
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
-            player1 = (Player)lstPlayers.SelectedItem;
-            Setting setting = GetSetting(player1.SettingId);
-            ColorTypeConverter colorConverter = new ColorTypeConverter();
-            player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
-            player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
-            playerColor = player1Color;
-            boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            if (lstPlayers.SelectedItem != null)
+            {
+                player1 = (Player)lstPlayers.SelectedItem;
+                Setting setting = GetSetting(player1.SettingId);
+                ColorTypeConverter colorConverter = new ColorTypeConverter();
+                player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
+                player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+                playerColor = player1Color;
+                boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            }
             lstPlayers.IsVisible = false;
             localGame = true;
             remoteGame = false;
