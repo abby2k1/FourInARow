@@ -600,6 +600,15 @@ namespace Team9.Connect4.MAUI
             aiGame = false;
             sldDrop.Value = 4;
             sldDrop_DragCompleted(null, null);
+
+            nextAvailableCol1 = 39;
+            nextAvailableCol2 = 51;
+            nextAvailableCol3 = 63;
+            nextAvailableCol4 = 75;
+            nextAvailableCol5 = 87;
+            nextAvailableCol6 = 99;
+            nextAvailableCol7 = 111;
+            aiSpotPlace = 0;
         }
 
         private bool CheckWinner()
