@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Connect4.MAUI", "Team9.Connect4.MAUI\Team9.Connect4.MAUI.csproj", "{E4C89FE9-C004-4ADA-9253-C5F32CE964DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team9.Utility", "Team9.Utility\Team9.Utility.csproj", "{21D4114B-1E4E-41E3-A0DE-732C18D1B61D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team9.Utility", "Team9.Utility\Team9.Utility.csproj", "{21D4114B-1E4E-41E3-A0DE-732C18D1B61D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
