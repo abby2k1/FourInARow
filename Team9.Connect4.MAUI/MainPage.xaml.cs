@@ -1227,8 +1227,9 @@ namespace Team9.Connect4.MAUI
                 DisplayAlert("Error", "Please select a player", "OK");
                 return;
             }
-            player1 = (Player)lstPlayers.SelectedItem;
+            Player tempPlayer1 = (Player)lstPlayers.SelectedItem;
             ClearAll();
+            player1 = tempPlayer1;
             lblCodeText.IsVisible = true;
             txtGameCode.IsVisible = true;
             txtGameCode.Text = RandomString(10);
@@ -1317,10 +1318,10 @@ namespace Team9.Connect4.MAUI
                 setting = GetSetting(player2.SettingId);
             }
             ColorTypeConverter colorConverter = new ColorTypeConverter();
-            player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
-            player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+            player1Color = (Color)colorConverter.ConvertFromString("#" + setting.PlayerColor);
+            player2Color = (Color)colorConverter.ConvertFromString("#" + setting.OpponentColor);
             playerColor = player1Color;
-            boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            boardColor = (Color)colorConverter.ConvertFromString("#" + setting.BoardColor);
 
             lstPlayers.IsVisible = false;
 
@@ -1346,10 +1347,10 @@ namespace Team9.Connect4.MAUI
                 player1 = (Player)lstPlayers.SelectedItem;
                 Setting setting = GetSetting(player1.SettingId);
                 ColorTypeConverter colorConverter = new ColorTypeConverter();
-                player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
-                player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+                player1Color = (Color)colorConverter.ConvertFromString("#" + setting.PlayerColor);
+                player2Color = (Color)colorConverter.ConvertFromString("#" + setting.OpponentColor);
                 playerColor = player1Color;
-                boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+                boardColor = (Color)colorConverter.ConvertFromString("#" + setting.BoardColor);
             }
             lstPlayers.IsVisible = false;
             localGame = true;
