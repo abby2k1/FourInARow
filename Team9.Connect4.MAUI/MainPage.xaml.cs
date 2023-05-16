@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using GameKit;
+using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Maui.Controls.Shapes;
 using Microsoft.Maui.Graphics.Converters;
 using Microsoft.Maui.Platform;
@@ -727,6 +728,7 @@ namespace Team9.Connect4.MAUI
             if (remoteGame)
             {
                 SaveBoard();
+                LoadBoard();
             }
 
         }
@@ -1290,6 +1292,7 @@ namespace Team9.Connect4.MAUI
             if (GetSavedGame(gameCode) == null)
             {
                 PutGame(UnJaggedArray(plays), gameCode, player1.Id, player2.Id);
+                Notify();
             }
             else
             {
@@ -1329,6 +1332,7 @@ namespace Team9.Connect4.MAUI
             lblPlayer.IsVisible = false;
 
             LoadBoard();
+            StartSignalR();
         }
 
         private void btnLocal_Clicked(object sender, EventArgs e)
@@ -2393,6 +2397,15 @@ namespace Team9.Connect4.MAUI
             });
 
             hubConnection.StartAsync();
+        }
+
+        #endregion
+
+        #region Notify
+
+        private void Notify()
+        {
+            return;
         }
 
         #endregion
