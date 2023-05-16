@@ -7,7 +7,7 @@ public partial class tblSavedGame
 {
     public Guid Id { get; set; }
 
-    public Guid? ResultsId { get; set; } = null!;
+    public Guid? ResultsId { get; set; }
 
     public Guid Player1Id { get; set; }
 
@@ -16,4 +16,6 @@ public partial class tblSavedGame
     public string BoardState { get; set; } = null!;
 
     public string GameCode { get; set; } = null!;
+
+    public virtual tblResult? Results { get; set; }
 }

@@ -24,16 +24,14 @@ public partial class Connect4Entities : DbContext
     public virtual DbSet<tblSetting> tblSettings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        //optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true");
-        optionsBuilder.UseSqlServer("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        optionsBuilder.UseLazyLoadingProxies();
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<tblPlayer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC07C90C48EB");
+            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC078C910EEC");
 
             entity.ToTable("tblPlayer");
 
@@ -47,7 +45,7 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblResult>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC071F46774B");
+            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC073C5B9996");
 
             entity.ToTable("tblResult");
 
@@ -64,26 +62,30 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblSavedGame>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSaved__3214EC072FA8B99D");
+            entity.HasKey(e => e.Id).HasName("PK__tblSaved__3214EC074C72C81A");
 
             entity.ToTable("tblSavedGame");
+
+            entity.HasIndex(e => e.GameCode, "UQ__tblSaved__18C8460C12F9C4D5").IsUnique();
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.GameCode)
                 .HasMaxLength(10)
                 .IsFixedLength();
+
+            entity.HasOne(d => d.Results).WithMany(p => p.tblSavedGames)
+                .HasForeignKey(d => d.ResultsId)
+                .HasConstraintName("fk_tblSavedGame_ResultsId");
         });
 
         modelBuilder.Entity<tblSetting>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC0751E36449");
+            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC0760AD51B2");
 
             entity.ToTable("tblSetting");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
         });
-
-        modelBuilder.Entity<spLeaderboardResult>().HasNoKey();
 
         OnModelCreatingPartial(modelBuilder);
     }

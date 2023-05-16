@@ -16,4 +16,6 @@ public partial class tblResult
     public virtual tblPlayer? Loser { get; set; }
 
     public virtual tblPlayer? Winner { get; set; }
+
+    public virtual ICollection<tblSavedGame> tblSavedGames { get; set; } = new List<tblSavedGame>();
 }
