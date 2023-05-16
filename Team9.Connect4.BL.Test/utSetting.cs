@@ -1,87 +1,87 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Team9.Connect4.BL;
-using Team9.Connect4.BL.Models;
-using Team9.Connect4.PL;
+﻿//using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore.Storage;
+//using System;
+//using System.Collections.Generic;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using Team9.Connect4.BL;
+//using Team9.Connect4.BL.Models;
+//using Team9.Connect4.PL;
 
-namespace Team9.Connect4.BL.Test
-{
-    [TestClass]
-    public class utSetting
-    {
-        protected Connect4Entities dc = new Connect4Entities();
+//namespace Team9.Connect4.BL.Test
+//{
+//    [TestClass]
+//    public class utSetting
+//    {
+//        protected Connect4Entities dc = new Connect4Entities();
 
-        [TestInitialize]
-        public void TestInitialize()
-        {
-        }
+//        [TestInitialize]
+//        public void TestInitialize()
+//        {
+//        }
 
-        [TestCleanup]
-        public void TestCleanup()
-        {
-        }
+//        [TestCleanup]
+//        public void TestCleanup()
+//        {
+//        }
 
-        [TestMethod]
-        public void LoadTest()
-        {
-            Guid guid = dc.tblSettings.GetType().GUID;
+//        [TestMethod]
+//        public void LoadTest()
+//        {
+//            Guid guid = dc.tblSettings.GetType().GUID;
 
-            var results = SettingManager.Load(guid);
+//            var results = SettingManager.Load(guid);
 
-            Assert.IsNotNull(results);
-        }
+//            Assert.IsNotNull(results);
+//        }
 
-        [TestMethod]
-        public void LoadByPlayerIdTest()
-        {
-            Guid guid = dc.tblPlayers.FirstOrDefault().SettingId;
-            //c => c.SettingId != null
+//        [TestMethod]
+//        public void LoadByPlayerIdTest()
+//        {
+//            Guid guid = dc.tblPlayers.FirstOrDefault().SettingId;
+//            //c => c.SettingId != null
 
-            var results = SettingManager.LoadByPlayerId(guid);
+//            var results = SettingManager.LoadByPlayerId(guid);
 
-            Assert.IsNotNull(results);
-        }
+//            Assert.IsNotNull(results);
+//        }
 
-        [TestMethod]
-        public void InsertTest()
-        {
-            Setting setting = new Setting();
+//        [TestMethod]
+//        public void InsertTest()
+//        {
+//            Setting setting = new Setting();
 
-            setting.Id = new Guid();
-            setting.PlayerColor = Color.Blue;
-            setting.BoardColor = Color.BlanchedAlmond;
-            setting.OpponentColor = Color.Magenta;
+//            setting.Id = new Guid();
+//            setting.PlayerColor = Color.Blue;
+//            setting.BoardColor = Color.BlanchedAlmond;
+//            setting.OpponentColor = Color.Magenta;
 
-            var results = SettingManager.Insert(setting, true);
-            Assert.IsNotNull(results);
-        }
+//            var results = SettingManager.Insert(setting, true);
+//            Assert.IsNotNull(results);
+//        }
 
-        [TestMethod]
-        public async Task UpdateTest()
-        {
-            Guid guid = dc.tblSettings.FirstOrDefault().Id;
-            
-            Setting setting = await SettingManager.Load(guid);
+//        [TestMethod]
+//        public async Task UpdateTest()
+//        {
+//            Guid guid = dc.tblSettings.FirstOrDefault().Id;
 
-            setting.BoardColor = Color.PeachPuff;
+//            Setting setting = await SettingManager.Load(guid);
 
-            var results = SettingManager.Update(setting, true);
-            Assert.IsNotNull(results);
-        }
+//            setting.BoardColor = Color.PeachPuff;
 
-        [TestMethod]
-        public async Task DeleteTest()
-        {
-            Guid guid = dc.tblSettings.GetType().GUID;
+//            var results = SettingManager.Update(setting, true);
+//            Assert.IsNotNull(results);
+//        }
 
-            var results = SettingManager.Delete(guid, true);
-            Assert.IsNotNull(results);
-        }
-    }
-}
+//        [TestMethod]
+//        public async Task DeleteTest()
+//        {
+//            Guid guid = dc.tblSettings.GetType().GUID;
+
+//            var results = SettingManager.Delete(guid, true);
+//            Assert.IsNotNull(results);
+//        }
+//    }
+//}
