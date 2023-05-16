@@ -729,7 +729,6 @@ namespace Team9.Connect4.MAUI
                 SaveBoard();
                 LoadBoard();
             }
-
         }
 
 
@@ -1326,6 +1325,7 @@ namespace Team9.Connect4.MAUI
                         player2 = player1;
                         player1 = temp;
                         playerNumber = 2;
+                        turn = 2;
                     }
                 }
             }
@@ -2080,7 +2080,15 @@ namespace Team9.Connect4.MAUI
                 }
             }
 
-            if (player1turns > player2turns)
+            if (player1turns == 0)
+            {
+                turn = 1;
+                lblPlayerTurn.Text = "Player 1's Turn";
+                playerColor = player1Color;
+                btnDrop.IsEnabled = true;
+            }
+
+            else if (player1turns > player2turns)
             {
                 turn = 2;
                 lblPlayerTurn.Text = "Player 2's Turn";
@@ -2412,7 +2420,13 @@ namespace Team9.Connect4.MAUI
             }
             var apiclient = new ApiClient(API);
             SavedGame savedGame = new SavedGame();
-            savedGame.BoardState = string.Join("", board);
+            char[] charArray = new char[156];
+            for (int i = 0; i < 156; i++)
+            {
+                charArray[i] = char.Parse(board[i]);
+            }
+            string boardState = charArray.ToString();
+            savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
             savedGame.Player1Id = p1;
             savedGame.Player2Id = p2;
@@ -2431,7 +2445,13 @@ namespace Team9.Connect4.MAUI
             var apiclient = new ApiClient(API);
             SavedGame savedGame = new SavedGame();
             savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
-            savedGame.BoardState = string.Join("", board);
+            char[] charArray = new char[156];
+            for (int i = 0; i < 156; i++)
+            {
+                charArray[i] = char.Parse(board[i]);
+            }
+            string boardState = charArray.ToString();
+            savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
             
             if (resultId != null)
