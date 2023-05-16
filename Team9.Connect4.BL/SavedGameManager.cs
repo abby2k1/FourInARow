@@ -112,7 +112,7 @@ namespace Team9.Connect4.BL
                         .WithUrl(hubAddress)
                         .Build();
                     await hubConnection.StartAsync();
-                    string message = "aaaaaaa";
+                    string message = savedGame.GameCode;
                     await hubConnection.InvokeAsync("SendMessage", "System", message);
                     return results;
                 }

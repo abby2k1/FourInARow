@@ -2386,7 +2386,10 @@ namespace Team9.Connect4.MAUI
 
             hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                LoadBoard();
+                if (message == gameCode)
+                {
+                    LoadBoard();
+                }
             });
 
             hubConnection.StartAsync();
