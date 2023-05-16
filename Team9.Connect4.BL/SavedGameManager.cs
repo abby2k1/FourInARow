@@ -92,7 +92,7 @@ namespace Team9.Connect4.BL
                     if (row != null)
                     {
                         if (rollback) transaction = dc.Database.BeginTransaction();
-                        row.Id = Guid.NewGuid();
+                        
                         row.ResultsId = savedGame.ResultsId;
                         row.Player1Id = savedGame.Player1Id;
                         row.Player2Id = savedGame.Player2Id;
@@ -113,7 +113,28 @@ namespace Team9.Connect4.BL
                         .Build();
                     await hubConnection.StartAsync();
                     string message = savedGame.GameCode;
-                    await hubConnection.InvokeAsync("SendMessage", "System", message);
+                    int player1turns = 0;
+                    int player2turns = 0;
+                    char[] charArray = savedGame.BoardState.ToCharArray();
+                    for (int i = 0; i < 156; i++)
+                    {
+                        if (charArray[i] == '1')
+                        {
+                           player1turns++;
+                        }
+                        else if (charArray[i] == '2')
+                        {
+                            player2turns++;
+                        }
+                    }
+                    Player player1 = await PlayerManager.LoadById(savedGame.Player1Id);
+                    Player player2 = await PlayerManager.LoadById(savedGame.Player2Id);
+                    string user = player1.Username;
+                    if (player1turns == player2turns)
+                    {
+                        user = player2.Username;
+                    }
+                    await hubConnection.InvokeAsync("SendMessage", user, message);
                     return results;
                 }
             }
