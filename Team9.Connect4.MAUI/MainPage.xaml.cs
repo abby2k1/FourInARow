@@ -1289,6 +1289,7 @@ namespace Team9.Connect4.MAUI
                 DisplayAlert("Error", "Please enter a game code", "OK");
                 return;
             }
+            /*
             try
             {
                 GetSavedGame(gameCode);
@@ -1298,10 +1299,16 @@ namespace Team9.Connect4.MAUI
                 PutGame(UnJaggedArray(plays), gameCode, player1.Id, player2.Id);
                 Notify();
             }
-            
+            */
             if (GetSavedGame(gameCode) == null)
             {
-                PutGame(UnJaggedArray(plays), gameCode, player1.Id, player2.Id);
+                string[] empty = new string[156];
+                for (int i = 0; i < 156; i++)
+                {
+                    empty[i] = "0";
+                }
+
+                PutGame(empty, gameCode, player1.Id, player2.Id);
                 Notify();
             }
             else
@@ -2002,6 +2009,10 @@ namespace Team9.Connect4.MAUI
         private string[] UnJaggedArray(string[][] jagged)
         {
             string[] unJagged = new string[156];
+            for (int j = 0; j < 156; j++)
+            {
+                unJagged[j] = "0";
+            }
             for (int i = 0; i < 7; i++)
             {
                 for (int ii = 0; ii < 6; ii++)
@@ -2040,7 +2051,8 @@ namespace Team9.Connect4.MAUI
 
         private void LoadBoard()
         {
-            string[] loadFromApi = GetBoard((Guid)GetGuidSavedGame(gameCode));
+            string[] loadFromApi = new string[156];
+            loadFromApi = GetBoard((Guid)GetGuidSavedGame(gameCode));
 
             int player1turns = 0;
             for (int i = 0; i < 7; i++)
@@ -2364,7 +2376,15 @@ namespace Team9.Connect4.MAUI
         {
             var apiclient = new ApiClient(API);
             var response = apiclient.GetItem<SavedGame>("SavedGame/" + id);
-            return response.BoardState.Split("");
+
+            char[] arrayChar = new char[156];
+            arrayChar = response.BoardState.ToCharArray();
+            string[] arrayString = new string[156];
+            for (int i = 0; i < 156; i++)
+            {
+                arrayString[i] = arrayChar[i].ToString();
+            }
+            return arrayString;
         }
 
         private List<Player> GetPlayers()
