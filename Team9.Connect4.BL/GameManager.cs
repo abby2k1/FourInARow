@@ -146,6 +146,15 @@ namespace Team9.Connect4.BL
             }
         }
 
+        public static void PostTurns(int turns)
+        {
+            Game game = new Game();
+            game.Id = new Guid();
+            game.WinnerId = new Guid();
+            game.LoserId = new Guid();
+            game.Turns = turns;
+        }
+
         public static void SendEmail(string userEmail)
         {
             try
