@@ -406,6 +406,8 @@ namespace Team9.Connect4.MAUI
         }
         #endregion
 
+        #region Logic
+
         private void EndedInDraw()
         {
             CheckWinner();
@@ -656,15 +658,81 @@ namespace Team9.Connect4.MAUI
         {
             if (winner == "1")
                 DisplayAlert("Player 1 WINNER!!!", "Game Winner!!", "OK");
-            else
-                if (aiGame == true)
+            else if (aiGame == true)
                 DisplayAlert("Computer Wins", "Game Winner!!", "OK");
             else
+            {
+                PostResult();
                 DisplayAlert("Player 2 WINNER!!!", "Game Winner!!", "OK");
-
+            }
+            
             ClearAll();
         }
 
+        private int GetTurns()
+        {
+            int player1turns = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    if (UnJaggedArray(plays)[iii] == "1")
+                    {
+                        player1turns++;
+                    }
+                }
+            }
+
+            int player2turns = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    if (UnJaggedArray(plays)[iii] == "2")
+                    {
+                        player2turns++;
+                    }
+                }
+            }
+
+            return player1turns + player2turns;
+        }
+
+        private void ClearAllRectangles()
+        {
+            foreach (Rectangle rec in grdBoard)
+            {
+                //rec.Fill = new SolidColorBrush(Color.FromHex("#FFFFFF"));
+                rec.Fill = null;
+            }
+            recBorder.Fill = boardColor;
+        }
+        private void ClearAllCircles()
+        {
+            foreach (Ellipse ell in grdBoardE)
+            {
+                ell.Fill = new SolidColorBrush(Color.FromHex("#000000"));
+            }
+        }
+
+        private void EndTurn()
+        {
+            ClearAllRectangles();
+            CheckWinner();
+            SwitchPlayer();
+            sldDrop_DragCompleted(null, null);
+
+            if (remoteGame)
+            {
+                SaveBoard();
+            }
+
+        }
+
+
+        #endregion
 
         #region ColumnClickEvents
 
@@ -1186,16 +1254,22 @@ namespace Team9.Connect4.MAUI
                 player1 = (Player)lstPlayers.SelectedItem;
                 Setting setting = GetSetting(player1.SettingId);
                 ColorTypeConverter colorConverter = new ColorTypeConverter();
-                player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
-                player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+                player1Color = (Color)colorConverter.ConvertFromString("#" + setting.PlayerColor);
+                player2Color = (Color)colorConverter.ConvertFromString("#" + setting.OpponentColor);
                 playerColor = player1Color;
-                boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+                boardColor = (Color)colorConverter.ConvertFromString("#" + setting.BoardColor);
+                ApplyColors();
             }
             lstPlayers.IsVisible = false;
             aiGame = true;
             localGame = false;
             remoteGame = false;
             turn = 1;
+        }
+
+        private void ApplyColors()
+        {
+            recBorder.Fill = new SolidColorBrush(boardColor);
         }
 
         private void btnStartGame_Clicked(object sender, EventArgs e)
@@ -1901,37 +1975,6 @@ namespace Team9.Connect4.MAUI
 
         #endregion
 
-        private void ClearAllRectangles()
-        {
-            foreach (Rectangle rec in grdBoard)
-            {
-                //rec.Fill = new SolidColorBrush(Color.FromHex("#FFFFFF"));
-                rec.Fill = null;
-            }
-            recBorder.Fill = boardColor;
-        }
-        private void ClearAllCircles()
-        {
-            foreach (Ellipse ell in grdBoardE)
-            {
-                ell.Fill = new SolidColorBrush(Color.FromHex("#000000"));
-            }
-        }
-
-        private void EndTurn()
-        {
-            ClearAllRectangles();
-            CheckWinner();
-            SwitchPlayer();
-            sldDrop_DragCompleted(null, null);
-            
-            if (remoteGame)
-            {
-                SaveBoard();
-            }
-            
-        }
-
         #region Array Conversion
 
         private string[] UnJaggedArray(string[][] jagged)
@@ -2221,6 +2264,13 @@ namespace Team9.Connect4.MAUI
             UpdateGame(id, values, gameCode);
         }
 
+        private void SaveBoard(Guid resultId)
+        {
+            string[] values = UnJaggedArray(plays);
+            Guid id = GetGuidSavedGame(gameCode);
+            UpdateGame(id, values, gameCode, resultId);
+        }
+
         #endregion
 
         #endregion
@@ -2228,6 +2278,18 @@ namespace Team9.Connect4.MAUI
         #region API
 
         string API = "https://team9connect4api.azurewebsites.net/";
+
+        private void PostResult()
+        {
+            Game gameResult = new Game();
+            gameResult.Id = Guid.NewGuid();
+            gameResult.Turns = GetTurns();
+            gameResult.WinnerId = player2.Id;
+            gameResult.LoserId = player1.Id;
+            var apiclient = new ApiClient(API);
+            var response = apiclient.Post("Game/" + gameResult);
+            SaveBoard(gameResult.Id);
+        }
 
         private SavedGame GetSavedGame(string gameCode)
         {
@@ -2288,7 +2350,7 @@ namespace Team9.Connect4.MAUI
             else
                 return false;
         }
-        private bool UpdateGame(Guid id, string[] board, string gameCode)
+        private bool UpdateGame(Guid id, string[] board, string gameCode, Guid? resultId = null)
         {
             //api code here to update saved game
             //if api call returned true, return true
@@ -2298,6 +2360,10 @@ namespace Team9.Connect4.MAUI
             savedGame.Id = GetGuidSavedGame(gameCode);
             savedGame.BoardState = string.Join("", board);
             savedGame.GameCode = gameCode;
+            
+            if (resultId != null)
+                savedGame.ResultsId = resultId;
+
             var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
             string result = response.Content.ReadAsStringAsync().Result;
             if (result != null)

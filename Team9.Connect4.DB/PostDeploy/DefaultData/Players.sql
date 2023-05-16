@@ -6,7 +6,7 @@
 	VALUES
 	(NEWID(), 'MaxWilke', 'Maple', @SettingsId)
 
-	SELECT @SettingsId = Id from tblSetting where PlayerColor = 'FF0000' 
+	SELECT @SettingsId = Id from tblSetting where PlayerColor = 'FF00FF' 
 
 	INSERT INTO dbo.tblPlayer (Id, Username, Password, SettingId)
 	VALUES
