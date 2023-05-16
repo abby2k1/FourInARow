@@ -1,1 +1,3 @@
 Scaffold-DbContext "Server=(localhost)\MSSQLLocalDB;Database=Team9.Connect4.DB;Integrated Security=true" Microsoft.EntityFrameworkCore.SqlServer -Context Connect4Entities -UseDatabaseNames -force
+
+Scaffold-DbContext "Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -Context Connect4Entities -UseDatabaseNames -force
