@@ -1356,7 +1356,7 @@ namespace Team9.Connect4.MAUI
             lblPlayer.IsVisible = false;
 
             LoadBoard();
-            //StartSignalR();
+            StartSignalR();
         }
 
         private void btnLocal_Clicked(object sender, EventArgs e)
@@ -2358,7 +2358,7 @@ namespace Team9.Connect4.MAUI
                 playerColor = player2Color;
                 if (playerNumber == 1)
                 {
-                    lblPlayerTurn.Text = "Waiting for Player 2's Turn...";
+                    lblPlayerTurn.Text = "Waiting for Player 2";
                     btnDrop.Text = "Refresh";
                 }
                 else
@@ -2373,7 +2373,7 @@ namespace Team9.Connect4.MAUI
                 playerColor = player1Color;
                 if (playerNumber == 2)
                 {
-                    lblPlayerTurn.Text = "Waiting for Player 1's Turn...";
+                    lblPlayerTurn.Text = "Waiting for Player 1";
                     btnDrop.Text = "Refresh";
                 }
                 else
