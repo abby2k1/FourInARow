@@ -266,11 +266,14 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="btnLocal" Content="Local Game" HorizontalAlignment="Left" Margin="309,153,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnLocal_Click"/>
-        <Button x:Name="btnRemote" Content="Remote Game" HorizontalAlignment="Left" Margin="540,153,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnRemote_Click"/>
-        <Button x:Name="btnComputer" Content="Against Computer" HorizontalAlignment="Left" Margin="69,153,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnComputer_Click"/>
-        <Label x:Name="lblCodeText" Content="Your Game Code Is:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="335,47,0,0" VerticalAlignment="Top" Foreground="White" Height="33" Width="146"/>
+        <Button x:Name="btnLocal" Content="Local Game" Margin="107,111,430,207" Click="btnLocal_Click" FontSize="26" Visibility="Visible"/>
+        <Button x:Name="btnComputer" Content="Against Computer" Margin="107,243,430,60" Click="btnComputer_Click" RenderTransformOrigin="0.486,1.487" FontSize="26" Visibility="Visible"/>
+        <Label x:Name="lblCodeText" Content="Your Game Code Is:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Foreground="White" Height="50" Width="240" FontSize="26" RenderTransformOrigin="0.254,0.571"/>
         <Label x:Name="lblGameCode" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="335,80,0,0" VerticalAlignment="Top" Foreground="White" Height="62" Width="146" FontSize="36"/>
-        <Button x:Name="btnStartGame" Content="Start Remote Game" HorizontalAlignment="Left" Margin="308,332,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnStartGame_Click"/>
+        <Button x:Name="btnStartGame" Content="Start Remote Game" HorizontalAlignment="Left" Margin="308,332,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnStartGame_Click" FontSize="24"/>
+        <Button x:Name="btnHostRemote" Content="Host Remote Game" Margin="443,111,106,201" Click="btnHostRemote_Click" FontSize="26"/>
+        <Button x:Name="btnJoinRemote" Content="Join Remote Game" Margin="443,242,106,60" Click="btnJoinRemote_Click" FontSize="26"/>
+        <TextBox x:Name="txtEmailRec" HorizontalAlignment="Left" Margin="45,227,0,0" TextWrapping="Wrap" Text="Enter Email Address Here" VerticalAlignment="Top" Width="165" Height="35" FontSize="14"/>
+        <Button x:Name="btnSendEmail" Content="Send Email" HorizontalAlignment="Left" Margin="88,285,0,0" VerticalAlignment="Top" FontSize="14" Width="78" Click="btnSendEmail_Click"/>
     </Grid>
 </Window>

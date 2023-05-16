@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Team9.Connect4.BL\Team9.Connect4.BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\BlackChip.jpg" />
     <Resource Include="Images\BlackChip.png" />
     <Resource Include="Images\RedChip.jpg" />

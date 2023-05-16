@@ -37,6 +37,7 @@ namespace Team9.Connect4.WPFUI
         int nextAvailableCol6 = 99;
         int nextAvailableCol7 = 111;
         int aiSpotPlace = 0;
+        string userEmail;
         public MainWindow()
         {
             InitializeComponent();
@@ -101,10 +102,12 @@ namespace Team9.Connect4.WPFUI
             btnCol7.Visibility = Visibility.Visible;
             recButtonScreen.Visibility = Visibility.Visible;
             btnLocal.Visibility = Visibility.Visible;
-            btnRemote.Visibility = Visibility.Visible;
+            btnHostRemote.Visibility = Visibility.Visible;
             btnComputer.Visibility = Visibility.Visible;
             lblCodeText.Visibility = Visibility.Hidden;
             lblGameCode.Visibility = Visibility.Hidden;
+            txtEmailRec.Visibility = Visibility.Hidden;
+            btnSendEmail.Visibility = Visibility.Hidden;
             lblGameCode.Content = "TEST";
             btnStartGame.Visibility = Visibility.Hidden;
             turn = 1;
@@ -248,26 +251,7 @@ namespace Team9.Connect4.WPFUI
                     //WasWinner(winner);
                     ClearAll();
                 }
-                //if ((values[i] == "2" && values[i - 1] == "2" && values[i - 2] == "2" && values[i - 3] == "2"))
-                //{
-                //    WasWinner(winner);
-                //    ClearAll();
-                //}
-                //if ((values[i] == "2" && values[i - 13] == "2" && values[i - 26] == "2" && values[i - 39] == "2"))
-                //{
-                //    WasWinner(winner);
-                //    ClearAll();
-                //}
-                //if ((values[i] == "2" && values[i - 12] == "2" && values[i - 24] == "2" && values[i - 36] == "2"))
-                //{
-                //    WasWinner(winner);
-                //    ClearAll();
-                //}
-                //if ((values[i] == "2" && values[i - 11] == "2" && values[i - 22] == "2" && values[i - 33] == "2"))
-                //{
-                //    WasWinner(winner);
-                //    ClearAll();
-                //}
+                
             }
         }
 
@@ -1211,7 +1195,7 @@ namespace Team9.Connect4.WPFUI
         {
             recButtonScreen.Visibility = Visibility.Hidden;
             btnLocal.Visibility = Visibility.Hidden;
-            btnRemote.Visibility = Visibility.Hidden;
+            btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
             localGame = true;
             remoteGame = false;
@@ -1223,7 +1207,7 @@ namespace Team9.Connect4.WPFUI
         {
             recButtonScreen.Visibility = Visibility.Hidden;
             btnLocal.Visibility = Visibility.Hidden;
-            btnRemote.Visibility = Visibility.Hidden;
+            btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
             aiGame = true;
             localGame = false;
@@ -1231,14 +1215,17 @@ namespace Team9.Connect4.WPFUI
             turn = 1;
         }
 
-        private void btnRemote_Click(object sender, RoutedEventArgs e)
+        private void btnHostRemote_Click(object sender, RoutedEventArgs e)
         {
             lblCodeText.Visibility = Visibility.Visible;
             lblGameCode.Visibility = Visibility.Visible;
             btnStartGame.Visibility = Visibility.Visible;
+            txtEmailRec.Visibility = Visibility.Visible;
+            btnSendEmail.Visibility = Visibility.Visible;
             btnLocal.Visibility = Visibility.Hidden;
-            btnRemote.Visibility = Visibility.Hidden;
+            btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
+            btnJoinRemote.Visibility = Visibility.Hidden;
             remoteGame = true;
             localGame = false;
             aiGame = false;
@@ -1842,5 +1829,19 @@ namespace Team9.Connect4.WPFUI
         //    CheckWinner();
         //}
         #endregion
+
+        private void btnJoinRemote_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSendEmail_Click(object sender, RoutedEventArgs e)
+        {
+            userEmail = txtEmailRec.Text;
+            if (userEmail.Contains('@'))
+            BL.GameManager.SendEmail(userEmail);
+        }
+
+
     }
 }
