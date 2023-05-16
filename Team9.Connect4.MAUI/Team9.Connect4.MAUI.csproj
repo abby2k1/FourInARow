@@ -57,7 +57,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.5" />
 	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Team9.Connect4.BL.Models\Team9.Connect4.BL.Models.csproj" />
+	  <ProjectReference Include="..\Team9.Utility\Team9.Utility.csproj" />
 	</ItemGroup>
 
 </Project>

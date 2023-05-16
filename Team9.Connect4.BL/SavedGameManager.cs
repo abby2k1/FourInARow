@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -105,6 +106,14 @@ namespace Team9.Connect4.BL
                     {
                         throw new Exception("Row was not found.");
                     }
+                    HubConnection hubConnection;
+                    string hubAddress = "http://team9connect4api.azurewebsites.net/connect4hub";
+                    hubConnection = new HubConnectionBuilder()
+                        .WithUrl(hubAddress)
+                        .Build();
+                    await hubConnection.StartAsync();
+                    string message = "aaaaaaa";
+                    await hubConnection.InvokeAsync("SendMessage", "System", message);
                     return results;
                 }
             }
@@ -113,6 +122,7 @@ namespace Team9.Connect4.BL
 
                 throw ex;
             }
+            
         }
         public async static Task<IEnumerable<SavedGame>> Load()
         {
@@ -154,6 +164,21 @@ namespace Team9.Connect4.BL
             savedGame.BoardState = tblSavedGame.BoardState;
             savedGame.GameCode = tblSavedGame.GameCode;
 
+            return savedGame;
+        }
+
+        public async static Task<SavedGame> Load(string gameCode)
+        {
+            Connect4Entities dc = new Connect4Entities();
+            tblSavedGame tblSavedGame = new tblSavedGame();
+            tblSavedGame = dc.tblSavedGames.FirstOrDefault(c => c.GameCode == gameCode);
+            SavedGame savedGame = new SavedGame();
+            savedGame.Id = tblSavedGame.Id;
+            savedGame.ResultsId = tblSavedGame.ResultsId;
+            savedGame.Player1Id = tblSavedGame.Player1Id;
+            savedGame.Player2Id = tblSavedGame.Player2Id;
+            savedGame.BoardState = tblSavedGame.BoardState;
+            savedGame.GameCode = tblSavedGame.GameCode;
             return savedGame;
         }
     }

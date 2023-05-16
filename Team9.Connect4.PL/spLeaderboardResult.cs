@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Team9.Connect4.PL
 {
-    class spLeaderboard
+    public class spLeaderboardResult
     {
-        public Guid ID { get; set; }
-        public Guid SettingsID { get; set; }
+        public string Winner { get; set; }
         public int Turns { get; set; }
-        public string Username { get; set; }
     }
 }

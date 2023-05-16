@@ -89,7 +89,7 @@
     <None Include="PostDeploy\DefaultData\SavedGame.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="StoredProcedures\spLeaderboard.sql" />
+    <Build Include="StoredProcedures\spLeaderboard.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Team9.Connect4.DB.refactorlog" />

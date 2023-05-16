@@ -1,11 +1,16 @@
-﻿using Microsoft.Maui.Controls.Shapes;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Maui.Controls.Shapes;
+using Microsoft.Maui.Graphics.Converters;
+using Microsoft.Maui.Platform;
+using Team9.Connect4.BL.Models;
+using Team9.Utility;
 
 namespace Team9.Connect4.MAUI
 {
     public partial class MainPage : ContentPage
     {
         //string[] values = new string[156];
-        string[][] plays = new string[6][];
+        string[][] plays = new string[7][];
         int turn = 1;
         bool firstMove = true;
         bool localGame = false;
@@ -24,38 +29,24 @@ namespace Team9.Connect4.MAUI
         Color player2Color = Color.FromRgb(255, 255, 0);
         Color boardColor = Color.FromRgb(0, 0, 255);
         int playerNumber = 1;
+        string gameCode = "";
+        Player player1 = new Player();
+        Player player2 = new Player();
+        List<Player> players = new List<Player>();
 
         public MainPage()
         {
             InitializeComponent();
 
             ClearAll();
-
-            plays[0] = new string[5];
-            plays[1] = new string[5];
-            plays[2] = new string[5];
-            plays[3] = new string[5];
-            plays[4] = new string[5];
-            plays[5] = new string[5];
-            plays[6] = new string[5];
         }
 
+        #region GamePlay
+
         #region ComputerRandom
-        private void ComputerRandom()
+
+        private bool ComputerChoice(int choice)
         {
-            turn = 2;
-            playerColor = player2Color;
-            int choice = 0;
-            if (aiSpotPlace > 0)
-            {
-                choice = aiSpotPlace;
-                aiSpotPlace = 0;
-            }
-            else
-            {
-                Random rnd = new Random();
-                choice = rnd.Next(1, 8);
-            }
             switch (choice)
             {
                 case 1:
@@ -94,11 +85,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -138,11 +130,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -182,11 +175,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -226,11 +220,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -270,11 +265,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -314,11 +310,12 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
@@ -358,21 +355,75 @@ namespace Team9.Connect4.MAUI
                                     break;
                             }
                             i = 7;
+                            return false;
                             //EndTurn();
                         }
                         else if (i == 5)
                         {
-                            //DisplayAlert("Error", "Column is full", "OK");
+                            return true;
                         }
                     }
                     break;
             }
+            return true;
+        }
+
+        private void ComputerPlay()
+        {
+            turn = 2;
+            playerColor = player2Color;
+            int choice = 0;
+            if (aiSpotPlace > 0)
+            {
+                choice = aiSpotPlace;
+                aiSpotPlace = 0;
+            }
+            else
+            {
+                Random rnd = new Random();
+                choice = rnd.Next(1, 8);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                if (!ComputerChoice(choice))
+                {
+                    return;
+                }
+                Random rnd = new Random();
+                choice = rnd.Next(1, 8);
+                if (i == 3)
+                {
+                    for (int ii = 1; ii < 8; ii++)
+                    {
+                        if (!ComputerChoice(ii))
+                        {
+                            return;
+                        }
+                    }
+                    EndedInDraw();
+                }
+            }
+        }
+        #endregion
+
+        private void EndedInDraw()
+        {
+            CheckWinner();
+        }
+        
+        private void ComputerRandom()
+        {
+            ComputerPlay();
+            EndComputerTurn();
+        }
+
+        private void EndComputerTurn()
+        {
             turn = 1;
             lblPlayerTurn.Text = "Player 1's Turn";
             firstMove = false;
             playerColor = player1Color;
         }
-        #endregion
 
         private void ComputerWin()
         {
@@ -500,31 +551,67 @@ namespace Team9.Connect4.MAUI
 
         private void ClearAll()
         {
-            plays = new string[6][];
+            plays = new string[7][];
+            plays[0] = new string[6];
+            plays[1] = new string[6];
+            plays[2] = new string[6];
+            plays[3] = new string[6];
+            plays[4] = new string[6];
+            plays[5] = new string[6];
+            plays[6] = new string[6];
+
             for (int i = 0; i < 7; i++)
             {
-                plays[i] = new string[5];
+                for (int j = 0; j < 6; j++)
+                {
+                    plays[i][j] = "0";
+                }
             }
-            
+
             lblPlayerTurn.Text = "Player 1's Turn";
+            playerNumber = 1;
+            player1 = new Player();
+            player2 = new Player();
+            playerColor = Color.FromRgb(255, 0, 0);
+            player1Color = Color.FromRgb(255, 0, 0);
+            player2Color = Color.FromRgb(255, 255, 0);
+            boardColor = Color.FromRgb(0, 0, 255);
+
+            players = GetPlayers();
+
             ClearAllCircles();
             ClearAllRectangles();
             recButtonScreen.IsVisible = true;
             btnLocal.IsVisible = true;
             btnRemote.IsVisible = true;
             btnComputer.IsVisible = true;
+            lstPlayers.IsVisible = true;
+            lstPlayers.ItemsSource = players;
+            //lstPlayers.BindingContext = players;
             lblCodeText.IsVisible = false;
-            lblGameCode.IsVisible = false;
-            lblGameCode.Text = "TEST";
+            txtGameCode.IsVisible = false;
+            txtGameCode.Text = "TEST";
             btnStartGame.IsVisible = false;
+            lblPlayer.IsVisible = false;
             turn = 1;
             firstMove = true;
             localGame = false;
             remoteGame = false;
             aiGame = false;
+            sldDrop.Value = 4;
+            sldDrop_DragCompleted(null, null);
+
+            nextAvailableCol1 = 39;
+            nextAvailableCol2 = 51;
+            nextAvailableCol3 = 63;
+            nextAvailableCol4 = 75;
+            nextAvailableCol5 = 87;
+            nextAvailableCol6 = 99;
+            nextAvailableCol7 = 111;
+            aiSpotPlace = 0;
         }
 
-        private void CheckWinner()
+        private bool CheckWinner()
         {
             string[] values = UnJaggedArray(plays);
             for (int i = 39; i < 117; i++)
@@ -533,24 +620,36 @@ namespace Team9.Connect4.MAUI
                 if ((values[i] == "1" && values[i + 1] == "1" && values[i + 2] == "1" && values[i + 3] == "1") || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 13] == "1" && values[i + 26] == "1" && values[i + 39] == "1") || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 12] == "1" && values[i + 24] == "1" && values[i + 36] == "1") || (values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 11] == "1" && values[i + 22] == "1" && values[i + 33] == "1") || (values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
                 {
                     WasWinner(winner);
+                    return true;
                     break;
                 }
             }
+            for (int i = 39; i < 117; i++)
+            {
+                if (values[i] == "0")
+                    return false;
+            }
+            DisplayAlert("Game Tied", "The game ended in a draw.", "OK");
+            ClearAll();
+            return true;
         }
 
         private void WasWinner(string winner)
@@ -1043,11 +1142,29 @@ namespace Team9.Connect4.MAUI
 
         #region Menu
 
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         private void btnRemote_Clicked(object sender, EventArgs e)
         {
+            if (lstPlayers.SelectedItem == null)
+            {
+                DisplayAlert("Error", "Please select a player", "OK");
+                return;
+            }
+            player1 = (Player)lstPlayers.SelectedItem;
+            ClearAll();
             lblCodeText.IsVisible = true;
-            lblGameCode.IsVisible = true;
+            txtGameCode.IsVisible = true;
+            txtGameCode.Text = RandomString(10);
             btnStartGame.IsVisible = true;
+            lblPlayer.IsVisible = true;
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
@@ -1059,10 +1176,22 @@ namespace Team9.Connect4.MAUI
 
         private void btnComputer_Clicked(object sender, EventArgs e)
         {
+            ClearAll();
             recButtonScreen.IsVisible = false;
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
+            if (lstPlayers.SelectedItem != null)
+            {
+                player1 = (Player)lstPlayers.SelectedItem;
+                Setting setting = GetSetting(player1.SettingId);
+                ColorTypeConverter colorConverter = new ColorTypeConverter();
+                player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
+                player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+                playerColor = player1Color;
+                boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            }
+            lstPlayers.IsVisible = false;
             aiGame = true;
             localGame = false;
             remoteGame = false;
@@ -1071,18 +1200,81 @@ namespace Team9.Connect4.MAUI
 
         private void btnStartGame_Clicked(object sender, EventArgs e)
         {
+            player2 = (Player)lstPlayers.SelectedItem;
+            if (player2 == player1)
+            {
+                DisplayAlert("Error", "You cannot play against yourself", "OK");
+                return;
+            }
+            
+            gameCode = txtGameCode.Text;
+            if (gameCode == "")
+            {
+                DisplayAlert("Error", "Please enter a game code", "OK");
+                return;
+            }
+            if (GetSavedGame(gameCode) == null)
+            {
+                PutGame(UnJaggedArray(plays), gameCode, player1.Id, player2.Id);
+            }
+            else
+            {
+                if (GetSavedGame(gameCode).Player1Id != player1.Id)
+                {
+                    if (GetSavedGame(gameCode).Player2Id != player1.Id)
+                    {
+                        DisplayAlert("Error", "Game code already in use", "OK");
+                        return;
+                    }
+                    else
+                    {
+                        Player temp = player2;
+                        player2 = player1;
+                        player1 = temp;
+                        playerNumber = 2;
+                    }
+                }
+            }
+            Setting setting = GetSetting(player1.SettingId);
+            if (playerNumber == 2)
+            {
+                setting = GetSetting(player2.SettingId);
+            }
+            ColorTypeConverter colorConverter = new ColorTypeConverter();
+            player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
+            player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+            playerColor = player1Color;
+            boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+
+            lstPlayers.IsVisible = false;
+
             recButtonScreen.IsVisible = false;
             btnStartGame.IsVisible = false;
-            lblGameCode.IsVisible = false;
+            txtGameCode.IsVisible = false;
             lblCodeText.IsVisible = false;
+            lblPlayer.IsVisible = false;
+
+            LoadBoard();
         }
 
         private void btnLocal_Clicked(object sender, EventArgs e)
         {
+            ClearAll();
             recButtonScreen.IsVisible = false;
             btnLocal.IsVisible = false;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
+            if (lstPlayers.SelectedItem != null)
+            {
+                player1 = (Player)lstPlayers.SelectedItem;
+                Setting setting = GetSetting(player1.SettingId);
+                ColorTypeConverter colorConverter = new ColorTypeConverter();
+                player1Color = (Color)colorConverter.ConvertFromString(setting.PlayerColor);
+                player2Color = (Color)colorConverter.ConvertFromString(setting.OpponentColor);
+                playerColor = player1Color;
+                boardColor = (Color)colorConverter.ConvertFromString(setting.BoardColor);
+            }
+            lstPlayers.IsVisible = false;
             localGame = true;
             remoteGame = false;
             aiGame = false;
@@ -1720,7 +1912,7 @@ namespace Team9.Connect4.MAUI
         }
         private void ClearAllCircles()
         {
-            foreach (Ellipse ell in grdBoard)
+            foreach (Ellipse ell in grdBoardE)
             {
                 ell.Fill = new SolidColorBrush(Color.FromHex("#000000"));
             }
@@ -1731,12 +1923,13 @@ namespace Team9.Connect4.MAUI
             ClearAllRectangles();
             CheckWinner();
             SwitchPlayer();
-            /*
+            sldDrop_DragCompleted(null, null);
+            
             if (remoteGame)
             {
                 SaveBoard();
             }
-            */
+            
         }
 
         #region Array Conversion
@@ -1757,14 +1950,14 @@ namespace Team9.Connect4.MAUI
 
         private string[][] ReJaggedArray(string[] unJagged)
         {
-            string[][] jagged = new string[6][];
-            jagged[0] = new string[5];
-            jagged[1] = new string[5];
-            jagged[2] = new string[5];
-            jagged[3] = new string[5];
-            jagged[4] = new string[5];
-            jagged[5] = new string[5];
-            jagged[6] = new string[5];
+            string[][] jagged = new string[7][];
+            jagged[0] = new string[6];
+            jagged[1] = new string[6];
+            jagged[2] = new string[6];
+            jagged[3] = new string[6];
+            jagged[4] = new string[6];
+            jagged[5] = new string[6];
+            jagged[6] = new string[6];
             for (int i = 0; i < 7; i++)
             {
                 for (int ii = 0; ii < 6; ii++)
@@ -1782,8 +1975,7 @@ namespace Team9.Connect4.MAUI
 
         private void LoadBoard()
         {
-            string[] loadFromApi = new string[156];
-            //api code here
+            string[] loadFromApi = GetBoard(GetGuidSavedGame(gameCode));
 
             int player1turns = 0;
             for (int i = 0; i < 7; i++)
@@ -1816,22 +2008,30 @@ namespace Team9.Connect4.MAUI
                 turn = 2;
                 lblPlayerTurn.Text = "Player 2's Turn";
                 playerColor = player2Color;
-                //if (playerNumber == 1)
-                //{
-                //    lblPlayerTurn.Text = "Waiting for Player 2's Turn...";
-                //    btnDrop.IsEnabled = false;
-                //}
+                if (playerNumber == 1)
+                {
+                    lblPlayerTurn.Text = "Waiting for Player 2's Turn...";
+                    btnDrop.IsEnabled = false;
+                }
+                else
+                {
+                    btnDrop.IsEnabled = true;
+                }
             }
             else
             {
                 turn = 1;
                 lblPlayerTurn.Text = "Player 1's Turn";
                 playerColor = player1Color;
-                //if (playerNumber == 2)
-                //{
-                //    lblPlayerTurn.Text = "Waiting for Player 1's Turn...";
-                //    btnDrop.IsEnabled = false;
-                //}
+                if (playerNumber == 2)
+                {
+                    lblPlayerTurn.Text = "Waiting for Player 1's Turn...";
+                    btnDrop.IsEnabled = false;
+                }
+                else
+                {
+                    btnDrop.IsEnabled = true;
+                }
             }
 
             plays = ReJaggedArray(loadFromApi);
@@ -1839,6 +2039,7 @@ namespace Team9.Connect4.MAUI
             ClearAllCircles();
             LoadAllCircles();
             CheckWinner();
+            sldDrop_DragCompleted(null, null);
         }
 
         private void LoadAllCircles()
@@ -2015,20 +2216,116 @@ namespace Team9.Connect4.MAUI
 
         private void SaveBoard()
         {
-            string[] sendToApi = UnJaggedArray(plays);
-            //api code here
+            string[] values = UnJaggedArray(plays);
+            Guid id = GetGuidSavedGame(gameCode);
+            UpdateGame(id, values, gameCode);
         }
 
         #endregion
 
-        private void btnStart_Clicked(object sender, EventArgs e)
-        {
+        #endregion
 
+        #region API
+
+        string API = "https://team9connect4api.azurewebsites.net/";
+
+        private SavedGame GetSavedGame(string gameCode)
+        {
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<SavedGame>("SavedGame/" + gameCode);
+            return response;
+        }
+        private Guid GetGuidSavedGame(string gameCode)
+        {
+            //api code here to get saved game
+
+            //if api call returned null, create new game with the given gameCode
+
+            //else return the Guid of the saved game
+
+            //if saved game is a finished game, delete it and create a new game with the given gameCode
+
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<Guid>("SavedGame/" + gameCode);
+            return response;
+        }
+        private Setting GetSetting(Guid id)
+        {
+            //api code here to get setting from saved game
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<Setting>("Setting/" + id);
+            return response;
+        }
+        private string[] GetBoard(Guid id)
+        {
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<SavedGame>("SavedGame/" + id);
+            return response.BoardState.Split("");
         }
 
-        private void btnReset_Clicked(object sender, EventArgs e)
+        private List<Player> GetPlayers()
         {
-
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetList<Player>("Player/");
+            return response;
         }
+
+        private bool PutGame(string[] board, string gameCode, Guid p1, Guid p2)
+        {
+            //api code here to put saved game
+            //if api call returned true, return true
+            //else return false
+            var apiclient = new ApiClient(API);
+            SavedGame savedGame = new SavedGame();
+            savedGame.BoardState = string.Join("", board);
+            savedGame.GameCode = gameCode;
+            savedGame.Player1Id = p1;
+            savedGame.Player2Id = p2;
+            var response = apiclient.Post<SavedGame>(savedGame, "SavedGame/");
+            string result = response.Content.ReadAsStringAsync().Result;
+            if (result != null)
+                return true;
+            else
+                return false;
+        }
+        private bool UpdateGame(Guid id, string[] board, string gameCode)
+        {
+            //api code here to update saved game
+            //if api call returned true, return true
+            //else return false
+            var apiclient = new ApiClient(API);
+            SavedGame savedGame = new SavedGame();
+            savedGame.Id = GetGuidSavedGame(gameCode);
+            savedGame.BoardState = string.Join("", board);
+            savedGame.GameCode = gameCode;
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
+            string result = response.Content.ReadAsStringAsync().Result;
+            if (result != null)
+                return true;
+            else
+                return false;
+        }   
+
+        #endregion
+
+        #region SignalR
+
+        string hubAddress = "https://team9connect4api.azurewebsites.net/connect4hub";
+        HubConnection hubConnection;
+        public void StartSignalR()
+        {
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl(hubAddress)
+                .Build();
+
+            hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+            {
+                LoadBoard();
+            });
+
+            hubConnection.StartAsync();
+        }
+
+        #endregion
     }
 }
