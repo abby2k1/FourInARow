@@ -1289,6 +1289,16 @@ namespace Team9.Connect4.MAUI
                 DisplayAlert("Error", "Please enter a game code", "OK");
                 return;
             }
+            try
+            {
+                GetSavedGame(gameCode);
+            }
+            catch (Exception)
+            {
+                PutGame(UnJaggedArray(plays), gameCode, player1.Id, player2.Id);
+                Notify();
+            }
+            
             if (GetSavedGame(gameCode) == null)
             {
                 PutGame(UnJaggedArray(plays), gameCode, player1.Id, player2.Id);
@@ -1312,10 +1322,18 @@ namespace Team9.Connect4.MAUI
                     }
                 }
             }
-            Setting setting = GetSetting(player1.SettingId);
-            if (playerNumber == 2)
+            Setting setting = new Setting();
+            if (playerNumber == 1)
+            {
+                setting = GetSetting(player1.SettingId);
+            }
+            else if (playerNumber == 2)
             {
                 setting = GetSetting(player2.SettingId);
+            }
+            else
+            {
+                throw new Exception();
             }
             ColorTypeConverter colorConverter = new ColorTypeConverter();
             player1Color = (Color)colorConverter.ConvertFromString("#" + setting.PlayerColor);
@@ -2311,9 +2329,15 @@ namespace Team9.Connect4.MAUI
 
             //if saved game is a finished game, delete it and create a new game with the given gameCode
 
+            /*
             var apiclient = new ApiClient(API);
             var response = apiclient.GetItem<Guid>("SavedGame/" + gameCode);
             return response;
+            */
+
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<SavedGame>("SavedGame/" + gameCode);
+            return response.Id;
         }
         private Setting GetSetting(Guid id)
         {
@@ -2341,6 +2365,17 @@ namespace Team9.Connect4.MAUI
             //api code here to put saved game
             //if api call returned true, return true
             //else return false
+            try
+            {
+                if (GetSavedGame(gameCode) != null) 
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
             var apiclient = new ApiClient(API);
             SavedGame savedGame = new SavedGame();
             savedGame.BoardState = string.Join("", board);
