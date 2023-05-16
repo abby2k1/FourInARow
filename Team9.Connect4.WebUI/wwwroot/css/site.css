@@ -46,14 +46,50 @@ body {
 
 .gameTable {
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
     background-color: white;
 }
 
-.gameTable th, .gameTable td {
+    .gameTable th, .gameTable td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+
+/*.gameHistoryTable {
+    border-collapse: collapse;
+    width: 90%;
+    background-color: white;
+}
+
+.gameHistoryTable th, .gameHistoryTable td {
     border: 1px solid black;
     padding: 10px;
-    text-align: center;
+    text-align: left;
+}*/
+
+.gameHistoryTable {
+    border-collapse: collapse;
+    background-color: white;
+}
+
+    .gameHistoryTable th,
+    .gameHistoryTable td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+
+        
+        .gameHistoryTable td.columnWidth {
+            width: 100px; 
+            word-wrap: break-word;
+        }
+
+
+.boardState {
+    width: 200px;
+    word-wrap: break-word;
 }
 
 .container {

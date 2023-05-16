@@ -24,17 +24,24 @@ namespace Team9.Connect4.WebUI.Pages.Shared
                 while (dataReader.Read())
                 {
                     spGameHistoryResult gameHistory = new spGameHistoryResult();
-                    gameHistory.Results = dataReader.GetGuid(0);
-                    gameHistory.Player1Username = dataReader.GetString(1);
-                    gameHistory.Player2Username = dataReader.GetString(2);
-                    gameHistory.BoardState = dataReader.GetString(3);
-                    gameHistory.GameCode = dataReader.GetString(4);
-                    gameHistory.Turns = dataReader.GetInt32(5);
+                    gameHistory.Player1Username = dataReader.GetString(0);
+                    gameHistory.Player2Username = dataReader.GetString(1);
+                    gameHistory.BoardState = dataReader.GetString(2);
+                    gameHistory.GameCode = dataReader.GetString(3);
+                    gameHistory.Turns = dataReader.GetInt32(4);
 
                     gameHistories.Add(gameHistory);
                 }
             }
             return gameHistories;
+        }
+        public IActionResult OnPostDelete(int id)
+        {
+            // TODO: Implement the deletion logic using the provided 'id'.
+            // You can call a method from your business logic layer (BL) to delete the game history entry.
+            // Once deleted, you can redirect the user to the same page or any other desired location.
+
+            return RedirectToPage();
         }
 
         public void OnGet()
