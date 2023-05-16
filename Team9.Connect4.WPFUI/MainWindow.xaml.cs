@@ -42,6 +42,7 @@ namespace Team9.Connect4.WPFUI
         int aiSpotPlace = 0;
         string userEmail;
         int TotalTurn = 1;
+        bool winnerActive;
         string APIAddress = "https://team9connect4api.azurewebsites.net/";
         public MainWindow()
         {
@@ -109,6 +110,7 @@ namespace Team9.Connect4.WPFUI
             btnLocal.Visibility = Visibility.Visible;
             btnHostRemote.Visibility = Visibility.Visible;
             btnComputer.Visibility = Visibility.Visible;
+            btnJoinRemote.Visibility = Visibility.Visible;
             lblCodeText.Visibility = Visibility.Hidden;
             lblGameCode.Visibility = Visibility.Hidden;
             txtEmailRec.Visibility = Visibility.Hidden;
@@ -116,6 +118,7 @@ namespace Team9.Connect4.WPFUI
             lblGameCode.Content = "TEST";
             btnStartGame.Visibility = Visibility.Hidden;
             turn = 1;
+            TotalTurn = turn;
             firstMove = true;
             localGame = false;
             remoteGame = false;
@@ -128,7 +131,7 @@ namespace Team9.Connect4.WPFUI
             nextAvailableCol6 = 99;
             nextAvailableCol7 = 111;
             aiSpotPlace = 0;
-
+            winnerActive = false;
         }
 
         private void CheckWinner()
@@ -316,7 +319,10 @@ namespace Team9.Connect4.WPFUI
                     rec39.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol1 = 40;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[40] == "0")
                 {
@@ -324,7 +330,10 @@ namespace Team9.Connect4.WPFUI
                     rec40.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol1 = 41;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[41] == "0")
                 {
@@ -332,7 +341,10 @@ namespace Team9.Connect4.WPFUI
                     rec41.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol1 = 42;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[42] == "0")
                 {
@@ -340,7 +352,10 @@ namespace Team9.Connect4.WPFUI
                     rec42.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol1 = 43;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[43] == "0")
                 {
@@ -348,7 +363,10 @@ namespace Team9.Connect4.WPFUI
                     rec43.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol1 = 44;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[44] == "0")
                 {
@@ -357,7 +375,10 @@ namespace Team9.Connect4.WPFUI
                     nextAvailableCol1 = 0;
                     btnCol1.Visibility = Visibility.Hidden;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -374,7 +395,10 @@ namespace Team9.Connect4.WPFUI
                     rec51.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol2 = 52;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[52] == "0")
                 {
@@ -382,7 +406,10 @@ namespace Team9.Connect4.WPFUI
                     rec52.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol2 = 53;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[53] == "0")
                 {
@@ -390,7 +417,10 @@ namespace Team9.Connect4.WPFUI
                     rec53.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol2 = 54;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[54] == "0")
                 {
@@ -398,7 +428,10 @@ namespace Team9.Connect4.WPFUI
                     rec54.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol2 = 55;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[55] == "0")
                 {
@@ -406,7 +439,10 @@ namespace Team9.Connect4.WPFUI
                     rec55.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol2 = 56;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[56] == "0")
                 {
@@ -415,7 +451,10 @@ namespace Team9.Connect4.WPFUI
                     nextAvailableCol2 = 0;
                     btnCol2.Visibility = Visibility.Hidden;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -432,7 +471,10 @@ namespace Team9.Connect4.WPFUI
                     rec63.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol3 = 64;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[64] == "0")
                 {
@@ -440,7 +482,10 @@ namespace Team9.Connect4.WPFUI
                     rec64.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol3 = 65;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll(); 
                 }
                 else if (values[65] == "0")
                 {
@@ -448,7 +493,10 @@ namespace Team9.Connect4.WPFUI
                     rec65.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol3 = 66;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[66] == "0")
                 {
@@ -456,7 +504,10 @@ namespace Team9.Connect4.WPFUI
                     rec66.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol3 = 67;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[67] == "0")
                 {
@@ -464,7 +515,10 @@ namespace Team9.Connect4.WPFUI
                     rec67.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol3 = 68;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[68] == "0")
                 {
@@ -473,7 +527,10 @@ namespace Team9.Connect4.WPFUI
                     nextAvailableCol3 = 0;
                     btnCol3.Visibility = Visibility.Hidden;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -490,7 +547,10 @@ namespace Team9.Connect4.WPFUI
                     rec75.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol4 = 76;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[76] == "0")
                 {
@@ -498,7 +558,10 @@ namespace Team9.Connect4.WPFUI
                     rec76.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol4 = 77;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[77] == "0")
                 {
@@ -506,7 +569,10 @@ namespace Team9.Connect4.WPFUI
                     rec77.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol4 = 78;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[78] == "0")
                 {
@@ -514,7 +580,10 @@ namespace Team9.Connect4.WPFUI
                     rec78.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol4 = 79;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[79] == "0")
                 {
@@ -522,7 +591,10 @@ namespace Team9.Connect4.WPFUI
                     rec79.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol4 = 80;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[80] == "0")
                 {
@@ -531,7 +603,10 @@ namespace Team9.Connect4.WPFUI
                     nextAvailableCol4 = 0;
                     btnCol4.Visibility = Visibility.Hidden;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -548,7 +623,10 @@ namespace Team9.Connect4.WPFUI
                     rec87.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol5 = 88;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[88] == "0")
                 {
@@ -556,7 +634,10 @@ namespace Team9.Connect4.WPFUI
                     rec88.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol5 = 89;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[89] == "0")
                 {
@@ -564,7 +645,10 @@ namespace Team9.Connect4.WPFUI
                     rec89.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol5 = 90;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[90] == "0")
                 {
@@ -572,7 +656,10 @@ namespace Team9.Connect4.WPFUI
                     rec90.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol5 = 91;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[91] == "0")
                 {
@@ -580,7 +667,10 @@ namespace Team9.Connect4.WPFUI
                     rec91.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol5 = 92;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[92] == "0")
                 {
@@ -589,7 +679,10 @@ namespace Team9.Connect4.WPFUI
                     nextAvailableCol5 = 0;
                     btnCol5.Visibility = Visibility.Hidden;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -606,7 +699,10 @@ namespace Team9.Connect4.WPFUI
                     rec99.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol6 = 100;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[100] == "0")
                 {
@@ -614,7 +710,10 @@ namespace Team9.Connect4.WPFUI
                     rec100.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol6 = 101;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[101] == "0")
                 {
@@ -622,7 +721,10 @@ namespace Team9.Connect4.WPFUI
                     rec101.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol6 = 102;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[102] == "0")
                 {
@@ -630,7 +732,10 @@ namespace Team9.Connect4.WPFUI
                     rec102.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol6 = 103;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[103] == "0")
                 {
@@ -638,7 +743,10 @@ namespace Team9.Connect4.WPFUI
                     rec103.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol6 = 104;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[104] == "0")
                 {
@@ -647,7 +755,10 @@ namespace Team9.Connect4.WPFUI
                     nextAvailableCol6 = 0;
                     btnCol6.Visibility = Visibility.Hidden;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -664,7 +775,10 @@ namespace Team9.Connect4.WPFUI
                     rec111.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol7 = 112;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[112] == "0")
                 {
@@ -672,7 +786,10 @@ namespace Team9.Connect4.WPFUI
                     rec112.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol7 = 113;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[113] == "0")
                 {
@@ -680,7 +797,10 @@ namespace Team9.Connect4.WPFUI
                     rec113.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol7 = 114;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[114] == "0")
                 {
@@ -688,7 +808,10 @@ namespace Team9.Connect4.WPFUI
                     rec114.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol7 = 115;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[115] == "0")
                 {
@@ -696,7 +819,10 @@ namespace Team9.Connect4.WPFUI
                     rec115.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol7 = 116;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else if (values[116] == "0")
                 {
@@ -704,7 +830,10 @@ namespace Team9.Connect4.WPFUI
                     rec116.Fill = new ImageBrush { ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg")) };
                     nextAvailableCol7 = 0;
                     CheckWinner();
-                    SwitchPlayer();
+                    if (winnerActive == false)
+                        SwitchPlayer();
+                    else
+                        ClearAll();
                 }
                 else
                 {
@@ -781,7 +910,10 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol1 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
         private void btnCol2_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -847,7 +979,10 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol2 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
 
         private void btnCol3_MouseDown(object sender, MouseButtonEventArgs e)
@@ -914,7 +1049,10 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol3 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
 
         private void btnCol4_MouseDown(object sender, MouseButtonEventArgs e)
@@ -981,7 +1119,10 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol4 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
 
         private void btnCol5_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1048,7 +1189,10 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol5 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
 
         private void btnCol6_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1115,7 +1259,10 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol6 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
 
         private void btnCol7_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1182,12 +1329,16 @@ namespace Team9.Connect4.WPFUI
                 nextAvailableCol7 = 0;
             }
             CheckWinner();
-            SwitchPlayer();
+            if (winnerActive == false)
+                SwitchPlayer();
+            else
+                ClearAll();
         }
         #endregion
 
         private void WasWinner(string winner)
         {
+            winnerActive = true;
             Game game = new Game();
             game.Id = Guid.NewGuid();
             game.WinnerId = new Guid("fdb9a26c-d220-4e91-9b6a-85a75c7074a1");
@@ -1204,8 +1355,6 @@ namespace Team9.Connect4.WPFUI
                 MessageBox.Show("Computer Wins", "Game Winner!!");
             else
                 MessageBox.Show("Player 2 WINNER!!!", "Game Winner!!");
-
-            ClearAll();
         }
 
         private void btnLocal_Click(object sender, RoutedEventArgs e)
@@ -1227,6 +1376,7 @@ namespace Team9.Connect4.WPFUI
             btnLocal.Visibility = Visibility.Hidden;
             btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
+            btnJoinRemote.Visibility = Visibility.Hidden;
             aiGame = true;
             localGame = false;
             remoteGame = false;
@@ -1257,596 +1407,6 @@ namespace Team9.Connect4.WPFUI
             lblGameCode.Visibility = Visibility.Hidden;
             lblCodeText.Visibility = Visibility.Hidden;
         }
-
-        #region OldButtonCode
-        //private void btnX44_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec44.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[44] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO44_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec44.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[44] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX43_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec43.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[43] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO43_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec43.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[43] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX42_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec42.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[42] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO42_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec42.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[42] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX41_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec41.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[41] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO41_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec41.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[41] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX40_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec40.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[40] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO40_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec40.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[40] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX39_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec39.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[39] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO39_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec39.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[39] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX56_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec56.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[56] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO56_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec56.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[56] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX55_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec55.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[55] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO55_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec55.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[55] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX54_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec54.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[54] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO54_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec54.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[54] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX53_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec53.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[53] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO53_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec53.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[53] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX52_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec52.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[52] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO52_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec52.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[52] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX51_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec51.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[51] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO51_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec51.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[51] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX68_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec68.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[68] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO68_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec68.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[68] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX67_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec67.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[67] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO67_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec67.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[67] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX66_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec66.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[66] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO66_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec66.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[66] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX65_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec65.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[65] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO65_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec65.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[65] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX64_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec64.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[64] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO64_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec64.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[64] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX63_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec63.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[63] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO63_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec63.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[63] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX80_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec80.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[80] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO80_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec80.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[80] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX79_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec79.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[79] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO79_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec79.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[79] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX78_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec78.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[78] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO78_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec78.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[78] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX77_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec77.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[77] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO77_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec77.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[77] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX76_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec76.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[76] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO76_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec76.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[76] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX75_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec75.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[75] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO75_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec75.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[75] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX92_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec92.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[92] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO92_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec92.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[92] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX91_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec91.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[91] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO91_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec91.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[91] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX90_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec90.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[90] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO90_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec90.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[90] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX89_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec89.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[89] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO89_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec89.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[89] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX88_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec88.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[88] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO88_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec88.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[88] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX87_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec87.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[87] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO87_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec87.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[87] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX104_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec104.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[104] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO104_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec104.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[104] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX103_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec103.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[103] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO103_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec103.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[103] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX102_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec102.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[102] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO102_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec102.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[102] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX101_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec101.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[101] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO101_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec101.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[101] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX100_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec100.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[100] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO100_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec100.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[100] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX99_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec99.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[99] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO99_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec99.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[99] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX116_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec116.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[116] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO116_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec116.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[116] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX115_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec115.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[115] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO115_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec115.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[115] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX114_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec114.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[114] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO114_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec114.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[114] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX113_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec113.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[113] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO113_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec113.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[113] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX112_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec112.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[112] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO112_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec112.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[112] = "2";
-        //    CheckWinner();
-        //}
-
-        //private void btnX111_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec111.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/RedChip.jpg"))};
-        //    values[111] = "1";
-        //    CheckWinner();
-        //}
-
-        //private void btnO111_Click(object sender, RoutedEventArgs e)
-        //{
-        //    rec111.Fill = new ImageBrush {ImageSource = new BitmapImage(new Uri("pack://application:,,,/Team9.Connect4.WPFUI;component/Images/BlackChip.jpg"))};
-        //    values[111] = "2";
-        //    CheckWinner();
-        //}
-        #endregion
 
         private void btnJoinRemote_Click(object sender, RoutedEventArgs e)
         {

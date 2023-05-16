@@ -1,7 +1,6 @@
 ﻿@page
 @using Team9.Connect4.BL.Models;
 @model Team9.Connect4.WebUI.Pages.Shared.GameHistoryModel
-@*@model Team9.Connect4.BL.Models.SavedGame*@
 @{
     ViewData["Title"] = "Leaderboard";
     Layout = "~/Pages/Shared/_Layout.cshtml";
@@ -10,26 +9,30 @@
 }
 
 <body>
-    <table class="gameTable">
+    <table class="gameHistoryTable">
         <thead>
             <tr>
-                <th>Results</th>
                 <th>Player 1</th>
                 <th>Player 2</th>
                 <th>Board State</th>
                 <th>Game Code</th>
+                <th>Turns</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var gameHistory in gameHistories)
             {
                 <tr>
-                    <td>@gameHistory.Results</td>
                     <td>@gameHistory.Player1Username</td>
                     <td>@gameHistory.Player2Username</td>
-                    <td>@gameHistory.BoardState</td>
+                    <td class="columnWidth">@gameHistory.BoardState</td>
                     <td>@gameHistory.GameCode</td>
                     <td>@gameHistory.Turns</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@gameHistory.Id">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
