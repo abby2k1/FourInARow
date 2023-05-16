@@ -136,7 +136,7 @@ namespace Team9.Connect4.BL
                         .ForEach(c => savedGames.Add(new SavedGame
                         {
                             Id = c.Id,
-                            ResultsId = (Guid)c.ResultsId,
+                            ResultsId = c.ResultsId,
                             Player1Id = (Guid)c.Player1Id,
                             Player2Id = (Guid)c.Player2Id,
                             BoardState = c.BoardState,
