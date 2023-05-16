@@ -8,7 +8,7 @@ namespace Team9.Connect4.PL
 {
     public class spLeaderboardResult
     {
-        public string Username { get; set; }
+        public string Winner { get; set; }
         public int Turns { get; set; }
     }
 }

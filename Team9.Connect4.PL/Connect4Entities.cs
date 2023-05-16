@@ -83,7 +83,7 @@ public partial class Connect4Entities : DbContext
             entity.Property(e => e.Id).ValueGeneratedNever();
         });
 
-        modelBuilder.Entity<spLeaderboard>().HasNoKey();
+        modelBuilder.Entity<spLeaderboardResult>().HasNoKey();
 
         OnModelCreatingPartial(modelBuilder);
     }

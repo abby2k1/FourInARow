@@ -8,9 +8,9 @@ namespace Team9.Connect4.WebUI.Pages.Shared
 {
     public class LeaderboardModel : PageModel
     {
-        public List<Leaderboard> GetLeaderboard()
+        public List<spLeaderboardResult> GetLeaderboard()
         {
-            List<Leaderboard> leaderboards = new List<Leaderboard>();
+            List<spLeaderboardResult> leaderboards = new List<spLeaderboardResult>();
 
             using (SqlConnection conn = new SqlConnection("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
@@ -23,7 +23,7 @@ namespace Team9.Connect4.WebUI.Pages.Shared
 
                 while (dataReader.Read())
                 {
-                    Leaderboard leaderboard = new Leaderboard();
+                    spLeaderboardResult leaderboard = new spLeaderboardResult();
                     leaderboard.Winner = dataReader.GetString(0);
                     leaderboard.Turns = dataReader.GetInt32(1);
 

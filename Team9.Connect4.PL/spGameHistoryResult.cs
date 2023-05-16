@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Team9.Connect4.PL
 {
-    public class GameHistory
+    public class spGameHistoryResult
     {
         public Guid Results { get; set; }
         public string Player1Username { get; set; }

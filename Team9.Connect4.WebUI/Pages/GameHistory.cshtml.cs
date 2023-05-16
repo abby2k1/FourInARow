@@ -8,9 +8,9 @@ namespace Team9.Connect4.WebUI.Pages.Shared
 {
     public class GameHistoryModel : PageModel
     {
-        public List<GameHistory> GetGameHistory()
+        public List<spGameHistoryResult> GetGameHistory()
         {
-            List<GameHistory> gameHistories = new List<GameHistory>();
+            List<spGameHistoryResult> gameHistories = new List<spGameHistoryResult>();
             using (SqlConnection conn = new SqlConnection 
                 ("Server=tcp:wilkedb.database.windows.net,1433;Initial Catalog=wilkedb;Persist Security Info=False;User ID=wilkedb;Password=Test123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
@@ -23,7 +23,7 @@ namespace Team9.Connect4.WebUI.Pages.Shared
 
                 while (dataReader.Read())
                 {
-                    GameHistory gameHistory = new GameHistory();
+                    spGameHistoryResult gameHistory = new spGameHistoryResult();
                     gameHistory.Results = dataReader.GetGuid(0);
                     gameHistory.Player1Username = dataReader.GetString(1);
                     gameHistory.Player2Username = dataReader.GetString(2);
