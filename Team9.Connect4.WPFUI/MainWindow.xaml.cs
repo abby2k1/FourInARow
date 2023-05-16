@@ -38,6 +38,7 @@ namespace Team9.Connect4.WPFUI
         int nextAvailableCol7 = 111;
         int aiSpotPlace = 0;
         string userEmail;
+        int TotalTurn = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -267,12 +268,14 @@ namespace Team9.Connect4.WPFUI
                 {
                     turn = 2;
                     lblPlayerTurn.Content = "Player 2's Turn";
+                    TotalTurn++;
                 }
                 else
                 {
                     if (firstMove == false)
                         ComputerWin();
                     ComputerRandom();
+                    TotalTurn++;
                 }
 
             }
@@ -281,6 +284,7 @@ namespace Team9.Connect4.WPFUI
                 turn = 1;
                 lblPlayerTurn.Content = "Player 1's Turn";
                 firstMove = false;
+                TotalTurn++;
             }
 
         }
