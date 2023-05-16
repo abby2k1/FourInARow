@@ -35,14 +35,6 @@ namespace Team9.Connect4.WebUI.Pages.Shared
             }
             return gameHistories;
         }
-        public IActionResult OnPostDelete(int id)
-        {
-            // TODO: Implement the deletion logic using the provided 'id'.
-            // You can call a method from your business logic layer (BL) to delete the game history entry.
-            // Once deleted, you can redirect the user to the same page or any other desired location.
-
-            return RedirectToPage();
-        }
 
         public void OnGet()
         {
