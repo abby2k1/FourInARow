@@ -34,7 +34,7 @@ public partial class Connect4Entities : DbContext
     {
         modelBuilder.Entity<tblPlayer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC078C910EEC");
+            entity.HasKey(e => e.Id).HasName("PK__tblPlaye__3214EC07F5D4A4E5");
 
             entity.ToTable("tblPlayer");
 
@@ -48,7 +48,7 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblResult>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC073C5B9996");
+            entity.HasKey(e => e.Id).HasName("PK__tblResul__3214EC0706761777");
 
             entity.ToTable("tblResult");
 
@@ -65,11 +65,11 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblSavedGame>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSaved__3214EC074C72C81A");
+            entity.HasKey(e => e.Id).HasName("PK__tblSaved__3214EC07F21F78FF");
 
             entity.ToTable("tblSavedGame");
 
-            entity.HasIndex(e => e.GameCode, "UQ__tblSaved__18C8460C12F9C4D5").IsUnique();
+            entity.HasIndex(e => e.GameCode, "UQ__tblSaved__18C8460CE2B4BF2E").IsUnique();
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.GameCode)
@@ -83,11 +83,14 @@ public partial class Connect4Entities : DbContext
 
         modelBuilder.Entity<tblSetting>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC0760AD51B2");
+            entity.HasKey(e => e.Id).HasName("PK__tblSetti__3214EC0784F3B972");
 
             entity.ToTable("tblSetting");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.BoardColor).HasMaxLength(6);
+            entity.Property(e => e.OpponentColor).HasMaxLength(6);
+            entity.Property(e => e.PlayerColor).HasMaxLength(6);
         });
 
         OnModelCreatingPartial(modelBuilder);
