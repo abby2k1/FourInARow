@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Team9.Connect4.BL.Models;
+using Team9.Utility;
 
 namespace Team9.Connect4.WPFUI
 {
@@ -39,6 +42,7 @@ namespace Team9.Connect4.WPFUI
         int aiSpotPlace = 0;
         string userEmail;
         int TotalTurn = 1;
+        string APIAddress = "https://team9connect4api.azurewebsites.net/";
         public MainWindow()
         {
             InitializeComponent();
@@ -1184,8 +1188,17 @@ namespace Team9.Connect4.WPFUI
 
         private void WasWinner(string winner)
         {
+            Game game = new Game();
+            game.Id = Guid.NewGuid();
+            game.WinnerId = new Guid("fdb9a26c-d220-4e91-9b6a-85a75c7074a1");
+            game.LoserId = new Guid("fdb9a26c-d220-4e91-9b6a-85a75c7074a1");
+            game.Turns = TotalTurn;
+            var apiclient = new ApiClient(APIAddress);
+            var response = apiclient.Post<BL.Models.Game>(game, "Game");
             if (winner == "1")
-                MessageBox.Show("Player 1 WINNER!!!", "Game Winner!!");
+            { 
+            MessageBox.Show("Player 1 WINNER!!!", "Game Winner!!");              
+            }
             else
                 if (aiGame == true)
                 MessageBox.Show("Computer Wins", "Game Winner!!");
@@ -1201,6 +1214,7 @@ namespace Team9.Connect4.WPFUI
             btnLocal.Visibility = Visibility.Hidden;
             btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
+            btnJoinRemote.Visibility = Visibility.Hidden;
             localGame = true;
             remoteGame = false;
             aiGame = false;

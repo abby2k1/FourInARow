@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Team9.Connect4.BL\Team9.Connect4.BL.csproj" />
+    <ProjectReference Include="..\Team9.Utility\Team9.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
