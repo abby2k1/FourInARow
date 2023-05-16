@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
-using Team9.Connect4.BL.Models;
+using Team9.Connect4.PL;
 using System.Data;
 
 namespace Team9.Connect4.WebUI.Pages.Shared
