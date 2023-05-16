@@ -28,11 +28,6 @@
                     <td class="columnWidth">@gameHistory.BoardState</td>
                     <td>@gameHistory.GameCode</td>
                     <td>@gameHistory.Turns</td>
-                    <td>
-                        <form method="post" asp-page-handler="Delete" asp-route-id="@gameHistory.Id">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
                 </tr>
             }
         </tbody>
