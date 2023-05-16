@@ -37,6 +37,7 @@ namespace Team9.Connect4.API.Controllers
 
         }
 
+        /*
         [HttpGet("{gameCode}")]
         public async Task<ActionResult<IEnumerable<BL.Models.SavedGame>>> Get(string gameCode)
         {
@@ -50,6 +51,7 @@ namespace Team9.Connect4.API.Controllers
             }
 
         }
+        */
 
         [HttpPost("{rollback?}")]
         public async Task<ActionResult> Post([FromBody] BL.Models.SavedGame savedGame, bool rollback = false)

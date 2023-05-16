@@ -15,9 +15,9 @@ namespace Team9.Connect4.BL.Models
 
         public Guid Player2Id { get; set; }
 
-        public string BoardState { get; set; } = null!;
+        public string? BoardState { get; set; } = null!;
 
-        public string GameCode { get; set; } = null!;
+        public string? GameCode { get; set; } = null!;
     }
 
 }

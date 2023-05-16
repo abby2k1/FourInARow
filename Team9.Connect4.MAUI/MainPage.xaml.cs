@@ -2040,7 +2040,7 @@ namespace Team9.Connect4.MAUI
 
         private void LoadBoard()
         {
-            string[] loadFromApi = GetBoard(GetGuidSavedGame(gameCode));
+            string[] loadFromApi = GetBoard((Guid)GetGuidSavedGame(gameCode));
 
             int player1turns = 0;
             for (int i = 0; i < 7; i++)
@@ -2282,14 +2282,14 @@ namespace Team9.Connect4.MAUI
         private void SaveBoard()
         {
             string[] values = UnJaggedArray(plays);
-            Guid id = GetGuidSavedGame(gameCode);
+            Guid id = (Guid)GetGuidSavedGame(gameCode);
             UpdateGame(id, values, gameCode);
         }
 
         private void SaveBoard(Guid resultId)
         {
             string[] values = UnJaggedArray(plays);
-            Guid id = GetGuidSavedGame(gameCode);
+            Guid id = (Guid)GetGuidSavedGame(gameCode);
             UpdateGame(id, values, gameCode, resultId);
         }
 
@@ -2316,10 +2316,17 @@ namespace Team9.Connect4.MAUI
         private SavedGame GetSavedGame(string gameCode)
         {
             var apiclient = new ApiClient(API);
-            var response = apiclient.GetItem<SavedGame>("SavedGame/" + gameCode);
-            return response;
+            var response = apiclient.GetList<SavedGame>("SavedGame/");
+            foreach (SavedGame game in response)
+            {
+                if (game.GameCode == gameCode)
+                {
+                    return game;
+                }
+            }
+            return null;
         }
-        private Guid GetGuidSavedGame(string gameCode)
+        private Guid? GetGuidSavedGame(string gameCode)
         {
             //api code here to get saved game
 
@@ -2336,8 +2343,15 @@ namespace Team9.Connect4.MAUI
             */
 
             var apiclient = new ApiClient(API);
-            var response = apiclient.GetItem<SavedGame>("SavedGame/" + gameCode);
-            return response.Id;
+            var response = apiclient.GetList<SavedGame>("SavedGame/");
+            foreach (SavedGame game in response)
+            {
+                if (game.GameCode == gameCode)
+                {
+                    return game.Id;
+                }
+            }
+            return null;
         }
         private Setting GetSetting(Guid id)
         {
@@ -2396,7 +2410,7 @@ namespace Team9.Connect4.MAUI
             //else return false
             var apiclient = new ApiClient(API);
             SavedGame savedGame = new SavedGame();
-            savedGame.Id = GetGuidSavedGame(gameCode);
+            savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
             savedGame.BoardState = string.Join("", board);
             savedGame.GameCode = gameCode;
             
