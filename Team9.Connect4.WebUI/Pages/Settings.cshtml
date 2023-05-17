@@ -71,13 +71,14 @@
                 playerColor: playerColor,
                 opponentColor: opponentColor
             };
-
-            // API request to save the settings
-            fetch('/SettingController/Post', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+            
+            fetch('https://team9connect4api.azurewebsites.net/api/Settings', settingsData)
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Could not reach the API: " + response.statusText);
+                    }
                 body: JSON.stringify(settingsData)
             }).then(function(response) {
                 if (response.ok) {
