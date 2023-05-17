@@ -2407,7 +2407,8 @@ namespace Team9.Connect4.MAUI
 
         #region API
 
-        string API = "https://team9connect4api.azurewebsites.net/";
+        //string API = "https://team9connect4api.azurewebsites.net/";
+        string API = "https://localhost:7035/";
 
         private void PostResult()
         {
@@ -2577,7 +2578,7 @@ namespace Team9.Connect4.MAUI
         {
             var apiclient = new ApiClient(API);
             var savedGame = new SavedGame();
-            //savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
+            savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
             char[] charArray = new char[156];
             for (int i = 0; i < 156; i++)
             {
@@ -2586,9 +2587,10 @@ namespace Team9.Connect4.MAUI
             string boardState = new string(charArray);
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
-            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", (Guid)GetGuidSavedGame(gameCode));
-            string result = response.Content.ReadAsStringAsync().Result;
-            if (result != null)
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
+            //string result = response.Content.ReadAsStringAsync().Result;
+            bool result = response.IsSuccessStatusCode;
+            if (result)
                 return;
             else
                 throw new Exception();
@@ -2597,10 +2599,10 @@ namespace Team9.Connect4.MAUI
 
         #region SignalR
 
-        string hubAddress = "https://team9connect4api.azurewebsites.net/connect4hub";
         HubConnection hubConnection;
         public void StartSignalR()
         {
+            string hubAddress = API + "connect4hub";
             hubConnection = new HubConnectionBuilder()
                 .WithUrl(hubAddress)
                 .Build();
