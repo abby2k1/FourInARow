@@ -2588,6 +2588,7 @@ namespace Team9.Connect4.MAUI
         }
         private void UpdateGame(Guid id, string[] board, string gameCode, Guid? resultId = null)
         {
+            /*
             //api code here to update saved game
             //if api call returned true, return true
             //else return false
@@ -2608,10 +2609,7 @@ namespace Team9.Connect4.MAUI
 
             var response = apiclient.Put<SavedGame>(savedGame, "SavedGame", savedGame.Id);
             var result = response.Content.ReadAsStringAsync().Result;
-            if (response.IsSuccessStatusCode)
-                SignalR(savedGame);
-            //else
-                //throw new Exception();
+            */
         }   
 
         private void UpdateGame()
