@@ -5,51 +5,55 @@
 }
 <body>
     <div class="text-center">
-    <h1 class="display-4">Settings</h1>
+        <h1 class="display-4">Settings</h1>
 
-    <div class="floatContainer">
-        <div class="containerLeft">
-            <p class="lblBoardColor">
-                Pick a Board Color:
-            </p>
-        </div>
-        <div class="containerRight">
-            <input type="color" id="colorPickerBoard" />
+        <form method="post" asp-action="SaveSettings">
+            <div class="floatContainer">
+                <div class="containerLeft">
+                    <p class="lblBoardColor">
+                        Pick a Board Color:
+                    </p>
+                </div>
+                <div class="containerRight">
+                    <input type="color" id="colorPickerBoard" name="BoardColor" />
+                </div>
+            </div>
+
+            <br />
+
+            <div class="floatContainer">
+                <div class="containerLeft">
+                    <p class="lblPlayerColor">
+                        Pick Your Color:
+                    </p>
+                </div>
+                <div class="containerRight">
+                    <input type="color" id="colorPickerPlayer" name="PlayerColor" />
+                </div>
+            </div>
+
+            <br />
+
+            <div class="floatContainer">
+                <div class="containerLeft">
+                    <p class="lblOpponentColor">
+                        Pick Opponents Color:
+                    </p>
+                </div>
+                <div class="containerRight">
+                    <input type="color" id="colorPickerOpponent" name="OpponentColor" />
+                </div>
+            </div>
+
+            <br />
+
+            <button type="submit">Save</button>
+        </form>
+
+        <div class="container">
+            <button class="btn" id="btnHome">
+                <a asp-page="/Index">Back to Home</a>
+            </button>
         </div>
     </div>
-
-    <br />
-
-    <div class="floatContainer">
-        <div class="containerLeft">
-            <p class="lblPlayerColor">
-                Pick Your Color:
-            </p>
-        </div>
-        <div class="containerRight">
-            <input type="color" id="colorPickerPlayer" />
-        </div>
-    </div>
-
-    <br />
-
-    <div class="floatContainer">
-        <div class="containerLeft">
-            <p class="lblOpponentColor">
-                Pick Opponents Color:
-            </p>
-        </div>
-        <div class="containerRight">
-            <input type="color" id="colorPickerOpponent" />
-        </div>
-    </div>
-        <a asp-page="/Settings" asp-route-playerId="YOUR_PLAYER_ID_HERE">Settings</a>
-
-    
-    <div class="container">
-        <button class="btn" id="btnHome">
-            <a asp-page="/Index">Back to Home</a>
-        </button>
-    </div>
-</div>
 </body>
