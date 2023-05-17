@@ -2407,8 +2407,8 @@ namespace Team9.Connect4.MAUI
 
         #region API
 
-        //string API = "https://team9connect4api.azurewebsites.net/";
-        string API = "https://localhost:7035/";
+        string API = "https://team9connect4api.azurewebsites.net/";
+        //string API = "https://localhost:7035/";
 
         private void PostResult()
         {
@@ -2579,6 +2579,7 @@ namespace Team9.Connect4.MAUI
             var apiclient = new ApiClient(API);
             var savedGame = new SavedGame();
             savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
+
             char[] charArray = new char[156];
             for (int i = 0; i < 156; i++)
             {
@@ -2588,9 +2589,9 @@ namespace Team9.Connect4.MAUI
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
             var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
-            //string result = response.Content.ReadAsStringAsync().Result;
-            bool result = response.IsSuccessStatusCode;
-            if (result)
+            string result = response.Content.ReadAsStringAsync().Result;
+            bool resultBool = response.IsSuccessStatusCode;
+            if (resultBool)
                 return;
             else
                 throw new Exception();

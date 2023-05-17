@@ -93,12 +93,11 @@ namespace Team9.Connect4.BL
                     {
                         if (rollback)
                             transaction = await dc.Database.BeginTransactionAsync().ConfigureAwait(false);
-                        if (savedGame.ResultsId != null)
-                            row.ResultsId = savedGame.ResultsId;
-                        //row.Player1Id = savedGame.Player1Id;
-                        //row.Player2Id = savedGame.Player2Id;
+                        row.ResultsId = savedGame.ResultsId;
+                        row.Player1Id = savedGame.Player1Id;
+                        row.Player2Id = savedGame.Player2Id;
                         row.BoardState = savedGame.BoardState;
-                        //row.GameCode = savedGame.GameCode;
+                        row.GameCode = savedGame.GameCode;
                         results = await dc.SaveChangesAsync().ConfigureAwait(false);
 
                         if (rollback)
