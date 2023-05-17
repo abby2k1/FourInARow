@@ -69,15 +69,18 @@
             alert(uuidv4())
             // Getting values of the elements that contain the settings data
             var boardColor = document.getElementById("colorPickerBoard").value;
+            boardColor = boardColor.replace('#', '');
             var playerColor = document.getElementById("colorPickerPlayer").value;
+            playerColor = playerColor.replace('#', '');
             var opponentColor = document.getElementById("colorPickerOpponent").value;
+            opponentColor = opponentColor.replace('#', '');
 
             // Object to hold the settings data
             var settingsData = {
-                'id': 'e44e0a5a-028d-4ccb-a76a-89f6d8ea024a',
-                'boardColor': boardColor,
-                'playerColor': playerColor,
-                'opponentColor': opponentColor
+                "id": "33e12940-9219-4b44-b2de-fcdee3ce08a2",
+                "boardColor": boardColor,
+                "playerColor": playerColor,
+                "opponentColor": opponentColor
             };
 
           function uuidv4() {
@@ -101,22 +104,12 @@
                     } else {
                         throw new Error("Could not reach the API: " + response.statusText);
                     }
-                body: JSON.stringify(settingsData)
-            }).then(function(response) {
-                if (response.ok) {
-                    // Handle success
-                    window.locaiton.href = '/Settings';
-                } else {
-                    // Handle failure
-                    response.text().then(function(errorMessage) {
-                        // Displays/handles error
-                        console.error(errorMessage);
-                    });
-                }
-            }).catch(function(error) {
-                // Display/handle error
-                console.error(error);
-            });
+                }).then(function (settingsData) {
+                    document.getElementById("message").innerHTML = data.encoded;
+                }).catch(function (error) {
+                    document.getElementById("message").innerHTML = error.message;
+                });
+            return true;
         }
     </script>
 </body>
