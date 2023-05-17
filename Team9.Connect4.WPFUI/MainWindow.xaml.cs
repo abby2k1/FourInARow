@@ -102,7 +102,7 @@ namespace Team9.Connect4.WPFUI
             rec112.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             rec111.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             players = GetPlayers();
-            lstPlayers.Visibility = Visibility.Visible;
+            lstPlayers.Visibility = Visibility.Hidden;
             lstPlayers.ItemsSource = players;
             lblPlayerTurn.Content = "Player 1's Turn";
             btnCol1.Visibility = Visibility.Visible;
@@ -114,9 +114,9 @@ namespace Team9.Connect4.WPFUI
             btnCol7.Visibility = Visibility.Visible;
             recButtonScreen.Visibility = Visibility.Visible;
             btnLocal.Visibility = Visibility.Visible;
-            btnHostRemote.Visibility = Visibility.Visible;
+            btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Visible;
-            btnJoinRemote.Visibility = Visibility.Visible;
+            btnJoinRemote.Visibility = Visibility.Hidden;
             lblCodeText.Visibility = Visibility.Hidden;
             lblGameCode.Visibility = Visibility.Hidden;
             txtEmailRec.Visibility = Visibility.Hidden;
@@ -1351,8 +1351,8 @@ namespace Team9.Connect4.WPFUI
             winnerActive = true;
             Game game = new Game();
             game.Id = Guid.NewGuid();
-            game.WinnerId = new Guid("1a0c26d5-922d-4a04-8054-e32102d2fd90");
-            game.LoserId = new Guid("1a0c26d5-922d-4a04-8054-e32102d2fd90");
+            game.WinnerId = new Guid("581e3863-ade8-42b2-8445-bfd529ca75cd");
+            game.LoserId = new Guid("581e3863-ade8-42b2-8445-bfd529ca75cd");
             game.Turns = TotalTurn;
             var apiclient = new ApiClient(APIAddress);
             var response = apiclient.Post<BL.Models.Game>(game, "Game");
