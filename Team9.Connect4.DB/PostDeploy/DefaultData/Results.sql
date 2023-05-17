@@ -16,5 +16,17 @@
 
 	INSERT INTO DBO.tblResult (Id, WinnerId, LoserID, Turns)
 	VALUES
-	(NEWID(), @PlayerId, @PlayerId, 10) 
+	(NEWID(), @PlayerId, @PlayerId, 10)
+	
+	SELECT @PlayerId = Id from tblPlayer where Username = 'AbbieProudlock' 
+
+	INSERT INTO DBO.tblResult (Id, WinnerId, LoserID, Turns)
+	VALUES
+	(NEWID(), @PlayerId, @PlayerId, 17)
+	
+	SELECT @PlayerId = Id from tblPlayer where Username = 'AbbieProudlock' 
+
+	INSERT INTO DBO.tblResult (Id, WinnerId, LoserID, Turns)
+	VALUES
+	(NEWID(), @PlayerId, @PlayerId, 22) 
 END

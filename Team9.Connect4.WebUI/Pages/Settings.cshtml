@@ -67,12 +67,26 @@
 
             // Object to hold the settings data
             var settingsData = {
-                boardColor: boardColor,
-                playerColor: playerColor,
-                opponentColor: opponentColor
+                'boardColor': boardColor,
+                'playerColor': playerColor,
+                'opponentColor': opponentColor
+            };
+
+          function uuidv4() {
+                return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+                );
+            }
+
+            const url = "https://team9connect4api.azurewebsites.net/api/Setting/" + uuidv4();
+            const other_params = {
+                headers: { "content-type": "application/json; charset=UTF-8" },
+                body: settingsData,
+                method: "POST",
+                mode: "cors"
             };
             
-            fetch('https://team9connect4api.azurewebsites.net/api/Settings', settingsData)
+            fetch(url, other_params)
                 .then(function (response) {
                     if (response.ok) {
                         return response.json();
