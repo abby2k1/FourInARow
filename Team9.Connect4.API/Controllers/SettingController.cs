@@ -41,20 +41,6 @@ namespace Team9.Connect4.API.Controllers
 
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Post([FromBody] BL.Models.Setting setting)
-        {
-            try
-            {
-                await SettingManager.Insert(setting);
-                return Ok(setting.Id);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
-        }
-
         [HttpPost("{rollback?}")]
         public async Task<ActionResult> Post([FromBody] BL.Models.Setting setting, bool rollback = false)
         {
