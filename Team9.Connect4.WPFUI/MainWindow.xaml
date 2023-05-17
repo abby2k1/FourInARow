@@ -266,16 +266,16 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="btnLocal" Content="Local Game" Margin="107,18,430,300" Click="btnLocal_Click" FontSize="26" Visibility="Visible"/>
-        <Button x:Name="btnComputer" Content="Against Computer" Margin="107,150,430,153" Click="btnComputer_Click" RenderTransformOrigin="0.486,1.487" FontSize="26" Visibility="Visible"/>
+        <Button x:Name="btnLocal" Content="Local Game" Margin="0,0,414,172" Click="btnLocal_Click" FontSize="26" Visibility="Visible" HorizontalAlignment="Right" Width="262" Height="130" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnComputer" Content="Against Computer" Margin="450,0,0,172" Click="btnComputer_Click" RenderTransformOrigin="0.486,1.487" FontSize="26" Visibility="Visible" Height="132" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="264"/>
         <Label x:Name="lblCodeText" Content="Your Game Code Is:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Foreground="White" Height="50" Width="240" FontSize="26" RenderTransformOrigin="0.254,0.571"/>
         <Label x:Name="lblGameCode" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,82,0,0" VerticalAlignment="Top" Foreground="White" Height="62" Width="212" FontSize="24"/>
         <Button x:Name="btnStartGame" Content="Start Remote Game" HorizontalAlignment="Left" Margin="308,332,0,0" VerticalAlignment="Top" Width="212" Height="85" Click="btnStartGame_Click" FontSize="24"/>
-        <Button x:Name="btnHostRemote" Content="Host Remote Game" Margin="443,18,106,294" Click="btnHostRemote_Click" FontSize="26"/>
-        <Button x:Name="btnJoinRemote" Content="Join Remote Game" Margin="443,149,106,153" Click="btnJoinRemote_Click" FontSize="26"/>
+        <Button x:Name="btnHostRemote" Content="Host Remote Game" Margin="443,18,106,294" Click="btnHostRemote_Click" FontSize="26" Visibility="Hidden"/>
+        <Button x:Name="btnJoinRemote" Content="Join Remote Game" Margin="443,149,106,153" Click="btnJoinRemote_Click" FontSize="26" Visibility="Hidden"/>
         <TextBox x:Name="txtEmailRec" HorizontalAlignment="Left" Margin="45,227,0,0" TextWrapping="Wrap" Text="Enter Email Address Here" VerticalAlignment="Top" Width="165" Height="35" FontSize="14"/>
         <Button x:Name="btnSendEmail" Content="Send Email" HorizontalAlignment="Left" Margin="88,285,0,0" VerticalAlignment="Top" FontSize="14" Width="78" Click="btnSendEmail_Click"/>
-        <ListView x:Name="lstPlayers" ItemsSource="{Binding Player}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="162" Height="46" Margin="0,281,0,0">
+        <ListView x:Name="lstPlayers" ItemsSource="{Binding Player}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="162" Height="46" Margin="0,281,0,0" Visibility="Hidden">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Username}" />

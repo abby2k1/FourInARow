@@ -1351,8 +1351,8 @@ namespace Team9.Connect4.WPFUI
             winnerActive = true;
             Game game = new Game();
             game.Id = Guid.NewGuid();
-            game.WinnerId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
-            game.LoserId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
+            game.WinnerId = new Guid("1a0c26d5-922d-4a04-8054-e32102d2fd90");
+            game.LoserId = new Guid("1a0c26d5-922d-4a04-8054-e32102d2fd90");
             game.Turns = TotalTurn;
             var apiclient = new ApiClient(APIAddress);
             var response = apiclient.Post<BL.Models.Game>(game, "Game");
