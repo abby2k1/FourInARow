@@ -2,7 +2,8 @@
 AS
 	SELECT r.Turns, 
 	p.Username AS Winner
-	FROM tblResult r
-	INNER JOIN tblPlayer p on r.Id = p.Id
+	FROM tblSavedGame sg
+	INNER JOIN tblPlayer p on sg.Player2Id = p.Id
+	INNER JOIN tblResult r ON sg.ResultsId = r.Id
 	WHERE r.Turns <= 12
 RETURN
