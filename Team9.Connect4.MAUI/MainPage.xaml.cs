@@ -651,13 +651,13 @@ namespace Team9.Connect4.MAUI
 
         private void WasWinner(string winner)
         {
+            PostResult();
             if (winner == "1")
                 DisplayAlert("Player 1 WINNER!!!", "Game Winner!!", "OK");
             else if (aiGame == true)
                 DisplayAlert("Computer Wins", "Game Winner!!", "OK");
             else
-            {
-                PostResult();
+            {              
                 DisplayAlert("Player 2 WINNER!!!", "Game Winner!!", "OK");
             }
             
@@ -2416,11 +2416,11 @@ namespace Team9.Connect4.MAUI
             Game gameResult = new Game();
             gameResult.Id = Guid.NewGuid();
             gameResult.Turns = GetTurns();
-            gameResult.WinnerId = player2.Id;
-            gameResult.LoserId = player1.Id;
+            gameResult.WinnerId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
+            gameResult.LoserId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
             var apiclient = new ApiClient(API);
-            var response = apiclient.Post("Game/" + gameResult);
-            SaveBoard(gameResult.Id);
+            var response = apiclient.Post<BL.Models.Game>(gameResult, "Game");
+            //SaveBoard(gameResult.Id);
         }
 
         private SavedGame GetSavedGame(string gameCode)

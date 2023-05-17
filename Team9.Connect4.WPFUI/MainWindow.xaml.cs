@@ -259,7 +259,7 @@ namespace Team9.Connect4.WPFUI
                     //WasWinner(winner);
                     ClearAll();
                 }
-                
+
             }
         }
 
@@ -485,7 +485,7 @@ namespace Team9.Connect4.WPFUI
                     if (winnerActive == false)
                         SwitchPlayer();
                     else
-                        ClearAll(); 
+                        ClearAll();
                 }
                 else if (values[65] == "0")
                 {
@@ -1341,14 +1341,14 @@ namespace Team9.Connect4.WPFUI
             winnerActive = true;
             Game game = new Game();
             game.Id = Guid.NewGuid();
-            game.WinnerId = new Guid("fdb9a26c-d220-4e91-9b6a-85a75c7074a1");
-            game.LoserId = new Guid("fdb9a26c-d220-4e91-9b6a-85a75c7074a1");
+            game.WinnerId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
+            game.LoserId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
             game.Turns = TotalTurn;
             var apiclient = new ApiClient(APIAddress);
             var response = apiclient.Post<BL.Models.Game>(game, "Game");
             if (winner == "1")
-            { 
-            MessageBox.Show("Player 1 WINNER!!!", "Game Winner!!");              
+            {
+                MessageBox.Show("Player 1 WINNER!!!", "Game Winner!!");
             }
             else
                 if (aiGame == true)
@@ -1417,8 +1417,11 @@ namespace Team9.Connect4.WPFUI
         {
             userEmail = txtEmailRec.Text;
             if (userEmail.Contains('@'))
-            BL.GameManager.SendEmail(userEmail);
+                BL.GameManager.SendEmail(userEmail);
         }
+
+
+
 
 
     }
