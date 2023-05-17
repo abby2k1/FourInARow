@@ -1438,7 +1438,7 @@ namespace Team9.Connect4.WPFUI
         {
             userEmail = txtEmailRec.Text;
             if (userEmail.Contains('@'))
-                BL.GameManager.SendEmail(userEmail);
+                BL.GameManager.SendEmail(userEmail, (string)lblGameCode.Content);
         }
 
         private List<Player> GetPlayers()

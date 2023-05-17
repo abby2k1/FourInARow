@@ -24,6 +24,7 @@ namespace Team9.Connect4.MAUI
         int nextAvailableCol6 = 99;
         int nextAvailableCol7 = 111;
         int aiSpotPlace = 0;
+        string userEmail;
         Color playerColor = Color.FromRgb(255, 0, 0);
         Color player1Color = Color.FromRgb(255, 0, 0);
         Color player2Color = Color.FromRgb(255, 255, 0);
@@ -595,6 +596,8 @@ namespace Team9.Connect4.MAUI
             txtGameCode.Text = "TEST";
             btnStartGame.IsVisible = false;
             lblPlayer.IsVisible = false;
+            txtEmail.IsVisible = false;
+            btnSendEmail.IsVisible = false;
             turn = 1;
             firstMove = true;
             localGame = false;
@@ -1229,6 +1232,8 @@ namespace Team9.Connect4.MAUI
             btnStartGame.IsVisible = true;
             lblPlayer.IsVisible = true;
             btnLocal.IsVisible = false;
+            btnSendEmail.IsVisible = true;
+            txtEmail.IsVisible = true;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
             remoteGame = true;
@@ -2671,5 +2676,12 @@ namespace Team9.Connect4.MAUI
         }
 
         #endregion
+
+        private void btnSendEmail_Clicked(object sender, EventArgs e)
+        {
+            userEmail = txtEmail.Text;
+            if (userEmail.Contains('@'))
+                BL.GameManager.SendEmail(userEmail, txtGameCode.Text);
+        }
     }
 }

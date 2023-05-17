@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -146,40 +147,49 @@ namespace Team9.Connect4.BL
             }
         }
 
-        public static void SendEmail(string userEmail)
+        public static void SendEmail(string userEmail, string gameCode)
         {
             try
             {
 
-                SmtpClient mySmtpClient = new SmtpClient("smtp.outlook.com");
+                //SmtpClient mySmtpClient = new SmtpClient("smtp.outlook.com");
 
-                // set smtp-client with basicAuthentication
-                mySmtpClient.UseDefaultCredentials = false;
-                System.Net.NetworkCredential basicAuthenticationInfo = new
-                System.Net.NetworkCredential("username", "password");
-                mySmtpClient.Credentials = basicAuthenticationInfo;
-                mySmtpClient.EnableSsl = true;
+                //// set smtp-client with basicAuthentication
+                //mySmtpClient.UseDefaultCredentials = false;
+                //System.Net.NetworkCredential basicAuthenticationInfo = new
+                //System.Net.NetworkCredential("username", "password");
+                //mySmtpClient.Credentials = basicAuthenticationInfo;
+                //mySmtpClient.EnableSsl = true;
 
-                // add from,to mailaddresses
-                MailAddress from = new MailAddress("300013555@fvtc.edu", "Max");
-                MailAddress to = new MailAddress(userEmail, "TestToName");
-                MailMessage myMail = new System.Net.Mail.MailMessage(from, to);
+                //// add from,to mailaddresses
+                //MailAddress from = new MailAddress("300013555@fvtc.edu", "Max");
+                //MailAddress to = new MailAddress(userEmail, "TestToName");
+                //MailMessage myMail = new System.Net.Mail.MailMessage(from, to);
 
-                // add ReplyTo
-                MailAddress replyTo = new MailAddress("reply@example.com");
-                myMail.ReplyToList.Add(replyTo);
+                //// add ReplyTo
+                //MailAddress replyTo = new MailAddress("reply@example.com");
+                //myMail.ReplyToList.Add(replyTo);
 
-                // set subject and encoding
-                myMail.Subject = "Test message";
-                myMail.SubjectEncoding = System.Text.Encoding.UTF8;
+                //// set subject and encoding
+                //myMail.Subject = "Test message";
+                //myMail.SubjectEncoding = System.Text.Encoding.UTF8;
 
-                // set body-message and encoding
-                myMail.Body = "<b>Test Mail</b><br>using <b>HTML</b>.";
-                myMail.BodyEncoding = System.Text.Encoding.UTF8;
-                // text or html
-                myMail.IsBodyHtml = true;
+                //// set body-message and encoding
+                //myMail.Body = "<b>Test Mail</b><br>using <b>HTML</b>.";
+                //myMail.BodyEncoding = System.Text.Encoding.UTF8;
+                //// text or html
+                //myMail.IsBodyHtml = true;
 
-                mySmtpClient.Send(myMail);
+                //mySmtpClient.Send(myMail);
+
+                var client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential("team9connect4@gmail.com", "whrlvlkewtxxrwwe"),
+                    EnableSsl = true
+                };
+                client.Send("team9connect4@gmail.com", userEmail, "Connect 4 Game Code", "You have been invited to join a Connect 4 game. Your game code is: " + gameCode);
+                Console.WriteLine("Sent");
+                Console.ReadLine();
             }
 
             catch (SmtpException ex)

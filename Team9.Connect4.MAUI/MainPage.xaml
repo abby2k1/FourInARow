@@ -122,7 +122,7 @@
             <Button x:Name="btnLocal" Text="Local Play" HorizontalOptions="Center" Margin="0,115,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnLocal_Clicked"/>
             <Button x:Name="btnRemote" Text="Online Play" HorizontalOptions="Center" Margin="0,215,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnRemote_Clicked"/>
             <Button x:Name="btnComputer" Text="Solo Play" HorizontalOptions="Center" Margin="0,15,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnComputer_Clicked"/>
-            <Label x:Name="lblPlayer" Text="Choose an Opponent:" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,265,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
+            <Label x:Name="lblPlayer" Text="Choose an Opponent:" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,290,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
             <ListView x:Name="lstPlayers" ItemsSource="{Binding Player}" HorizontalOptions="Center" Margin="0,315,0,0" VerticalOptions="Start" WidthRequest="222" HeightRequest="65">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -131,8 +131,10 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Label x:Name="lblCodeText" Text="Game Code:" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,30,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
-            <Entry x:Name="txtGameCode" BackgroundColor="White" Text="" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,100,0,0" VerticalOptions="Start" TextColor="Black" HeightRequest="62" WidthRequest="175" FontSize="36"/>
-            <Button x:Name="btnStartGame" Text="Play!" HorizontalOptions="Center" Margin="0,215,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnStartGame_Clicked"/>
+            <Entry x:Name="txtGameCode" BackgroundColor="White" Text="" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,50,0,0" VerticalOptions="Start" TextColor="Black" HeightRequest="62" WidthRequest="175" FontSize="36"/>
+            <Entry x:Name="txtEmail" BackgroundColor="White" Text="Enter Email Here" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,120,0,0" VerticalOptions="Start" TextColor="Black" HeightRequest="20" WidthRequest="220" FontSize="16"/>
+            <Button x:Name="btnStartGame" Text="Play!" HorizontalOptions="Center" Margin="0,240,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="50" Clicked="btnStartGame_Clicked"/>
+            <Button x:Name="btnSendEmail" Text="Send Email" HorizontalOptions="Center" Margin="0,180,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="50" Clicked="btnSendEmail_Clicked"/>
         </Grid>
     </Grid>
 </ContentPage>
