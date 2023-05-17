@@ -11,8 +11,6 @@
         </Grid.Background>
         <Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0,10,0,0">
             <Label x:Name="lblTitle" Text="Connect 4" HorizontalTextAlignment="Center" HorizontalOptions="Start" HeightRequest="48" Margin="0,0,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="40" FontFamily="Lucida Bright"/>
-            <!--<Button x:Name="btnStart" Margin="0,50,0,0" Text="Start" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnStart_Clicked" />
-            <Button x:Name="btnReset" Margin="0,50,0,0" Text="Reset" HeightRequest="20" WidthRequest="75" VerticalOptions="Start" HorizontalOptions="Start" Clicked="btnReset_Clicked" />-->
         </Grid>
         <Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0,65,0,0">
             <Label x:Name="lblPlayerTurn" Text="" HorizontalTextAlignment="Center" HorizontalOptions="Center" HeightRequest="48" Margin="0,0,0,0" VerticalOptions="Start" WidthRequest="240" FontSize="20" FontFamily="Lucida Bright"/>
@@ -122,7 +120,7 @@
                 </Rectangle.Fill>
             </Rectangle>
             <Button x:Name="btnLocal" Text="Local Play" HorizontalOptions="Center" Margin="0,115,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnLocal_Clicked"/>
-            <Button x:Name="btnRemote" Text="Online Play (Coming Soon)" HorizontalOptions="Center" Margin="0,215,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnRemote_Clicked"/>
+            <Button x:Name="btnRemote" Text="Online Play" HorizontalOptions="Center" Margin="0,215,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnRemote_Clicked"/>
             <Button x:Name="btnComputer" Text="Solo Play" HorizontalOptions="Center" Margin="0,15,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="85" Clicked="btnComputer_Clicked"/>
             <Label x:Name="lblPlayer" Text="Choose an Opponent:" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,265,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
             <ListView x:Name="lstPlayers" ItemsSource="{Binding Player}" HorizontalOptions="Center" Margin="0,315,0,0" VerticalOptions="Start" WidthRequest="222" HeightRequest="65">

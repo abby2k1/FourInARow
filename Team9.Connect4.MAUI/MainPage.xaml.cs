@@ -2652,6 +2652,21 @@ namespace Team9.Connect4.MAUI
 
         private void Notify()
         {
+            // send notification to other player
+            // by the time this is called, gameCode and players should be set
+
+            /*
+            string gameCodeString = gameCode;
+            Guid player1id = player1.Id;
+            Guid player2id = player2.Id;
+            string player1name = player1.Username;
+            string player2name = player2.Username;
+
+            string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCodeString + " to Connect (4).";
+            */
+
+            // mass email to all users: message
+
             return;
         }
 
