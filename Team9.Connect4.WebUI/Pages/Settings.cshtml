@@ -7,6 +7,8 @@
     <div class="text-center">
         <h1 class="display-4">Settings</h1>
 
+        <p>Player ID: @Model.PlayerId</p>
+
         <form method="post" asp-action="SaveSettings">
             <div class="floatContainer">
                 <div class="containerLeft">
@@ -47,7 +49,7 @@
 
             <br />
 
-            <button type="submit">Save</button>
+            <button type="submit" onclick="saveSettings()">Save</button>
         </form>
 
         <div class="container">
@@ -56,4 +58,42 @@
             </button>
         </div>
     </div>
+    <script>
+        function saveSettings() {
+            // Getting values of the elements that contain the settings data
+            var boardColor = document.getElementById("boardColor").value;
+            var playerColor = document.getElementById("playerColor").value;
+            var opponentColor = document.getElementById("opponentColor").value;
+
+            // Object to hold the settings data
+            var settingsData = {
+                boardColor: boardColor,
+                playerColor: playerColor,
+                opponentColor: opponentColor
+            };
+
+            // API request to save the settings
+            fetch('/SettingController/Post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(settingsData)
+            }).then(function(response) {
+                if (response.ok) {
+                    // Handle success
+                    window.locaiton.href = '/Settings';
+                } else {
+                    // Handle failure
+                    response.text().then(function(errorMessage) {
+                        // Displays/handles error
+                        console.error(errorMessage);
+                    });
+                }
+            }).catch(function(error) {
+                // Display/handle error
+                console.error(error);
+            });
+        }
+    </script>
 </body>

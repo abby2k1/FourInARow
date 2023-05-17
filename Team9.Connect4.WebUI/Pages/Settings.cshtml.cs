@@ -9,6 +9,7 @@ namespace Team9.Connect4.WebUI.Pages
 {
     public class SettingsModel : PageModel
     {
+        public Guid PlayerId { get; set; }
         public async Task<IActionResult> OnPostSaveSettings(string boardColor, string playerColor, string opponentColor)
         {
             try
@@ -32,7 +33,7 @@ namespace Team9.Connect4.WebUI.Pages
                     if (response.IsSuccessStatusCode)
                     {
                         // Handle success
-                        return RedirectToPage("/Index");
+                        return RedirectToPage("/Settings");
                     }
                     else
                     {
@@ -52,8 +53,9 @@ namespace Team9.Connect4.WebUI.Pages
         }
     
 
-    public void OnGet()
+    public void OnGet(Guid playerId)
         {
+            PlayerId = playerId;
         }
     }
 }
