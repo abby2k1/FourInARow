@@ -613,7 +613,7 @@ namespace Team9.Connect4.MAUI
             aiSpotPlace = 0;
         }
 
-        private bool CheckWinner()
+        private void CheckWinner()
         {
             string[] values = UnJaggedArray(plays);
             for (int i = 39; i < 117; i++)
@@ -622,36 +622,31 @@ namespace Team9.Connect4.MAUI
                 if ((values[i] == "1" && values[i + 1] == "1" && values[i + 2] == "1" && values[i + 3] == "1") || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 13] == "1" && values[i + 26] == "1" && values[i + 39] == "1") || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 12] == "1" && values[i + 24] == "1" && values[i + 36] == "1") || (values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 11] == "1" && values[i + 22] == "1" && values[i + 33] == "1") || (values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
             }
             for (int i = 39; i < 117; i++)
             {
                 if (values[i] == "0")
-                    return false;
+                    return;
             }
             DisplayAlert("Game Tied", "The game ended in a draw.", "OK");
             ClearAll();
-            return true;
         }
 
         private void WasWinner(string winner)
@@ -2408,7 +2403,6 @@ namespace Team9.Connect4.MAUI
         #region API
 
         string API = "https://team9connect4api.azurewebsites.net/";
-        //string API = "https://localhost:7035/";
 
         private void PostResult()
         {
