@@ -666,8 +666,16 @@ namespace Team9.Connect4.MAUI
             else
             {
                 // Client only posts if player 2 wins so that player 1 and player 2 don't both post the same result
-                PostResult(2);
+                //PostResult(2);
                 DisplayAlert("Player 2 WINNER!!!", "Game Winner!!", "OK");
+            }
+
+            if (remoteGame)
+            {
+                if (winner == playerNumber.ToString())
+                    PostResult(1);
+                else
+                    PostResult(2);
             }
             
             ClearAll();
@@ -2578,7 +2586,7 @@ namespace Team9.Connect4.MAUI
             else
                 return false;
         }
-        private bool UpdateGame(Guid id, string[] board, string gameCode, Guid? resultId = null)
+        private void UpdateGame(Guid id, string[] board, string gameCode, Guid? resultId = null)
         {
             //api code here to update saved game
             //if api call returned true, return true
@@ -2598,12 +2606,11 @@ namespace Team9.Connect4.MAUI
             if (resultId != null)
                 savedGame.ResultsId = resultId;
 
-            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
-            string result = response.Content.ReadAsStringAsync().Result;
-            if (result != null)
-                return true;
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame", savedGame.Id);
+            if (response.IsSuccessStatusCode)
+                SignalR(savedGame);
             else
-                return false;
+                throw new Exception();
         }   
 
         private void UpdateGame()
