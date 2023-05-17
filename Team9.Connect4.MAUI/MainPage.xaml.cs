@@ -613,7 +613,7 @@ namespace Team9.Connect4.MAUI
             aiSpotPlace = 0;
         }
 
-        private bool CheckWinner()
+        private void CheckWinner()
         {
             string[] values = UnJaggedArray(plays);
             for (int i = 39; i < 117; i++)
@@ -622,36 +622,31 @@ namespace Team9.Connect4.MAUI
                 if ((values[i] == "1" && values[i + 1] == "1" && values[i + 2] == "1" && values[i + 3] == "1") || (values[i] == "2" && values[i + 1] == "2" && values[i + 2] == "2" && values[i + 3] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 13] == "1" && values[i + 26] == "1" && values[i + 39] == "1") || (values[i] == "2" && values[i + 13] == "2" && values[i + 26] == "2" && values[i + 39] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 12] == "1" && values[i + 24] == "1" && values[i + 36] == "1") || (values[i] == "2" && values[i + 12] == "2" && values[i + 24] == "2" && values[i + 36] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
                 if ((values[i] == "1" && values[i + 11] == "1" && values[i + 22] == "1" && values[i + 33] == "1") || (values[i] == "2" && values[i + 11] == "2" && values[i + 22] == "2" && values[i + 33] == "2"))
                 {
                     WasWinner(winner);
-                    return true;
                     break;
                 }
             }
             for (int i = 39; i < 117; i++)
             {
                 if (values[i] == "0")
-                    return false;
+                    return;
             }
             DisplayAlert("Game Tied", "The game ended in a draw.", "OK");
             ClearAll();
-            return true;
         }
 
         private void WasWinner(string winner)
@@ -2577,7 +2572,8 @@ namespace Team9.Connect4.MAUI
         {
             var apiclient = new ApiClient(API);
             var savedGame = new SavedGame();
-            //savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
+            savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
+
             char[] charArray = new char[156];
             for (int i = 0; i < 156; i++)
             {
@@ -2586,9 +2582,10 @@ namespace Team9.Connect4.MAUI
             string boardState = new string(charArray);
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
-            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", (Guid)GetGuidSavedGame(gameCode));
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
             string result = response.Content.ReadAsStringAsync().Result;
-            if (result != null)
+            bool resultBool = response.IsSuccessStatusCode;
+            if (resultBool)
                 return;
             else
                 throw new Exception();
@@ -2597,10 +2594,10 @@ namespace Team9.Connect4.MAUI
 
         #region SignalR
 
-        string hubAddress = "https://team9connect4api.azurewebsites.net/connect4hub";
         HubConnection hubConnection;
         public void StartSignalR()
         {
+            string hubAddress = API + "connect4hub";
             hubConnection = new HubConnectionBuilder()
                 .WithUrl(hubAddress)
                 .Build();
