@@ -1313,7 +1313,7 @@ namespace Team9.Connect4.MAUI
                 }
 
                 PutGame(empty, gameCode, player1.Id, player2.Id);
-                //Notify();
+                Notify();
             }
             else
             {
@@ -2676,34 +2676,30 @@ namespace Team9.Connect4.MAUI
 
         private void Notify()
         {
-            string gameCodeString = gameCode;
-            Guid player1id = player1.Id;
-            Guid player2id = player2.Id;
-            string player1name = player1.Username;
-            string player2name = player2.Username;
-            string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCodeString + " to Connect (4).";
-            try
+            userEmail = txtEmail.Text;
+            if (userEmail.Contains('@'))
             {
-                var client = new SmtpClient("smtp.gmail.com", 587)
+                Guid player1id = player1.Id;
+                Guid player2id = player2.Id;
+                string player1name = player1.Username;
+                string player2name = player2.Username;
+                string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCode + " to Connect (4).";
+                try
                 {
-                    Credentials = new NetworkCredential("team9connect4@gmail.com", "whrlvlkewtxxrwwe"),
-                    EnableSsl = true
-                };
-                client.Send("team9connect4@gmail.com", userEmail, "Connect 4 Game Invite", message);
-            }
-            catch (Exception ex) 
-            {
-                throw ex;
+                    var client = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        Credentials = new NetworkCredential("team9connect4@gmail.com", "whrlvlkewtxxrwwe"),
+                        EnableSsl = true
+                    };
+                    client.Send("team9connect4@gmail.com", userEmail, "Connect 4 Game Invite", message);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
         #endregion
-
-        private void btnSendEmail_Clicked(object sender, EventArgs e)
-        {
-            userEmail = txtEmail.Text;
-            if (userEmail.Contains('@'))
-                Notify();
-        }
     }
 }
