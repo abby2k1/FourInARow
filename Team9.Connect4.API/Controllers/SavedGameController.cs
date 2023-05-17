@@ -37,6 +37,20 @@ namespace Team9.Connect4.API.Controllers
 
         }
 
+        [HttpGet("{gameCode}")]
+        public async Task<ActionResult<IEnumerable<BL.Models.SavedGame>>> Get(string gameCode)
+        {
+            try
+            {
+                return Ok(await SavedGameManager.Load(gameCode));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+        }
+
         [HttpPost("{rollback?}")]
         public async Task<ActionResult> Post([FromBody] BL.Models.SavedGame savedGame, bool rollback = false)
         {
@@ -53,7 +67,7 @@ namespace Team9.Connect4.API.Controllers
 
 
         [HttpPut("{id}/{rollback?}")]
-        public async Task<IActionResult> Put([FromBody] BL.Models.SavedGame savedGame, bool rollback = false)
+        public async Task<IActionResult> Put(Guid id, [FromBody] BL.Models.SavedGame savedGame, bool rollback = false)
         {
             try
             {
