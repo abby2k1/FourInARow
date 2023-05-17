@@ -2577,7 +2577,7 @@ namespace Team9.Connect4.MAUI
         {
             var apiclient = new ApiClient(API);
             var savedGame = new SavedGame();
-            savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
+            //savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
             char[] charArray = new char[156];
             for (int i = 0; i < 156; i++)
             {
@@ -2586,7 +2586,7 @@ namespace Team9.Connect4.MAUI
             string boardState = new string(charArray);
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
-            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", (Guid)GetGuidSavedGame(gameCode));
             string result = response.Content.ReadAsStringAsync().Result;
             if (result != null)
                 return;
