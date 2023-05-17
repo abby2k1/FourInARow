@@ -597,12 +597,12 @@ namespace Team9.Connect4.MAUI
             txtGameCode.IsVisible = false;
             txtGameCode.Text = "";
             txtEmail.IsVisible = false;
-            btnSendEmail.IsVisible = false;
+            //btnSendEmail.IsVisible = false;
             txtEmail.Text = "";
             btnStartGame.IsVisible = false;
             lblPlayer.IsVisible = false;
             txtEmail.IsVisible = false;
-            btnSendEmail.IsVisible = false;
+            //btnSendEmail.IsVisible = false;
             turn = 1;
             firstMove = true;
             localGame = false;
@@ -1238,7 +1238,7 @@ namespace Team9.Connect4.MAUI
             btnStartGame.IsVisible = true;
             lblPlayer.IsVisible = true;
             btnLocal.IsVisible = false;
-            btnSendEmail.IsVisible = true;
+            //btnSendEmail.IsVisible = true;
             txtEmail.IsVisible = true;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
@@ -1361,7 +1361,7 @@ namespace Team9.Connect4.MAUI
             lblCodeText.IsVisible = false;
             lblPlayer.IsVisible = false;
             txtEmail.IsVisible = false;
-            btnSendEmail.IsVisible = false;
+            //btnSendEmail.IsVisible = false;
 
             LoadBoard();
             StartSignalR();
