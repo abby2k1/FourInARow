@@ -59,11 +59,6 @@
         </div>
     </div>
     <script>
-        function uuidv4() {
-            return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-            );
-        }
 
         function saveSettings() {
             // Getting values of the elements that contain the settings data
@@ -76,7 +71,7 @@
 
             // Object to hold the settings data
             var settingsData = {
-                "id": "33e12940-9219-4b44-b2de-fcdee3ce08a2",
+                "id": newGuid,
                 "boardColor": boardColor,
                 "playerColor": playerColor,
                 "opponentColor": opponentColor
@@ -91,7 +86,7 @@
 
             const url = "https://team9connect4api.azurewebsites.net/api/setting";
             // POST request using fetch()
-            fetch("https://team9connect4api.azurewebsites.net/api/setting", {
+            fetch(url, {
 
                 // Adding method type
                 method: "POST",
