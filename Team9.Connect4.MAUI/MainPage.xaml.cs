@@ -2512,6 +2512,13 @@ namespace Team9.Connect4.MAUI
             return response;
         }
 
+        private Player GetPlayer(Guid id)
+        {
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetItem<Player>("Player/" + id);
+            return response;
+        }
+
         private bool PutGame(string[] board, string gameCode, Guid p1, Guid p2)
         {
             //api code here to put saved game
@@ -2584,12 +2591,10 @@ namespace Team9.Connect4.MAUI
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
             savedGame.Player1Id = GetSavedGame(gameCode).Player1Id;
-            savedGame.Player2Id = GetSavedGame(gameCode).Player1Id;
+            savedGame.Player2Id = GetSavedGame(gameCode).Player2Id;
             var response = apiclient.Put<SavedGame>(savedGame, "SavedGame", savedGame.Id);
-            string result = response.Content.ReadAsStringAsync().Result;
-            bool resultBool = response.IsSuccessStatusCode;
-            if (resultBool)
-                return;
+            if (response.IsSuccessStatusCode)
+                SignalR(savedGame);
             else
                 throw new Exception();
         }
@@ -2624,6 +2629,39 @@ namespace Team9.Connect4.MAUI
             });
 
             hubConnection.StartAsync();
+        }
+
+        public async Task SignalR(SavedGame savedGame)
+        {
+            HubConnection hubConnection;
+            string hubAddress = "http://team9connect4api.azurewebsites.net/connect4hub";
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl(hubAddress)
+                .Build();
+            await hubConnection.StartAsync();
+            string message = savedGame.GameCode;
+            int player1turns = 0;
+            int player2turns = 0;
+            char[] charArray = savedGame.BoardState.ToCharArray();
+            for (int i = 0; i < 156; i++)
+            {
+                if (charArray[i] == '1')
+                {
+                    player1turns++;
+                }
+                else if (charArray[i] == '2')
+                {
+                    player2turns++;
+                }
+            }
+            Player player1 = GetPlayer(savedGame.Player1Id);
+            Player player2 = GetPlayer(savedGame.Player2Id);
+            string user = player1.Username;
+            if (player1turns == player2turns)
+            {
+                user = player2.Username;
+            }
+            await hubConnection.InvokeAsync("SendMessage", user, message);
         }
 
         #endregion
