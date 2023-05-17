@@ -56,9 +56,9 @@ body {
         text-align: left;
     }
 
-/*.gameHistoryTable {
+.gameHistoryTable {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
     background-color: white;
 }
 
@@ -66,7 +66,7 @@ body {
     border: 1px solid black;
     padding: 10px;
     text-align: left;
-}*/
+}
 
 .gameHistoryTable {
     border-collapse: collapse;
