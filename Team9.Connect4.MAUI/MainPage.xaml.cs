@@ -2,6 +2,8 @@
 using Microsoft.Maui.Controls.Shapes;
 using Microsoft.Maui.Graphics.Converters;
 using Microsoft.Maui.Platform;
+using System.Net.Mail;
+using System.Net;
 using Team9.Connect4.BL.Models;
 using Team9.Utility;
 
@@ -593,7 +595,10 @@ namespace Team9.Connect4.MAUI
             //lstPlayers.BindingContext = players;
             lblCodeText.IsVisible = false;
             txtGameCode.IsVisible = false;
-            txtGameCode.Text = "TEST";
+            txtGameCode.Text = "";
+            txtEmail.IsVisible = false;
+            btnSendEmail.IsVisible = false;
+            txtEmail.Text = "";
             btnStartGame.IsVisible = false;
             lblPlayer.IsVisible = false;
             txtEmail.IsVisible = false;
@@ -654,13 +659,14 @@ namespace Team9.Connect4.MAUI
 
         private void WasWinner(string winner)
         {
-            PostResult();
             if (winner == "1")
                 DisplayAlert("Player 1 WINNER!!!", "Game Winner!!", "OK");
             else if (aiGame == true)
                 DisplayAlert("Computer Wins", "Game Winner!!", "OK");
             else
-            {              
+            {
+                // Client only posts if player 2 wins so that player 1 and player 2 don't both post the same result
+                PostResult(2);
                 DisplayAlert("Player 2 WINNER!!!", "Game Winner!!", "OK");
             }
             
@@ -1307,7 +1313,7 @@ namespace Team9.Connect4.MAUI
                 }
 
                 PutGame(empty, gameCode, player1.Id, player2.Id);
-                Notify();
+                //Notify();
             }
             else
             {
@@ -2418,16 +2424,27 @@ namespace Team9.Connect4.MAUI
 
         string API = "https://team9connect4api.azurewebsites.net/";
 
-        private void PostResult()
+        private void PostResult(int winner)
         {
             Game gameResult = new Game();
             gameResult.Id = Guid.NewGuid();
             gameResult.Turns = GetTurns();
-            gameResult.WinnerId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
-            gameResult.LoserId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
+            if (winner == 1)
+            {
+                gameResult.WinnerId = player1.Id;
+                gameResult.LoserId = player2.Id;
+            }
+            else if (winner == 2)
+            {
+                gameResult.WinnerId = player2.Id;
+                gameResult.LoserId = player1.Id;
+            }
+            //gameResult.WinnerId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
+            //gameResult.LoserId = new Guid("38d27b14-a452-4180-8764-0b02d0aa5ccb");
             var apiclient = new ApiClient(API);
             var response = apiclient.Post<BL.Models.Game>(gameResult, "Game");
-            //SaveBoard(gameResult.Id);
+            //SaveBoard adds resultId to the saved game in DB thru API
+            SaveBoard(gameResult.Id);
         }
 
         private SavedGame GetSavedGame(string gameCode)
@@ -2659,22 +2676,25 @@ namespace Team9.Connect4.MAUI
 
         private void Notify()
         {
-            // send notification to other player
-            // by the time this is called, gameCode and players should be set
-
-            /*
             string gameCodeString = gameCode;
             Guid player1id = player1.Id;
             Guid player2id = player2.Id;
             string player1name = player1.Username;
             string player2name = player2.Username;
-
             string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCodeString + " to Connect (4).";
-            */
-
-            // mass email to all users: message
-
-            return;
+            try
+            {
+                var client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential("team9connect4@gmail.com", "whrlvlkewtxxrwwe"),
+                    EnableSsl = true
+                };
+                client.Send("team9connect4@gmail.com", userEmail, "Connect 4 Game Invite", message);
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
         }
 
         #endregion
@@ -2683,7 +2703,7 @@ namespace Team9.Connect4.MAUI
         {
             userEmail = txtEmail.Text;
             if (userEmail.Contains('@'))
-                BL.GameManager.SendEmail(userEmail, txtGameCode.Text);
+                Notify();
         }
     }
 }
