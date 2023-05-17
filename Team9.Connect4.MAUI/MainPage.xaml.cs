@@ -1352,6 +1352,7 @@ namespace Team9.Connect4.MAUI
 
             LoadBoard();
             StartSignalR();
+
         }
 
         private void btnLocal_Clicked(object sender, EventArgs e)
@@ -2086,12 +2087,18 @@ namespace Team9.Connect4.MAUI
                 }
             }
 
-            if (player1turns == 0)
+            if (player1turns == 0 & playerNumber == 1)
             {
                 turn = 1;
                 lblPlayerTurn.Text = "Player 1's Turn";
                 playerColor = player1Color;
                 btnDrop.Text = "DROP IT!";
+            }
+
+            else if (player1turns == 0 & playerNumber == 2)
+            {
+                lblPlayerTurn.Text = "Waiting for Player 1";
+                btnDrop.Text = "Refresh";
             }
 
             else if (player1turns > player2turns)
@@ -2612,19 +2619,15 @@ namespace Team9.Connect4.MAUI
 
             hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                if (playerNumber == 1)
+                if (message == gameCode & btnDrop.Text == "Refresh")
                 {
-                    if (user == player2.Username & message == gameCode)
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
+                        btnDrop.Text = "DROP IT!";
+                        ClearAllRectangles();
+                        ClearAllCircles();
                         LoadBoard();
-                    }
-                }
-                else
-                {
-                    if (user == player1.Username & message == gameCode)
-                    {
-                        LoadBoard();
-                    }
+                    });
                 }
             });
 
@@ -2634,34 +2637,13 @@ namespace Team9.Connect4.MAUI
         public async Task SignalR(SavedGame savedGame)
         {
             HubConnection hubConnection;
-            string hubAddress = "http://team9connect4api.azurewebsites.net/connect4hub";
+            string hubAddress = "https://team9connect4api.azurewebsites.net/connect4hub";
             hubConnection = new HubConnectionBuilder()
                 .WithUrl(hubAddress)
                 .Build();
             await hubConnection.StartAsync();
             string message = savedGame.GameCode;
-            int player1turns = 0;
-            int player2turns = 0;
-            char[] charArray = savedGame.BoardState.ToCharArray();
-            for (int i = 0; i < 156; i++)
-            {
-                if (charArray[i] == '1')
-                {
-                    player1turns++;
-                }
-                else if (charArray[i] == '2')
-                {
-                    player2turns++;
-                }
-            }
-            Player player1 = GetPlayer(savedGame.Player1Id);
-            Player player2 = GetPlayer(savedGame.Player2Id);
-            string user = player1.Username;
-            if (player1turns == player2turns)
-            {
-                user = player2.Username;
-            }
-            await hubConnection.InvokeAsync("SendMessage", user, message);
+            await hubConnection.InvokeAsync("SendMessage", "System", message);
         }
 
         #endregion
@@ -2670,6 +2652,21 @@ namespace Team9.Connect4.MAUI
 
         private void Notify()
         {
+            // send notification to other player
+            // by the time this is called, gameCode and players should be set
+
+            /*
+            string gameCodeString = gameCode;
+            Guid player1id = player1.Id;
+            Guid player2id = player2.Id;
+            string player1name = player1.Username;
+            string player2name = player2.Username;
+
+            string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCodeString + " to Connect (4).";
+            */
+
+            // mass email to all users: message
+
             return;
         }
 
