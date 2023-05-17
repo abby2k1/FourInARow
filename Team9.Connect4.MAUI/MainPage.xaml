@@ -130,10 +130,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label x:Name="lblCodeText" Text="Game Code:" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,30,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="180"/>
-            <Entry x:Name="txtGameCode" BackgroundColor="White" Text="" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,50,0,0" VerticalOptions="Start" TextColor="Black" HeightRequest="62" WidthRequest="180" FontSize="36"/>
+            <Label x:Name="lblCodeText" Text="Game Code:" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,30,0,0" VerticalOptions="Start" TextColor="White" HeightRequest="33" WidthRequest="146"/>
+            <Entry x:Name="txtGameCode" BackgroundColor="White" Text="" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,50,0,0" VerticalOptions="Start" TextColor="Black" HeightRequest="62" WidthRequest="175" FontSize="36"/>
             <Entry x:Name="txtEmail" BackgroundColor="White" Text="Enter Email Here" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,120,0,0" VerticalOptions="Start" TextColor="Black" HeightRequest="20" WidthRequest="220" FontSize="16"/>
             <Button x:Name="btnStartGame" Text="Play!" HorizontalOptions="Center" Margin="0,180,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="50" Clicked="btnStartGame_Clicked"/>
+            <!--<Button x:Name="btnSendEmail" Text="Send Email" HorizontalOptions="Center" Margin="0,180,0,0" VerticalOptions="Start" WidthRequest="212" HeightRequest="50" Clicked="btnSendEmail_Clicked"/>-->
         </Grid>
     </Grid>
 </ContentPage>
