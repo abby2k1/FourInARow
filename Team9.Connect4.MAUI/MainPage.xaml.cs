@@ -597,12 +597,12 @@ namespace Team9.Connect4.MAUI
             txtGameCode.IsVisible = false;
             txtGameCode.Text = "";
             txtEmail.IsVisible = false;
-            btnSendEmail.IsVisible = false;
+            //btnSendEmail.IsVisible = false;
             txtEmail.Text = "";
             btnStartGame.IsVisible = false;
             lblPlayer.IsVisible = false;
             txtEmail.IsVisible = false;
-            btnSendEmail.IsVisible = false;
+            //btnSendEmail.IsVisible = false;
             turn = 1;
             firstMove = true;
             localGame = false;
@@ -1246,7 +1246,7 @@ namespace Team9.Connect4.MAUI
             btnStartGame.IsVisible = true;
             lblPlayer.IsVisible = true;
             btnLocal.IsVisible = false;
-            btnSendEmail.IsVisible = true;
+            //btnSendEmail.IsVisible = true;
             txtEmail.IsVisible = true;
             btnRemote.IsVisible = false;
             btnComputer.IsVisible = false;
@@ -1321,7 +1321,7 @@ namespace Team9.Connect4.MAUI
                 }
 
                 PutGame(empty, gameCode, player1.Id, player2.Id);
-                //Notify();
+                Notify();
             }
             else
             {
@@ -1369,7 +1369,7 @@ namespace Team9.Connect4.MAUI
             lblCodeText.IsVisible = false;
             lblPlayer.IsVisible = false;
             txtEmail.IsVisible = false;
-            btnSendEmail.IsVisible = false;
+            //btnSendEmail.IsVisible = false;
 
             LoadBoard();
             StartSignalR();
@@ -2683,34 +2683,30 @@ namespace Team9.Connect4.MAUI
 
         private void Notify()
         {
-            string gameCodeString = gameCode;
-            Guid player1id = player1.Id;
-            Guid player2id = player2.Id;
-            string player1name = player1.Username;
-            string player2name = player2.Username;
-            string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCodeString + " to Connect (4).";
-            try
+            userEmail = txtEmail.Text;
+            if (userEmail.Contains('@'))
             {
-                var client = new SmtpClient("smtp.gmail.com", 587)
+                Guid player1id = player1.Id;
+                Guid player2id = player2.Id;
+                string player1name = player1.Username;
+                string player2name = player2.Username;
+                string message = player1name + " has invited " + player2name + " to a game of Connect 4!" + "    " + player2name + ", use GameCode " + gameCode + " to Connect (4).";
+                try
                 {
-                    Credentials = new NetworkCredential("team9connect4@gmail.com", "whrlvlkewtxxrwwe"),
-                    EnableSsl = true
-                };
-                client.Send("team9connect4@gmail.com", userEmail, "Connect 4 Game Invite", message);
-            }
-            catch (Exception ex) 
-            {
-                throw ex;
+                    var client = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        Credentials = new NetworkCredential("team9connect4@gmail.com", "whrlvlkewtxxrwwe"),
+                        EnableSsl = true
+                    };
+                    client.Send("team9connect4@gmail.com", userEmail, "Connect 4 Game Invite", message);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
         #endregion
-
-        private void btnSendEmail_Clicked(object sender, EventArgs e)
-        {
-            userEmail = txtEmail.Text;
-            if (userEmail.Contains('@'))
-                Notify();
-        }
     }
 }
