@@ -2602,15 +2602,16 @@ namespace Team9.Connect4.MAUI
             string boardState = new string(charArray);
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
-            
-            if (resultId != null)
-                savedGame.ResultsId = resultId;
+            savedGame.Player1Id = player1.Id;
+            savedGame.Player2Id = player2.Id;
+            savedGame.ResultsId = resultId;
 
             var response = apiclient.Put<SavedGame>(savedGame, "SavedGame", savedGame.Id);
+            var result = response.Content.ReadAsStringAsync().Result;
             if (response.IsSuccessStatusCode)
                 SignalR(savedGame);
-            else
-                throw new Exception();
+            //else
+                //throw new Exception();
         }   
 
         private void UpdateGame()
