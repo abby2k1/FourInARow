@@ -727,7 +727,6 @@ namespace Team9.Connect4.MAUI
             if (remoteGame)
             {
                 SaveBoard();
-                LoadBoard();
             }
         }
 
@@ -1390,6 +1389,18 @@ namespace Team9.Connect4.MAUI
 
         private void btnDrop_Clicked(object sender, EventArgs e)
         {
+            if (btnDrop.Text == "Refresh")
+            {
+                btnDrop.Text = "DROP IT!";
+                if (remoteGame)
+                {
+                    ClearAllRectangles();
+                    ClearAllCircles();
+                    LoadBoard();
+                }
+                return;
+            }
+
             int sldValue = Convert.ToInt32(sldDrop.Value);
             ClearAllRectangles();
             switch (sldValue)
@@ -2052,7 +2063,7 @@ namespace Team9.Connect4.MAUI
         private void LoadBoard()
         {
             string[] loadFromApi = new string[156];
-            loadFromApi = GetBoard((Guid)GetGuidSavedGame(gameCode));
+            loadFromApi = GetBoard(gameCode);
 
             int player1turns = 0;
             for (int i = 0; i < 7; i++)
@@ -2085,7 +2096,7 @@ namespace Team9.Connect4.MAUI
                 turn = 1;
                 lblPlayerTurn.Text = "Player 1's Turn";
                 playerColor = player1Color;
-                btnDrop.IsEnabled = true;
+                btnDrop.Text = "DROP IT!";
             }
 
             else if (player1turns > player2turns)
@@ -2095,12 +2106,12 @@ namespace Team9.Connect4.MAUI
                 playerColor = player2Color;
                 if (playerNumber == 1)
                 {
-                    lblPlayerTurn.Text = "Waiting for Player 2's Turn...";
-                    btnDrop.IsEnabled = false;
+                    lblPlayerTurn.Text = "Waiting for Player 2";
+                    btnDrop.Text = "Refresh";
                 }
                 else
                 {
-                    btnDrop.IsEnabled = true;
+                    btnDrop.Text = "DROP IT!";
                 }
             }
             else
@@ -2110,12 +2121,12 @@ namespace Team9.Connect4.MAUI
                 playerColor = player1Color;
                 if (playerNumber == 2)
                 {
-                    lblPlayerTurn.Text = "Waiting for Player 1's Turn...";
-                    btnDrop.IsEnabled = false;
+                    lblPlayerTurn.Text = "Waiting for Player 1";
+                    btnDrop.Text = "Refresh";
                 }
                 else
                 {
-                    btnDrop.IsEnabled = true;
+                    btnDrop.Text = "DROP IT!";
                 }
             }
 
@@ -2302,8 +2313,85 @@ namespace Team9.Connect4.MAUI
         private void SaveBoard()
         {
             string[] values = UnJaggedArray(plays);
-            Guid id = (Guid)GetGuidSavedGame(gameCode);
-            UpdateGame(id, values, gameCode);
+
+            string[] loadFromApi = new string[156];
+            loadFromApi = values;
+
+            int player1turns = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    if (loadFromApi[iii] == "1")
+                    {
+                        player1turns++;
+                    }
+                }
+            }
+
+            int player2turns = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                for (int ii = 0; ii < 6; ii++)
+                {
+                    int iii = 39 + ii + (i * 12);
+                    if (loadFromApi[iii] == "2")
+                    {
+                        player2turns++;
+                    }
+                }
+            }
+
+            if (player1turns == 0)
+            {
+                turn = 1;
+                lblPlayerTurn.Text = "Player 1's Turn";
+                playerColor = player1Color;
+                btnDrop.Text = "DROP IT!";
+            }
+
+            else if (player1turns > player2turns)
+            {
+                turn = 2;
+                lblPlayerTurn.Text = "Player 2's Turn";
+                playerColor = player2Color;
+                if (playerNumber == 1)
+                {
+                    lblPlayerTurn.Text = "Waiting for Player 2";
+                    btnDrop.Text = "Refresh";
+                }
+                else
+                {
+                    btnDrop.Text = "DROP IT!";
+                }
+            }
+            else
+            {
+                turn = 1;
+                lblPlayerTurn.Text = "Player 1's Turn";
+                playerColor = player1Color;
+                if (playerNumber == 2)
+                {
+                    lblPlayerTurn.Text = "Waiting for Player 1";
+                    btnDrop.Text = "Refresh";
+                }
+                else
+                {
+                    btnDrop.Text = "DROP IT!";
+                }
+            }
+
+            //plays = ReJaggedArray(loadFromApi);
+            ClearAllRectangles();
+            ClearAllCircles();
+            LoadAllCircles();
+            CheckWinner();
+            sldDrop_DragCompleted(null, null);
+
+            UpdateGame();
+            //Guid id = (Guid)GetGuidSavedGame(gameCode);
+            //UpdateGame(id, values, gameCode);
         }
 
         private void SaveBoard(Guid resultId)
@@ -2395,6 +2483,33 @@ namespace Team9.Connect4.MAUI
             return arrayString;
         }
 
+        private string[] GetBoard(string gameCode)
+        {
+            SavedGame savedGame = new SavedGame();
+            var apiclient = new ApiClient(API);
+            var response = apiclient.GetList<SavedGame>("SavedGame/");
+            foreach (SavedGame game in response)
+            {
+                if (game.GameCode == gameCode)
+                {
+                    savedGame = game;
+                }
+            }
+            if (savedGame == new SavedGame())
+            {
+                throw new Exception("Game not found");
+            }
+
+            char[] arrayChar = new char[156];
+            arrayChar = savedGame.BoardState.ToCharArray();
+            string[] arrayString = new string[156];
+            for (int i = 0; i < 156; i++)
+            {
+                arrayString[i] = arrayChar[i].ToString();
+            }
+            return arrayString;
+        }
+
         private List<Player> GetPlayers()
         {
             var apiclient = new ApiClient(API);
@@ -2407,16 +2522,9 @@ namespace Team9.Connect4.MAUI
             //api code here to put saved game
             //if api call returned true, return true
             //else return false
-            try
+            if (GetSavedGame(gameCode) != null)
             {
-                if (GetSavedGame(gameCode) != null) 
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-
+                return false;
             }
             var apiclient = new ApiClient(API);
             SavedGame savedGame = new SavedGame();
@@ -2425,7 +2533,7 @@ namespace Team9.Connect4.MAUI
             {
                 charArray[i] = char.Parse(board[i]);
             }
-            string boardState = charArray.ToString();
+            string boardState = new string(charArray);
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
             savedGame.Player1Id = p1;
@@ -2450,7 +2558,7 @@ namespace Team9.Connect4.MAUI
             {
                 charArray[i] = char.Parse(board[i]);
             }
-            string boardState = charArray.ToString();
+            string boardState = new string(charArray);
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
             
@@ -2465,6 +2573,26 @@ namespace Team9.Connect4.MAUI
                 return false;
         }   
 
+        private void UpdateGame()
+        {
+            var apiclient = new ApiClient(API);
+            var savedGame = new SavedGame();
+            //savedGame.Id = (Guid)GetGuidSavedGame(gameCode);
+            char[] charArray = new char[156];
+            for (int i = 0; i < 156; i++)
+            {
+                charArray[i] = char.Parse(UnJaggedArray(plays)[i]);
+            }
+            string boardState = new string(charArray);
+            savedGame.BoardState = boardState;
+            savedGame.GameCode = gameCode;
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", (Guid)GetGuidSavedGame(gameCode));
+            string result = response.Content.ReadAsStringAsync().Result;
+            if (result != null)
+                return;
+            else
+                throw new Exception();
+        }
         #endregion
 
         #region SignalR
@@ -2479,9 +2607,19 @@ namespace Team9.Connect4.MAUI
 
             hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                if (message == gameCode)
+                if (playerNumber == 1)
                 {
-                    LoadBoard();
+                    if (user == player2.Username & message == gameCode)
+                    {
+                        LoadBoard();
+                    }
+                }
+                else
+                {
+                    if (user == player1.Username & message == gameCode)
+                    {
+                        LoadBoard();
+                    }
                 }
             });
 

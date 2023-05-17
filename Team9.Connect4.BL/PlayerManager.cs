@@ -42,6 +42,35 @@ namespace Team9.Connect4.BL
                 throw ex;
             }
         }
+
+        public async static Task<Player> LoadById(Guid id)
+        {
+            try
+            {
+                Player player = new Player();
+                using (Connect4Entities dc = new Connect4Entities())
+                {
+                    tblPlayer row = await dc.tblPlayers.FindAsync(id);
+                    if (row != null)
+                    {
+                        player.Id = row.Id;
+                        player.Username = row.Username;
+                        player.Password = row.Password;
+                        player.SettingId = row.SettingId;
+                    }
+                    else
+                    {
+                        throw new Exception(RowError);
+                    }
+                }
+                return player;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async static Task<int> Insert(Player player, bool rollback = false)
         {
             try
