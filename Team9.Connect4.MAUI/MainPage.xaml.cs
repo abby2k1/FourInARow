@@ -2580,9 +2580,12 @@ namespace Team9.Connect4.MAUI
                 charArray[i] = char.Parse(UnJaggedArray(plays)[i]);
             }
             string boardState = new string(charArray);
+
             savedGame.BoardState = boardState;
             savedGame.GameCode = gameCode;
-            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame/", savedGame.Id);
+            savedGame.Player1Id = GetSavedGame(gameCode).Player1Id;
+            savedGame.Player2Id = GetSavedGame(gameCode).Player1Id;
+            var response = apiclient.Put<SavedGame>(savedGame, "SavedGame", savedGame.Id);
             string result = response.Content.ReadAsStringAsync().Result;
             bool resultBool = response.IsSuccessStatusCode;
             if (resultBool)
