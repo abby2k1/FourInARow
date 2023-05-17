@@ -1354,6 +1354,8 @@ namespace Team9.Connect4.MAUI
             txtGameCode.IsVisible = false;
             lblCodeText.IsVisible = false;
             lblPlayer.IsVisible = false;
+            txtEmail.IsVisible = false;
+            btnSendEmail.IsVisible = false;
 
             LoadBoard();
             StartSignalR();
