@@ -25,8 +25,8 @@ namespace Team9.Connect4.WebUI.Pages.Shared
                 while (dataReader.Read())
                 {
                     spLeaderboardResult leaderboard = new spLeaderboardResult();
-                    leaderboard.Winner = dataReader.GetString(0);
-                    leaderboard.Turns = dataReader.GetInt32(1);
+                    leaderboard.Winner = dataReader.GetString(1);
+                    leaderboard.Turns = dataReader.GetInt32(0);
 
                     leaderboards.Add(leaderboard);
                 }
