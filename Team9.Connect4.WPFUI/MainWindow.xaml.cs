@@ -44,6 +44,9 @@ namespace Team9.Connect4.WPFUI
         int TotalTurn = 1;
         bool winnerActive;
         string APIAddress = "https://team9connect4api.azurewebsites.net/";
+        Player player1 = new Player();
+        Player player2 = new Player();
+        List<Player> players = new List<Player>();
         public MainWindow()
         {
             InitializeComponent();
@@ -98,6 +101,9 @@ namespace Team9.Connect4.WPFUI
             rec113.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             rec112.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             rec111.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            players = GetPlayers();
+            lstPlayers.Visibility = Visibility.Visible;
+            lstPlayers.ItemsSource = players;
             lblPlayerTurn.Content = "Player 1's Turn";
             btnCol1.Visibility = Visibility.Visible;
             btnCol2.Visibility = Visibility.Visible;
@@ -280,7 +286,7 @@ namespace Team9.Connect4.WPFUI
                 else
                 {
                     if (firstMove == false)
-                        ComputerWin();
+                    ComputerWin();
                     ComputerRandom();
                     TotalTurn++;
                 }
@@ -294,6 +300,10 @@ namespace Team9.Connect4.WPFUI
                 TotalTurn++;
             }
 
+            if (remoteGame)
+            {
+                //SaveBoard();
+            }
         }
 
         #region ComputerRandom
@@ -1385,6 +1395,7 @@ namespace Team9.Connect4.WPFUI
 
         private void btnHostRemote_Click(object sender, RoutedEventArgs e)
         {
+            Player tempPlayer1 = (Player)lstPlayers.SelectedItem;
             lblCodeText.Visibility = Visibility.Visible;
             lblGameCode.Visibility = Visibility.Visible;
             btnStartGame.Visibility = Visibility.Visible;
@@ -1394,10 +1405,20 @@ namespace Team9.Connect4.WPFUI
             btnHostRemote.Visibility = Visibility.Hidden;
             btnComputer.Visibility = Visibility.Hidden;
             btnJoinRemote.Visibility = Visibility.Hidden;
+            lblGameCode.Content = RandomString(10);
             remoteGame = true;
             localGame = false;
             aiGame = false;
             turn = 1;
+        }
+
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         private void btnStartGame_Click(object sender, RoutedEventArgs e)
@@ -1420,7 +1441,12 @@ namespace Team9.Connect4.WPFUI
                 BL.GameManager.SendEmail(userEmail);
         }
 
-
+        private List<Player> GetPlayers()
+        {
+            var apiclient = new ApiClient(APIAddress);
+            var response = apiclient.GetList<Player>("Player/");
+            return response;
+        }
 
 
 
