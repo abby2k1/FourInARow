@@ -107,7 +107,6 @@ namespace Team9.Connect4.BL
                     {
                         throw new Exception("Row was not found.");
                     }
-                    await SignalR(savedGame);
                     return results;
                 }
             }
@@ -115,39 +114,6 @@ namespace Team9.Connect4.BL
             {
                 throw ex;
             }
-        }
-
-        public async static Task SignalR(SavedGame savedGame)
-        {
-            HubConnection hubConnection;
-            string hubAddress = "http://team9connect4api.azurewebsites.net/connect4hub";
-            hubConnection = new HubConnectionBuilder()
-                .WithUrl(hubAddress)
-                .Build();
-            await hubConnection.StartAsync();
-            string message = savedGame.GameCode;
-            int player1turns = 0;
-            int player2turns = 0;
-            char[] charArray = savedGame.BoardState.ToCharArray();
-            for (int i = 0; i < 156; i++)
-            {
-                if (charArray[i] == '1')
-                {
-                    player1turns++;
-                }
-                else if (charArray[i] == '2')
-                {
-                    player2turns++;
-                }
-            }
-            Player player1 = await PlayerManager.LoadById(savedGame.Player1Id);
-            Player player2 = await PlayerManager.LoadById(savedGame.Player2Id);
-            string user = player1.Username;
-            if (player1turns == player2turns)
-            {
-                user = player2.Username;
-            }
-            await hubConnection.InvokeAsync("SendMessage", user, message);
         }
 
         public async static Task<IEnumerable<SavedGame>> Load()
