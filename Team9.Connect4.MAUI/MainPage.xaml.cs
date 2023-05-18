@@ -598,7 +598,7 @@ namespace Team9.Connect4.MAUI
             txtGameCode.Text = "";
             txtEmail.IsVisible = false;
             //btnSendEmail.IsVisible = false;
-            txtEmail.Text = "";
+            txtEmail.Text = "Enter Email Here";
             btnStartGame.IsVisible = false;
             lblPlayer.IsVisible = false;
             txtEmail.IsVisible = false;
